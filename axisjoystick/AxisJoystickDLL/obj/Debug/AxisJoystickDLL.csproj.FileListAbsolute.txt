@@ -1,0 +1,15 @@
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\AxisJoystickDLL.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\AxisJoystickDLL.pdb
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\SlimDX.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\bin\Debug\Microsoft.Practices.Unity.Interception.xml
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\obj\Debug\AxisJoystickDLL.dll
+D:\Projects\AI Sources\axisjoystick\AxisJoystickDLL\obj\Debug\AxisJoystickDLL.pdb
