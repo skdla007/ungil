@@ -1,0 +1,7 @@
+D:\Projects\AI Sources\TileService\TileService\Commons\bin\Debug\Commons.dll
+D:\Projects\AI Sources\TileService\TileService\Commons\bin\Debug\Commons.pdb
+D:\Projects\AI Sources\TileService\TileService\Commons\obj\Debug\Commons.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\TileService\TileService\Commons\obj\Debug\Commons.dll
+D:\Projects\AI Sources\TileService\TileService\Commons\obj\Debug\Commons.pdb
+D:\Projects\AI Sources\TileService\TileService\Commons\bin\Debug\log4net.dll
+D:\Projects\AI Sources\TileService\TileService\Commons\bin\Debug\log4net.xml

@@ -1,0 +1,5 @@
+D:\Projects\AI Sources\TileService\TileService\Converter\bin\Debug\Converter.dll
+D:\Projects\AI Sources\TileService\TileService\Converter\bin\Debug\Converter.pdb
+D:\Projects\AI Sources\TileService\TileService\Converter\obj\Debug\Converter.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\TileService\TileService\Converter\obj\Debug\Converter.dll
+D:\Projects\AI Sources\TileService\TileService\Converter\obj\Debug\Converter.pdb

@@ -1,0 +1,15 @@
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\bin\Debug\TestTileClient.exe.config
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\bin\Debug\TestTileClient.exe
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\bin\Debug\TestTileClient.pdb
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\MainWindow.g.cs
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\App.g.cs
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient_MarkupCompile.cache
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient_MarkupCompile.lref
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\MainWindow.baml
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient.g.resources
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient.Properties.Resources.resources
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient.csproj.GenerateResource.Cache
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient.exe
+D:\Projects\AI Sources\TileService\TileService\TestTileClient\obj\Debug\TestTileClient.pdb

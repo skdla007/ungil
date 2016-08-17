@@ -1,0 +1,5 @@
+D:\Projects\AI Sources\TileService\TileService\Network\bin\Debug\Network.dll
+D:\Projects\AI Sources\TileService\TileService\Network\bin\Debug\Network.pdb
+D:\Projects\AI Sources\TileService\TileService\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\TileService\TileService\Network\obj\Debug\Network.dll
+D:\Projects\AI Sources\TileService\TileService\Network\obj\Debug\Network.pdb

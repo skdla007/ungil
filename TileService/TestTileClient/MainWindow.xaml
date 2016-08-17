@@ -1,0 +1,29 @@
+﻿<Window x:Class="TestTileClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:model="clr-namespace:TestTileClient"
+        Title="MainWindow" Height="600" Width="600" >
+    <Window.DataContext>
+        <model:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding TileImageCollection}"
+                     Background="{x:Null}" BorderBrush="{x:Null}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Command="{Binding StartCommand}" Content="Start" Width="100" Margin="5 0" />
+            <Button Command="{Binding StopCommand}" Content="Stop" Width="100" Margin="5 0"/>
+        </StackPanel>
+    </Grid>
+</Window>

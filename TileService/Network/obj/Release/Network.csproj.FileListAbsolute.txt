@@ -1,0 +1,4 @@
+D:\Projects\AI Sources\TileService\TileService\Network\bin\Release\Network.dll
+D:\Projects\AI Sources\TileService\TileService\Network\bin\Release\Network.pdb
+D:\Projects\AI Sources\TileService\TileService\Network\obj\Release\Network.dll
+D:\Projects\AI Sources\TileService\TileService\Network\obj\Release\Network.pdb

@@ -1,0 +1,10 @@
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\TileRestService.dll
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\TileRestService.pdb
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\Commons.dll
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\Network.dll
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\log4net.dll
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\Commons.pdb
+D:\Projects\AI Sources\TileService\TileService\TileRestService\bin\Network.pdb
+D:\Projects\AI Sources\TileService\TileService\TileRestService\obj\Release\TileRestService.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\TileService\TileService\TileRestService\obj\Release\TileRestService.dll
+D:\Projects\AI Sources\TileService\TileService\TileRestService\obj\Release\TileRestService.pdb

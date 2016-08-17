@@ -1,0 +1,18 @@
+2016-07-13 14:21:15,551 [11] INFO  - [MapService] [Thread ID : 5] Get : [Time : 2016-07-13 02:21:15.544] 
+GET => 3/0/0
+2016-07-13 14:21:15,572 [5] INFO  - [MapService] [Thread ID : 5] Get : Request End.
+2016-07-13 14:21:17,001 [12] INFO  - [MapService] [Thread ID : 9] Get : [Time : 2016-07-13 02:21:17.001] 
+GET => 3/0/0
+2016-07-13 14:21:17,005 [9] INFO  - [MapService] [Thread ID : 9] Get : Request End.
+2016-07-13 14:21:17,504 [16] INFO  - [MapService] [Thread ID : 9] Get : [Time : 2016-07-13 02:21:17.504] 
+GET => 3/0/0
+2016-07-13 14:21:17,508 [9] INFO  - [MapService] [Thread ID : 9] Get : Request End.
+2016-07-13 14:21:17,896 [14] INFO  - [MapService] [Thread ID : 9] Get : [Time : 2016-07-13 02:21:17.896] 
+GET => 3/0/0
+2016-07-13 14:21:17,900 [9] INFO  - [MapService] [Thread ID : 9] Get : Request End.
+2016-07-13 17:37:52,518 [10] INFO  - [MapService] [Thread ID : 7] Get : [Time : 2016-07-13 05:37:52.492] 
+GET => 15/0/0
+2016-07-13 17:37:52,546 [7] INFO  - [MapService] [Thread ID : 7] Get : Request End.
+2016-07-13 17:38:11,003 [11] INFO  - [MapService] [Thread ID : 8] Get : [Time : 2016-07-13 05:38:10.983] 
+GET => 15/0/0
+2016-07-13 17:38:11,031 [8] INFO  - [MapService] [Thread ID : 8] Get : Request End.

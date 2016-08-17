@@ -1,0 +1,14 @@
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\TileConsoleService.exe.config
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\TileConsoleService.exe
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\TileConsoleService.pdb
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\Network.dll
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\TileRestService.dll
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\Commons.dll
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\Network.pdb
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\TileRestService.pdb
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\Commons.pdb
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\obj\Debug\TileConsoleService.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\obj\Debug\TileConsoleService.exe
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\obj\Debug\TileConsoleService.pdb
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\log4net.dll
+D:\Projects\AI Sources\TileService\TileService\TileConsoleService\bin\Debug\log4net.xml
