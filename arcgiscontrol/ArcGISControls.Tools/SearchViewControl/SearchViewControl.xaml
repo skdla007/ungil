@@ -1,0 +1,284 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             x:Class="ArcGISControls.Tools.SearchViewControl.SearchViewControl" 
+             mc:Ignorable="d"
+            d:DesignWidth="700" d:DesignHeight="500">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/> 
+    	<Style x:Key="sButton_SearchView" TargetType="{x:Type Button}">
+    		   	<Setter Property="FocusVisualStyle" Value="{StaticResource sFocusVisual_Button}"/>
+        		<Setter Property="BorderBrush" Value="{StaticResource bBorder_#FF707070_Button}"/>
+        		<Setter Property="BorderThickness" Value="1"/>
+        		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        		<Setter Property="VerticalContentAlignment" Value="Center"/>
+        		<Setter Property="Padding" Value="1"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Width="Auto" Height="Auto">
+        						<Rectangle RadiusX="3" RadiusY="3" x:Name="rectangle_out" Fill="#FFC4C4C4" Stroke="#FF2B2B2B" Visibility="Visible" />
+        						<Rectangle RadiusX="2" RadiusY="3" x:Name="rectangle_in" Stroke="White" Visibility="Visible" Margin="1" >
+        							<Rectangle.Fill>
+        								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        									<GradientStop Color="#FFE8E8E8" Offset="0"/>
+        									<GradientStop Color="#FFD0D0D0" Offset="1"/>
+        								</LinearGradientBrush>
+        							</Rectangle.Fill>
+        						</Rectangle>
+        						<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" HorizontalAlignment="Center" VerticalAlignment="Center">
+        							<Grid Height="Auto" Width="Auto">
+        								<Path x:Name="path1" Data="M29.468736,10.820032 C26.924839,10.820032 24.855904,12.890039 24.855905,15.434046 24.855904,17.977046 26.924839,20.046046 29.468736,20.046046 32.012662,20.046046 34.081597,17.977046 34.081597,15.434046 34.081597,12.890039 32.012662,10.820032 29.468736,10.820032 z M29.468736,7.8200318 C33.666602,7.8200315 37.081504,11.236048 37.081504,15.434046 37.081504,17.264033 36.432537,18.944026 35.352554,20.259028 L37.314498,22.221035 C37.900478,22.807033 37.900478,23.756038 37.314498,24.342037 37.021508,24.635036 36.637517,24.781032 36.253527,24.781032 35.869536,24.781032 35.486552,24.635036 35.193563,24.342037 L33.015621,22.164028 C31.95468,22.725032 30.748694,23.046047 29.468736,23.046047 25.270869,23.046047 21.855998,19.631037 21.855999,15.434046 21.855998,11.236048 25.270869,7.8200315 29.468736,7.8200318 z M0,0 L33.000001,0 33.000001,5 30.000001,5 30.000001,3 3,3 3,18 19.000001,18 19.000001,21 0,21 z" Fill="White" Height="15" Stretch="Fill" Width="22" HorizontalAlignment="Stretch" Margin="0,2,0,0"/>
+        								<Path x:Name="path" Data="M29.468736,10.820032 C26.924839,10.820032 24.855904,12.890039 24.855905,15.434046 24.855904,17.977046 26.924839,20.046046 29.468736,20.046046 32.012662,20.046046 34.081597,17.977046 34.081597,15.434046 34.081597,12.890039 32.012662,10.820032 29.468736,10.820032 z M29.468736,7.8200318 C33.666602,7.8200315 37.081504,11.236048 37.081504,15.434046 37.081504,17.264033 36.432537,18.944026 35.352554,20.259028 L37.314498,22.221035 C37.900478,22.807033 37.900478,23.756038 37.314498,24.342037 37.021508,24.635036 36.637517,24.781032 36.253527,24.781032 35.869536,24.781032 35.486552,24.635036 35.193563,24.342037 L33.015621,22.164028 C31.95468,22.725032 30.748694,23.046047 29.468736,23.046047 25.270869,23.046047 21.855998,19.631037 21.855999,15.434046 21.855998,11.236048 25.270869,7.8200315 29.468736,7.8200318 z M0,0 L33.000001,0 33.000001,5 30.000001,5 30.000001,3 3,3 3,18 19.000001,18 19.000001,21 0,21 z" Fill="#FF3A3A3A" Height="15" Stretch="Fill" Width="22" HorizontalAlignment="Stretch" Margin="0"/>
+        							</Grid>
+        							<Grid Margin="5,0,0,0">
+        								<ContentControl x:Name="contentControl1" Margin="0" VerticalAlignment="Stretch" Foreground="White" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0"/>
+        								</ContentControl>
+        								<ContentControl x:Name="contentControl" Margin="0" VerticalAlignment="Stretch" Foreground="#FF3A3A3A" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        								</ContentControl>
+        							</Grid>
+        						</StackPanel>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsEnabled" Value="False">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFDDDDDD" Offset="0"/>
+        										<GradientStop Color="LightGray" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="#FFB8B8B8"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFEFEFEF"/>
+        							<Setter Property="Fill" TargetName="path" Value="#FFB8B8B8"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFEFEFEF"/>
+        						</Trigger>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFF2F2F2" Offset="0"/>
+        										<GradientStop Color="#FFDADADA" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFFFCB00" Offset="0"/>
+        										<GradientStop Color="#FFFFA200" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFD88A00"/>
+        							<Setter Property="Margin" TargetName="contentPresenter1" Value="0,-2,0,0"/>
+        							<Setter Property="Stroke" TargetName="rectangle_in" Value="#FFDC8D00"/>
+        							<Setter Property="Fill" TargetName="path" Value="White"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFD88A00"/>
+									<Setter Property="Margin" TargetName="path1" Value="0,-2,0,0"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="IsEnabled" Value="True"/>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+			<Style x:Key="sButton_TrendAnalysis" TargetType="{x:Type Button}">
+    		   	<Setter Property="FocusVisualStyle" Value="{StaticResource sFocusVisual_Button}"/>
+        		<Setter Property="BorderBrush" Value="{StaticResource bBorder_#FF707070_Button}"/>
+        		<Setter Property="BorderThickness" Value="1"/>
+        		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        		<Setter Property="VerticalContentAlignment" Value="Center"/>
+        		<Setter Property="Padding" Value="1"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Width="Auto" Height="Auto">
+        						<Rectangle RadiusX="3" RadiusY="3" x:Name="rectangle_out" Fill="#FFC4C4C4" Stroke="#FF2B2B2B" Visibility="Visible" />
+        						<Rectangle RadiusX="2" RadiusY="3" x:Name="rectangle_in" Stroke="White" Visibility="Visible" Margin="1" >
+        							<Rectangle.Fill>
+        								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        									<GradientStop Color="#FFE8E8E8" Offset="0"/>
+        									<GradientStop Color="#FFD0D0D0" Offset="1"/>
+        								</LinearGradientBrush>
+        							</Rectangle.Fill>
+        						</Rectangle>
+        						<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" HorizontalAlignment="Center" VerticalAlignment="Center">
+        							<Grid Height="Auto" Width="Auto">
+        								<Path x:Name="path1" Data="M23.93077,10.017012 C22.248836,10.017012 20.880887,11.38501 20.880887,13.067008 20.880887,14.748006 22.248836,16.116005 23.93077,16.116005 25.610708,16.116005 26.979656,14.748006 26.979656,13.067008 26.979656,11.38501 25.610708,10.017012 23.93077,10.017012 z M4.6649985,9.9310151 L8.9720225,9.9310151 8.9720225,15.931015 4.6649985,15.931015 z M23.93077,7.0170146 C27.265644,7.0170146 29.979541,9.7310115 29.979541,13.067008 29.979541,14.396007 29.543558,15.622006 28.814584,16.621004 L30.039539,17.846003 C30.625516,18.432001 30.625516,19.381001 30.039539,19.967001 29.746549,20.26 29.362564,20.407 28.979579,20.407 28.595594,20.407 28.211608,20.26 27.918619,19.968 L26.489673,18.540001 C25.711704,18.905001 24.845737,19.116001 23.93077,19.116001 20.594898,19.116001 17.881002,16.402004 17.881002,13.067008 17.881002,9.7310115 20.594898,7.0170146 23.93077,7.0170146 z M18.000007,3.9999927 L22.000007,3.9999927 22.000007,6.009996 C20.000007,6.009996 19.000007,6.7769977 18.000007,7.9989997 z M11.358999,1.9310152 L15.507018,1.9310152 15.507018,15.931015 11.358999,15.931015 z M0,0 L1.9999996,0 1.9999996,18 17.48501,18 C18.077995,19.030975 19.030998,19.75 19.833,20 L0,20 z" Fill="White" Height="16" Stretch="Fill" Width="22" HorizontalAlignment="Stretch" Margin="0,2,0,0"/>
+        								<Path x:Name="path" Data="M23.93077,10.017012 C22.248836,10.017012 20.880887,11.38501 20.880887,13.067008 20.880887,14.748006 22.248836,16.116005 23.93077,16.116005 25.610708,16.116005 26.979656,14.748006 26.979656,13.067008 26.979656,11.38501 25.610708,10.017012 23.93077,10.017012 z M4.6649985,9.9310151 L8.9720225,9.9310151 8.9720225,15.931015 4.6649985,15.931015 z M23.93077,7.0170146 C27.265644,7.0170146 29.979541,9.7310115 29.979541,13.067008 29.979541,14.396007 29.543558,15.622006 28.814584,16.621004 L30.039539,17.846003 C30.625516,18.432001 30.625516,19.381001 30.039539,19.967001 29.746549,20.26 29.362564,20.407 28.979579,20.407 28.595594,20.407 28.211608,20.26 27.918619,19.968 L26.489673,18.540001 C25.711704,18.905001 24.845737,19.116001 23.93077,19.116001 20.594898,19.116001 17.881002,16.402004 17.881002,13.067008 17.881002,9.7310115 20.594898,7.0170146 23.93077,7.0170146 z M18.000007,3.9999927 L22.000007,3.9999927 22.000007,6.009996 C20.000007,6.009996 19.000007,6.7769977 18.000007,7.9989997 z M11.358999,1.9310152 L15.507018,1.9310152 15.507018,15.931015 11.358999,15.931015 z M0,0 L1.9999996,0 1.9999996,18 17.48501,18 C18.077995,19.030975 19.030998,19.75 19.833,20 L0,20 z" Fill="#FF3A3A3A" Height="16" Stretch="Fill" Width="22" HorizontalAlignment="Stretch" Margin="0"/>
+        							</Grid>
+        							<Grid Margin="2,0,0,0">
+        								<ContentControl x:Name="contentControl1" Margin="0" VerticalAlignment="Stretch" Foreground="White" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0"/>
+        								</ContentControl>
+        								<ContentControl x:Name="contentControl" Margin="0" VerticalAlignment="Stretch" Foreground="#FF3A3A3A" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        								</ContentControl>
+        							</Grid>
+        						</StackPanel>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsEnabled" Value="False">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFDDDDDD" Offset="0"/>
+        										<GradientStop Color="LightGray" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="#FFB8B8B8"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFEFEFEF"/>
+        							<Setter Property="Fill" TargetName="path" Value="#FFB8B8B8"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFEFEFEF"/>
+        						</Trigger>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFF2F2F2" Offset="0"/>
+        										<GradientStop Color="#FFDADADA" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFFFCB00" Offset="0"/>
+        										<GradientStop Color="#FFFFA200" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFD88A00"/>
+        							<Setter Property="Margin" TargetName="contentPresenter1" Value="0,-2,0,0"/>
+        							<Setter Property="Stroke" TargetName="rectangle_in" Value="#FFDC8D00"/>
+        							<Setter Property="Fill" TargetName="path" Value="White"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFD88A00"/>
+									<Setter Property="Margin" TargetName="path1" Value="0,-2,0,0"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="IsEnabled" Value="True"/>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+			<Style x:Key="sButton_Hmi" TargetType="{x:Type Button}">
+    		   	<Setter Property="FocusVisualStyle" Value="{StaticResource sFocusVisual_Button}"/>
+        		<Setter Property="BorderBrush" Value="{StaticResource bBorder_#FF707070_Button}"/>
+        		<Setter Property="BorderThickness" Value="1"/>
+        		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        		<Setter Property="VerticalContentAlignment" Value="Center"/>
+        		<Setter Property="Padding" Value="1"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Width="Auto" Height="Auto">
+        						<Rectangle RadiusX="3" RadiusY="3" x:Name="rectangle_out" Fill="#FFC4C4C4" Stroke="#FF2B2B2B" Visibility="Visible" />
+        						<Rectangle RadiusX="2" RadiusY="3" x:Name="rectangle_in" Stroke="White" Visibility="Visible" Margin="1" >
+        							<Rectangle.Fill>
+        								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        									<GradientStop Color="#FFE8E8E8" Offset="0"/>
+        									<GradientStop Color="#FFD0D0D0" Offset="1"/>
+        								</LinearGradientBrush>
+        							</Rectangle.Fill>
+        						</Rectangle>
+        						<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" HorizontalAlignment="Center" VerticalAlignment="Center">
+        							<Grid Height="Auto" Width="Auto">
+        								<Path x:Name="path1" Data="M13.845999,5.5529995 L18.692001,5.5529995 C19.142013,5.5529996 19.445998,6.0029819 19.020003,6.3810036 18.594009,6.7579877 17.931015,7.4689872 17.931015,7.4689871 L21.306011,10.843992 18.270004,13.878999 14.895008,10.505002 C14.895008,10.505002 13.800009,11.600005 13.569022,11.831999 13.338004,12.063018 12.839011,11.856017 12.839011,11.36801 L12.839011,6.4940103 C12.839011,5.7799896 13.082999,5.5529996 13.845999,5.5529995 z M1.6110001,0 L13.728,0 C14.817,0 16,0.8130002 16,1.7449999 L16,4.0000002 14,4.0000002 14,2.1010003 2,2.0840001 2,9.7969999 12,9.8110003 12,12 10.599,12 11.182,12.91 C11.284,13.002 11.347,13.145 11.347,13.292 11.347,13.568 11.123,14 10.847,14 L10.827,14 4.5120001,14 C4.3280001,14 4.1599998,13.738 4.0720005,13.577 3.9850006,13.416 3.993,13.059 4.092,12.904 L4.7400007,12 1.6110001,12 C0.52200031,12 0,11.084 0,10.152 L0,1.7449999 C0,0.8130002 0.52200031,0 1.6110001,0 z" Fill="White" Height="14" Stretch="Fill" Width="22" HorizontalAlignment="Stretch" Margin="0,2,0,0"/>
+        								<Path x:Name="path" Data="M13.845999,5.5529995 L18.692001,5.5529995 C19.142013,5.5529996 19.445998,6.0029819 19.020003,6.3810036 18.594009,6.7579877 17.931015,7.4689872 17.931015,7.4689871 L21.306011,10.843992 18.270004,13.878999 14.895008,10.505002 C14.895008,10.505002 13.800009,11.600005 13.569022,11.831999 13.338004,12.063018 12.839011,11.856017 12.839011,11.36801 L12.839011,6.4940103 C12.839011,5.7799896 13.082999,5.5529996 13.845999,5.5529995 z M1.6110001,0 L13.728,0 C14.817,0 16,0.8130002 16,1.7449999 L16,4.0000002 14,4.0000002 14,2.1010003 2,2.0840001 2,9.7969999 12,9.8110003 12,12 10.599,12 11.182,12.91 C11.284,13.002 11.347,13.145 11.347,13.292 11.347,13.568 11.123,14 10.847,14 L10.827,14 4.5120001,14 C4.3280001,14 4.1599998,13.738 4.0720005,13.577 3.9850006,13.416 3.993,13.059 4.092,12.904 L4.7400007,12 1.6110001,12 C0.52200031,12 0,11.084 0,10.152 L0,1.7449999 C0,0.8130002 0.52200031,0 1.6110001,0 z" Fill="#FF3A3A3A" Height="14" Stretch="Fill" Width="22" HorizontalAlignment="Stretch" Margin="0"/>
+        							</Grid>
+        							<Grid Margin="2,0,0,0">
+        								<ContentControl x:Name="contentControl1" Margin="0" VerticalAlignment="Stretch" Foreground="White" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0"/>
+        								</ContentControl>
+        								<ContentControl x:Name="contentControl" Margin="0" VerticalAlignment="Stretch" Foreground="#FF3A3A3A" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        								</ContentControl>
+        							</Grid>
+        						</StackPanel>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsEnabled" Value="False">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFDDDDDD" Offset="0"/>
+        										<GradientStop Color="LightGray" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="#FFB8B8B8"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFEFEFEF"/>
+        							<Setter Property="Fill" TargetName="path" Value="#FFB8B8B8"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFEFEFEF"/>
+        						</Trigger>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFF2F2F2" Offset="0"/>
+        										<GradientStop Color="#FFDADADA" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFFFCB00" Offset="0"/>
+        										<GradientStop Color="#FFFFA200" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFD88A00"/>
+        							<Setter Property="Margin" TargetName="contentPresenter1" Value="0,-2,0,0"/>
+        							<Setter Property="Stroke" TargetName="rectangle_in" Value="#FFDC8D00"/>
+        							<Setter Property="Fill" TargetName="path" Value="White"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFD88A00"/>
+									<Setter Property="Margin" TargetName="path1" Value="0,-2,0,0"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="IsEnabled" Value="True"/>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" FlowDirection="RightToLeft">
+            <Button x:Name="xSearchViewButton" Width="120" Content="Search View" FlowDirection="LeftToRight" Click="XSearchViewButton_OnClick" Visibility="{Binding IsSearchViewButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{DynamicResource sButton_SearchView}" Margin="2,0,0,0" />
+            <Button x:Name="xTrendAnalysisButton" Width="120" Content="Trend Analysis" FlowDirection="LeftToRight" Click="XTrendAnalysisButton_OnClick" Visibility="{Binding IsTrendAnalysisButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{DynamicResource sButton_TrendAnalysis}" Margin="2,0,0,0" />
+            <Button x:Name="xHMIButton" Width="120" Content="HMI" FlowDirection="LeftToRight" Style="{DynamicResource sButton_Hmi}" Margin="2,0,0,0" Visibility="Collapsed" />
+        </StackPanel>
+        
+        <Canvas x:Name="xRootPanel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="3"/>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BUTTON_APPLY" xml:space="preserve">
+    <value>적용</value>
+    <comment>스플렁크 서비스 시작 </comment>
+  </data>
+  <data name="Button_Browse" xml:space="preserve">
+    <value>파일찾기</value>
+  </data>
+  <data name="Button_SetCurrentLevel" xml:space="preserve">
+    <value>현재 레벨 저장</value>
+  </data>
+  <data name="ImportImageCommand" xml:space="preserve">
+    <value>IMPORT IMAGE(S)</value>
+  </data>
+  <data name="Item_CameraIcon_A" xml:space="preserve">
+    <value>CAMERA ICON A</value>
+    <comment>카메라 아이콘 선택하는 콤보박스의 아이템 (현재 아이콘이 이것 하나만 있음)</comment>
+  </data>
+  <data name="Item_Hide" xml:space="preserve">
+    <value>Hide</value>
+    <comment>Visibility 콤보박스의 Hide 아이템</comment>
+  </data>
+  <data name="Item_Visible" xml:space="preserve">
+    <value>Visible</value>
+    <comment>Visibility 콤보박스의 Visible 아이템</comment>
+  </data>
+  <data name="Label_CameraIcon" xml:space="preserve">
+    <value>Icon :</value>
+    <comment>카메라 아이콘 콤보박스 레이블</comment>
+  </data>
+  <data name="Label_CameraIconSize" xml:space="preserve">
+    <value>Size :</value>
+    <comment>카메라 아이콘 크기 슬라이드 바 레이블</comment>
+  </data>
+  <data name="Label_CameraIconSize_Max" xml:space="preserve">
+    <value>Max</value>
+    <comment>카메라 아아콘 크기 슬라이드 바의 최댓값 레이블</comment>
+  </data>
+  <data name="Label_CameraIconSize_Min" xml:space="preserve">
+    <value>Min</value>
+    <comment>카메라 아이콘 크기 슬라이드 바의 최솟값 레이블</comment>
+  </data>
+  <data name="Label_CameraIconSize_Normal" xml:space="preserve">
+    <value>Normal</value>
+    <comment>카메라 아이콘 크기 슬라이드 바의 중간값(기본값) 레이블</comment>
+  </data>
+  <data name="Label_CameraName" xml:space="preserve">
+    <value>Name :</value>
+    <comment>카메라 이름 레이블</comment>
+  </data>
+  <data name="Label_CameraPreset" xml:space="preserve">
+    <value>Preset :</value>
+    <comment>카메라 프리셋 선택 콤보박스 레이블</comment>
+  </data>
+  <data name="Label_CameraVideoConstrainProportion" xml:space="preserve">
+    <value>비율고정</value>
+    <comment>카메라 비디오 가로세로 비율 고정하는 체크박스 레이블</comment>
+  </data>
+  <data name="Label_CameraVideoHiddenMaxLevel" xml:space="preserve">
+    <value>설정한 다음 레벨부터 Zoon In 시 영상표시 안함 :</value>
+    <comment>줌인시 카메라 비디오를 더이상 표시하지 않는 최대 레벨 설정 UI의 레이블</comment>
+  </data>
+  <data name="Label_CameraVideoHiddenMinLevel" xml:space="preserve">
+    <value>설정한 이전 레벨부터 Zoon Out 시 영상표시 안함 :</value>
+    <comment>줌아웃시 카메라 비디오를 더이상 표시하지 않는 최소 레벨 설정 UI의 레이블</comment>
+  </data>
+  <data name="Label_CameraVideoLockPositionAndSize" xml:space="preserve">
+    <value>Lock Position &amp; Size</value>
+    <comment>카메라 비디오 위치/크기 고정하는 체크박스 레이블</comment>
+  </data>
+  <data name="Label_CameraVideoScaleMaxLevel" xml:space="preserve">
+    <value>설정한 레벨부터 Zoom In 시 사이즈 확대 안함 :</value>
+    <comment>줌인시 카메라 비디오 크기를 더이상 확대하지 않는 최대 레벨 설정 UI의 레이블</comment>
+  </data>
+  <data name="Label_ColorSplunkInformationData" xml:space="preserve">
+    <value>Color SPL :</value>
+    <comment>SPL 선택</comment>
+  </data>
+  <data name="Label_FillColor" xml:space="preserve">
+    <value>Fill :</value>
+    <comment>채우는 색깔 선택 컨트롤 레이블 (프리셋, 링크존 등에서 사용)</comment>
+  </data>
+  <data name="Label_Level" xml:space="preserve">
+    <value>Level</value>
+    <comment>각종 줌 레벨 설정 텍스트박스의 레이블 (카메라 비디오 프로퍼티 창에 있음)</comment>
+  </data>
+  <data name="Label_Line_Arrow_End" xml:space="preserve">
+    <value>Arrow End :</value>
+    <comment>라인 어로우 끝 종류 라벨</comment>
+  </data>
+  <data name="Label_Line_Arrow_End_Size" xml:space="preserve">
+    <value>Arrow End Size :</value>
+    <comment>라인 어로우 끝 사이즈 라벨</comment>
+  </data>
+  <data name="Label_Line_Arrow_Start" xml:space="preserve">
+    <value>Arrow Start :</value>
+    <comment>라인 어로우 시작 종류 라벨</comment>
+  </data>
+  <data name="Label_Line_Arrow_Start_Size" xml:space="preserve">
+    <value>Arrow Start Size :</value>
+    <comment>라인 어로우 시작 사이즈 라벨</comment>
+  </data>
+  <data name="Label_Line_Color" xml:space="preserve">
+    <value>색상 :</value>
+    <comment>라인 컬러 라벨</comment>
+  </data>
+  <data name="Label_Line_Lock_Position" xml:space="preserve">
+    <value>Lock Position &amp; Size</value>
+    <comment>라이 록 포지션 앤드 사이즈 라벨</comment>
+  </data>
+  <data name="Label_Line_Stroke" xml:space="preserve">
+    <value>선 종류 :</value>
+    <comment>라인 스트로크 종류 라벨</comment>
+  </data>
+  <data name="Label_Line_StrokeThickness" xml:space="preserve">
+    <value>선 굵기 :</value>
+    <comment>라인 스트로크 굵기 라벨</comment>
+  </data>
+  <data name="Label_Line_Stroke_Line_Join" xml:space="preserve">
+    <value>연결선 종류  :</value>
+    <comment>라인 스트로크 조인 종류 라벨</comment>
+  </data>
+  <data name="Label_LinkedMap" xml:space="preserve">
+    <value>연결 된 맵 :</value>
+    <comment>링크존에 연결된 맵을 선택하는 콤보박스의 레이블</comment>
+  </data>
+  <data name="Label_LinkZoneImageName" xml:space="preserve">
+    <value>이미지이름 :</value>
+  </data>
+  <data name="Label_LinkZoneName" xml:space="preserve">
+    <value>이름 :</value>
+    <comment>링크존 이름 입력창 레이블</comment>
+  </data>
+  <data name="Label_MapLevel" xml:space="preserve">
+    <value>맵 레벨 :</value>
+    <comment>현재 맵 줌 레벨을 나타내는 텍스트블럭의 레이블 (카메라 비디오 프로퍼티 창에 있음)</comment>
+  </data>
+  <data name="Label_OutlineColor" xml:space="preserve">
+    <value>테두리 :</value>
+    <comment>Border 색깔 선택 컨트롤 레이블 (프리셋, 링크존 등에서 사용)</comment>
+  </data>
+  <data name="Label_PlaceAddress" xml:space="preserve">
+    <value>주소 :</value>
+    <comment>플레이스의 어드레스 입력창 레이블</comment>
+  </data>
+  <data name="Label_PlaceName" xml:space="preserve">
+    <value>이름 :</value>
+    <comment>플레이스(어드레스) 이름 입력창 레이블</comment>
+  </data>
+  <data name="Label_SplunkArgument" xml:space="preserve">
+    <value>검색 인자</value>
+    <comment>스플렁크 아규먼트를 보여준다</comment>
+  </data>
+  <data name="Label_SplunkChartAxisXTitle" xml:space="preserve">
+    <value>X축 타이틀 레이블 :</value>
+    <comment>스플렁크 챠트 X축 타이틀 레이블</comment>
+  </data>
+  <data name="Label_SplunkChartAxisYTitle" xml:space="preserve">
+    <value>Y축 타이틀 레이블 :</value>
+    <comment>스플렁크 챠트 Y축 타이틀 레이블</comment>
+  </data>
+  <data name="Label_SplunkConstrainProportion" xml:space="preserve">
+    <value>비율 고정</value>
+    <comment>스플렁크 데이터 가로세로 비율 고정하는 체크박스 레이블</comment>
+  </data>
+  <data name="Label_SplunkHiddenMaxLevel" xml:space="preserve">
+    <value>설정한 다음 레벨부터 Zoon In 시 데이터 표시 안함 :</value>
+    <comment>줌인시 스플렁크 데이터를 더이상 표시하지 않는 최대 레벨 설정 UI의 레이블</comment>
+  </data>
+  <data name="Label_SplunkHiddenMinLevel" xml:space="preserve">
+    <value>설정한 이전 레벨부터 Zoon Out 시 데이터 표시 안함 :</value>
+    <comment>줌아웃시 스플렁크 데이터를 더이상 표시하지 않는 최소 레벨 설정 UI의 레이블</comment>
+  </data>
+  <data name="Label_SplunkName" xml:space="preserve">
+    <value>이름 :</value>
+    <comment>스플렁크 데이터 이름 레이블</comment>
+  </data>
+  <data name="Label_SplunkTitle" xml:space="preserve">
+    <value>타이틀 :</value>
+    <comment>스플렁크 데이터 타이틀 레이블</comment>
+  </data>
+  <data name="Label_TableSplunkInformationData" xml:space="preserve">
+    <value>Table SPL :</value>
+    <comment>SPL 선택</comment>
+  </data>
+  <data name="Label_Text_Align" xml:space="preserve">
+    <value>정렬 :</value>
+    <comment>텍스트 정렬 레이블</comment>
+  </data>
+  <data name="Label_Text_BackgroundColor" xml:space="preserve">
+    <value>배경 색상</value>
+    <comment>텍스트 백그라운드 컬러 레이블</comment>
+  </data>
+  <data name="Label_Text_Checkbox_Bold" xml:space="preserve">
+    <value>굵게</value>
+    <comment>텍스트 데코레이션 체크 박스</comment>
+  </data>
+  <data name="Label_Text_Checkbox_Italic" xml:space="preserve">
+    <value>이탤릭</value>
+    <comment>텍스트 데코레이션 체크 박스</comment>
+  </data>
+  <data name="Label_Text_Checkbox_Underline" xml:space="preserve">
+    <value>언더라인</value>
+    <comment>텍스트 데코레이션 체크 박스</comment>
+  </data>
+  <data name="Label_Text_Combo_Center" xml:space="preserve">
+    <value>중앙정렬</value>
+    <comment>텍스트 정렬 콤보박스 중앙</comment>
+  </data>
+  <data name="Label_Text_Combo_Left" xml:space="preserve">
+    <value>좌측정렬</value>
+    <comment>텍스트 정렬 콤보박스 왼쪽</comment>
+  </data>
+  <data name="Label_Text_Combo_Right" xml:space="preserve">
+    <value>우측정렬</value>
+    <comment>텍스트 정렬 콤보박스 오른쪽</comment>
+  </data>
+  <data name="Label_Text_Font" xml:space="preserve">
+    <value>폰트 :</value>
+    <comment>텍스트 폰트 종류 콤보박스 레이블</comment>
+  </data>
+  <data name="Label_Text_FontColor" xml:space="preserve">
+    <value>폰트 색상 :</value>
+    <comment>텍스트 폰트 컬러 레이블</comment>
+  </data>
+  <data name="Label_Text_FontSize" xml:space="preserve">
+    <value>폰트 크기 :</value>
+    <comment>텍스트 폰트 사이즈 콤보박스 레이블</comment>
+  </data>
+  <data name="Label_Text_LockToScreen" xml:space="preserve">
+    <value>Lock to Screen &amp; Size</value>
+    <comment>텍스트 사이즈 고정 체크박스 레이블</comment>
+  </data>
+  <data name="Label_Visibility" xml:space="preserve">
+    <value>Visibility :</value>
+    <comment>각종 맵 오브젝트들의 visibility 콤보박스 레이블</comment>
+  </data>
+  <data name="Label_WorkStation_HardwareView_LinkedMap" xml:space="preserve">
+    <value>하드웨어 연결 맵</value>
+    <comment>Hardware View Linked Map</comment>
+  </data>
+  <data name="Label_WorkStation_NetworkView_LinkedMap" xml:space="preserve">
+    <value>네트워크 뷰 연결 맵</value>
+    <comment>Network View Linked Map</comment>
+  </data>
+  <data name="Label_WorkStation_SavedSearch" xml:space="preserve">
+    <value>Select Saved Search</value>
+    <comment>Workstation의 saved search 선택</comment>
+  </data>
+  <data name="Label_WorkStation_SearchView_URL" xml:space="preserve">
+    <value>서치 뷰 연결 맵</value>
+    <comment>Search View URL</comment>
+  </data>
+  <data name="Label_WorkStation_SoftwareView_LinkedMap" xml:space="preserve">
+    <value>소프트 뷰 연결 맵</value>
+    <comment>Software View Linked Map</comment>
+  </data>
+  <data name="Lable_Image_Color" xml:space="preserve">
+    <value>색상</value>
+  </data>
+  <data name="Lable_Image_ImageName" xml:space="preserve">
+    <value>이미지 이름</value>
+  </data>
+  <data name="Lable_Image_Name" xml:space="preserve">
+    <value>이름</value>
+    <comment>이미지 이름 라벨</comment>
+  </data>
+  <data name="Lable_Image_Opacity" xml:space="preserve">
+    <value>투명도</value>
+  </data>
+  <data name="Lable_Line_Name" xml:space="preserve">
+    <value>이름 :</value>
+    <comment>라인 이름 라벨</comment>
+  </data>
+  <data name="SplunkArgument_DataGrid_Header_Name" xml:space="preserve">
+    <value>이름</value>
+    <comment>스플렁크 인자 표현하는 데이타 그리드 헤더</comment>
+  </data>
+  <data name="SplunkArgument_DataGrid_Header_Value" xml:space="preserve">
+    <value>값</value>
+    <comment>스플렁크 인자 표현하는 데이타 그리드 헤더</comment>
+  </data>
+  <data name="Splunk_ComboBox_IntervalUnit_Basic" xml:space="preserve">
+    <value>기본</value>
+    <comment>SplunkInterval Type에서 기본</comment>
+  </data>
+  <data name="Splunk_ComboBox_IntervalUnit_Hours" xml:space="preserve">
+    <value>시간</value>
+  </data>
+  <data name="Splunk_ComboBox_IntervalUnit_Minutes" xml:space="preserve">
+    <value>분</value>
+    <comment>SplunkInterval Type에서 분</comment>
+  </data>
+  <data name="Splunk_ComboBox_IntervalUnit_Seconds" xml:space="preserve">
+    <value>초</value>
+    <comment>SplunkInterval Type에서 초</comment>
+  </data>
+  <data name="Title_CameraIcon" xml:space="preserve">
+    <value>설정</value>
+    <comment>카메라 아이콘 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_CameraLabel" xml:space="preserve">
+    <value>LABEL</value>
+    <comment>카메라 레이블 프로퍼티 창 타이틀 (카레마 아이콘 프로퍼티 창 하단에 있음)</comment>
+  </data>
+  <data name="Title_CameraPreset" xml:space="preserve">
+    <value>설정</value>
+    <comment>카메라 프리셋 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_CameraVideo" xml:space="preserve">
+    <value>설정</value>
+    <comment>카메라 비디오 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_Image" xml:space="preserve">
+    <value>설정</value>
+    <comment>이미지 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_Line" xml:space="preserve">
+    <value>설정</value>
+    <comment>라인 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_LinkZone" xml:space="preserve">
+    <value>설정</value>
+    <comment>링크존 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_Place" xml:space="preserve">
+    <value>설정</value>
+    <comment>플레이스(어드레스) 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_Splunk" xml:space="preserve">
+    <value>설정</value>
+    <comment>스플렁크 데이터 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="Title_Text" xml:space="preserve">
+    <value>설정</value>
+    <comment>텍스트 프로퍼티 창 타이틀</comment>
+  </data>
+  <data name="CheckBox_Splunk_UpdateInterval" xml:space="preserve">
+    <value>간격 설정</value>
+    <comment>Interval 설정을 위한 체크박스</comment>
+  </data>
+  <data name="Label_SplunkLinkUrl" xml:space="preserve">
+    <value>연결 Url :</value>
+  </data>
+  <data name="Label_Text_Combo_Bottom" xml:space="preserve">
+    <value>하단정렬</value>
+    <comment>텍스트 정렬 콤보박스 오른쪽</comment>
+  </data>
+  <data name="Label_Text_Combo_Top" xml:space="preserve">
+    <value>상단정렬</value>
+    <comment>텍스트 정렬 콤보박스 왼쪽</comment>
+  </data>
+  <data name="Label_Text_Combo_Vertical_Center" xml:space="preserve">
+    <value>중앙정렬</value>
+    <comment>텍스트 정렬 콤보박스 중앙</comment>
+  </data>
+  <data name="Label_Text_Vertical_Align" xml:space="preserve">
+    <value>수직 정렬 :</value>
+    <comment>텍스트 프로퍼티 수직 정렬</comment>
+  </data>
+  <data name="Label_LinkedMapBookMark" xml:space="preserve">
+    <value>북마크 :</value>
+    <comment>링크존에 연결된 맵의 북마크를 선택하는 콤보박스의 레이블</comment>
+  </data>
+  <data name="Label_Line_End_Cap" xml:space="preserve">
+    <value>선 끝 모양 :</value>
+    <comment>끝 Line Cap 타입</comment>
+  </data>
+  <data name="Label_Line_Start_Cap" xml:space="preserve">
+    <value>선 시작 모양 :</value>
+    <comment>시작 Line Cap 타입</comment>
+  </data>
+  <data name="CheckBox_Splunk_HideIcon" xml:space="preserve">
+    <value>아이콘 숨기기</value>
+    <comment>테이블의 아이콘 숨기기 설정</comment>
+  </data>
+  <data name="Label_UniversalObject_BorderFill" xml:space="preserve">
+    <value>배경 :</value>
+  </data>
+  <data name="Label_UniversalObject_ShapeGroup" xml:space="preserve">
+    <value>Shape</value>
+  </data>
+  <data name="Label_UniversalObject_BorderImageUrl" xml:space="preserve">
+    <value>Image Url :</value>
+  </data>
+  <data name="Label_UniversalObject_BorderOutline" xml:space="preserve">
+    <value>테두리 :</value>
+  </data>
+  <data name="Label_UniversalObject_BorderRadius" xml:space="preserve">
+    <value>Radius :</value>
+  </data>
+  <data name="Label_UniversalObject_BorderThickness" xml:space="preserve">
+    <value>Thickness :</value>
+  </data>
+  <data name="Label_UniversalObject_IconGroup" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Label_UniversalObject_IconPos" xml:space="preserve">
+    <value>Icon Position</value>
+  </data>
+  <data name="Label_UniversalObject_IconUrl" xml:space="preserve">
+    <value>Icon Url :</value>
+  </data>
+  <data name="Label_UniversalObject_IconXMaxPos" xml:space="preserve">
+    <value>X Max :</value>
+  </data>
+  <data name="Label_UniversalObject_IconXMinPos" xml:space="preserve">
+    <value>X Min :</value>
+  </data>
+  <data name="Label_UniversalObject_IconYMaxPos" xml:space="preserve">
+    <value>Y Max :</value>
+  </data>
+  <data name="Label_UniversalObject_IconYMinPos" xml:space="preserve">
+    <value>Y Min :</value>
+  </data>
+  <data name="Label_UniversalObject_LampColor" xml:space="preserve">
+    <value>Color :</value>
+  </data>
+  <data name="Label_UniversalObject_LampDiameter" xml:space="preserve">
+    <value>Diameter :</value>
+  </data>
+  <data name="Label_UniversalObject_LampGroup" xml:space="preserve">
+    <value>Alarm Lamp</value>
+  </data>
+  <data name="Label_UniversalObject_LampPos" xml:space="preserve">
+    <value>Alarm Lamp Position</value>
+  </data>
+  <data name="Label_UniversalObject_LampUse" xml:space="preserve">
+    <value>Use Alarm Lamp</value>
+  </data>
+  <data name="Label_UniversalObject_LampXPos" xml:space="preserve">
+    <value>X :</value>
+  </data>
+  <data name="Label_UniversalObject_LampYPos" xml:space="preserve">
+    <value>Y :</value>
+  </data>
+  <data name="Label_UniversalObject_LinkedBookmark" xml:space="preserve">
+    <value>Bookmark :</value>
+  </data>
+  <data name="Label_UniversalObject_LinkedMap" xml:space="preserve">
+    <value>Map :</value>
+  </data>
+  <data name="Label_UniversalObject_LinkedObject" xml:space="preserve">
+    <value>Object :</value>
+  </data>
+  <data name="Label_UniversalObject_LinkGroup" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="Label_UniversalObject_LinkUrl" xml:space="preserve">
+    <value>Url :</value>
+  </data>
+  <data name="Label_UniversalObject_MappingId" xml:space="preserve">
+    <value>Mapping ID :</value>
+  </data>
+  <data name="Label_UniversalObject_Name" xml:space="preserve">
+    <value>Name :</value>
+  </data>
+  <data name="Label_UniversalObject_Title" xml:space="preserve">
+    <value>Title :</value>
+  </data>
+  <data name="Label_UniversalObject_TitleFontColor" xml:space="preserve">
+    <value>Font Color :</value>
+  </data>
+  <data name="Label_UniversalObject_TitleGroup" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Label_UniversalObject_TitlePos" xml:space="preserve">
+    <value>Title Position</value>
+  </data>
+  <data name="Label_UniversalObject_TitleXMaxPos" xml:space="preserve">
+    <value>X Max :</value>
+  </data>
+  <data name="Label_UniversalObject_TitleXMinPos" xml:space="preserve">
+    <value>X Min :</value>
+  </data>
+  <data name="Label_UniversalObject_TitleYMaxPos" xml:space="preserve">
+    <value>Y Max:</value>
+  </data>
+  <data name="Label_UniversalObject_TitleYMinPos" xml:space="preserve">
+    <value>Y Min :</value>
+  </data>
+  <data name="Title_UniversalObject" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="Label_UniversalObject_ShapeHorizontalPipe" xml:space="preserve">
+    <value>수평 원통</value>
+  </data>
+  <data name="Label_UniversalObject_ShapeImage" xml:space="preserve">
+    <value>그림</value>
+  </data>
+  <data name="Label_UniversalObject_ShapeRectangle" xml:space="preserve">
+    <value>사각형</value>
+  </data>
+  <data name="Label_UniversalObject_ShapeVerticalPipe" xml:space="preserve">
+    <value>수직 원통</value>
+  </data>
+  <data name="Label_AlwaysKeepToCameraVideo" xml:space="preserve">
+    <value>카메라 영상 항상 유지</value>
+    <comment>맵 화면에 카메라가 없어도 카메라 영상 항상 유지</comment>
+  </data>
+</root>

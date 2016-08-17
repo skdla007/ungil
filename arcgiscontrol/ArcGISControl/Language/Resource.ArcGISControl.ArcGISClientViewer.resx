@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Message_CanNotShowPopup" xml:space="preserve">
+    <value>Can not Show Popup</value>
+    <comment>맵에서 카메라 팝업창을 띄우는 경우, 맵 컨트롤의 크기가 팝업창의 크기보다 작을 때 뜨는 메시지</comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_LinkZone" xml:space="preserve">
+    <value>LinkZone</value>
+    <comment>새 링크존을 만들 때 기본 이름 prefix (e.g. LinkZone1)</comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+    <comment>새 맵 location을 만들 때, BookMark나 Location이 아닌 경우의 기본 이름 prefix (실제로 존재하면 안 되고 현재 존재하지 않는 경우)</comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_BookMark" xml:space="preserve">
+    <value>BookMark</value>
+    <comment>새 북마크를 만들 때 기본 이름 prefix (e.g. BookMark 2)</comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_Location" xml:space="preserve">
+    <value>Location</value>
+    <comment>새 location을 만들 때 기본 이름 prefix (e.g. Location 2)</comment>
+  </data>
+  <data name="Const_DefaultNameFormat_Location" xml:space="preserve">
+    <value>{0} {1}</value>
+    <comment>Location이나 BookMark를 만들 때 기본 이름 포맷 // "{type} {count}"</comment>
+  </data>
+  <data name="Message_DidNotSetLinkedMap" xml:space="preserve">
+    <value>Does not have Link on the Map</value>
+    <comment>링크존을 더블클릭 했지만 연결된 맵이 없는 경우 뜨는 메시지</comment>
+  </data>
+  <data name="Message_MapKeyNotAllowed" xml:space="preserve">
+    <value>Map KEY or URL is not allowed. Please check out KEY or URL</value>
+    <comment>인터넷 맵 인증에 실패했을 때 메시지 (현재 인터넷 맵은 쓰이지 않으므로 나타나지 않음)</comment>
+  </data>
+  <data name="Message_CanNotLoadCustomTile" xml:space="preserve">
+    <value>Can not load Customtile</value>
+    <comment>커스텀 맵을 불러오는 중에 타일 로딩에 실패했을 때 메시지</comment>
+  </data>
+  <data name="Message_MapNullUrl" xml:space="preserve">
+    <value>Map Url is empty</value>
+    <comment>맵 Url 이 비었습니다.</comment>
+  </data>
+  <data name="Message_CanNotMakeLinzone_Less3Points" xml:space="preserve">
+    <value>Can not Make LinkZone. Please make more 3 Points</value>
+    <comment>점 3개 이하 일때 Link zone 생성이 되지 않을 경우</comment>
+  </data>
+  <data name="Message_CanNotShowLinkedMap" xml:space="preserve">
+    <value>Can Not Show Linked Map By Current User</value>
+    <comment>현재 User에게 Linked 된 Map의 사용 권한이 없음 </comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_WorkStation" xml:space="preserve">
+    <value>WorkStation</value>
+  </data>
+  <data name="Message_IllFormedLineToData" xml:space="preserve">
+    <value>Ill-formed latitude-longitude format received: {0}</value>
+    <comment>바르지 않은 LineTo 데이터를 Splunk Table 클릭에서 받았을 때 출력되는 메시지</comment>
+  </data>
+  <data name="Message_IllFormedLinkedMapData" xml:space="preserve">
+    <value>Ill-formed map name list recieved: {0}</value>
+    <comment>바르지 않은 LinkedMap 데이터가 Splunk Table Go 버튼 클릭에서 받았을 때 출력되는 메시지</comment>
+  </data>
+  <data name="Message_AskApplyingWrongBackup" xml:space="preserve">
+    <value>The selected backup file is ONLY for the map with guid {0}, but the guid of the current map is {1}. Should I apply it anyway?</value>
+  </data>
+  <data name="Message_InvalidBackupFile" xml:space="preserve">
+    <value>Invalid Backup File</value>
+  </data>
+  <data name="Message_Splunk_No_Result" xml:space="preserve">
+    <value>No results found.</value>
+    <comment>Result가 0으로 들어 올때</comment>
+  </data>
+  <data name="Message_CanNotFindMapName_LinkedMap" xml:space="preserve">
+    <value>Cannot find a map named {0}</value>
+  </data>
+  <data name="Const_DefaultNamePrefix_Text" xml:space="preserve">
+    <value>Text</value>
+    <comment>새 텍스트 만들때 기본 이름 prefix (e.g. Text 1)</comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_Line" xml:space="preserve">
+    <value>Line</value>
+    <comment>새 라인을 만들 때 기본 이름 prefix (e.g. LinkZone1)</comment>
+  </data>
+  <data name="Const_DefaultNamePrefix_Image" xml:space="preserve">
+    <value>Image</value>
+    <comment>새 이미지 만들 때 기본 이름 prefix(e.g Image1)</comment>
+  </data>
+  <data name="Message_MapSplLoading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Message_CanNotLoadMap" xml:space="preserve">
+    <value>Can not load map. Please check log message.</value>
+    <comment>Map을 Load 할 수 없을 경우</comment>
+  </data>
+  <data name="Message_MapSplFail" xml:space="preserve">
+    <value>Data can't loaded.</value>
+  </data>
+  <data name="Message_MapSplNoResult" xml:space="preserve">
+    <value>Health data not found.</value>
+  </data>
+  <data name="Message_DoesNotHavePermission" xml:space="preserve">
+    <value>Does not have permission.</value>
+    <comment>링크존을 더블클릭 했지만 권한이 없어 연결하지 않음.</comment>
+  </data>
+</root>

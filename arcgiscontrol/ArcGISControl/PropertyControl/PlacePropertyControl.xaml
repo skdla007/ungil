@@ -1,0 +1,183 @@
+﻿<UserControl x:Class="ArcGISControl.PropertyControl.PlacePropertyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Language="clr-namespace:ArcGISControl.Language"
+             mc:Ignorable="d" 
+               d:DesignHeight="240" d:DesignWidth="275">
+    <UserControl.Resources>
+        <Style x:Key="sSlider_Speed" TargetType="{x:Type Slider}">
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FFC4C4C4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Slider}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TickBar x:Name="TopTick" Height="4" Placement="Top" Grid.Row="0" Visibility="Collapsed" Fill="#FFFFAF00"/>
+                                <TickBar x:Name="BottomTick" Height="4" Placement="Bottom" Grid.Row="2" Visibility="Collapsed" Fill="#FFFFAF00"/>
+                                <Border x:Name="TrackBackground" BorderBrush="White" BorderThickness="1" CornerRadius="2" Height="6" Margin="0" Grid.Row="1" VerticalAlignment="center">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFADADAD" Offset="0.2"/>
+                                            <GradientStop Color="#FFC8C8C8" Offset="1"/>
+                                            <GradientStop Color="#FF545454"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Canvas Margin="-6,-1">
+                                        <Rectangle x:Name="PART_SelectionRange" Fill="#FFCCCCCC" Height="4.0" Stroke="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" StrokeThickness="1.0" Visibility="Hidden"/>
+                                    </Canvas>
+                                </Border>
+                                <Track x:Name="PART_Track" Grid.Row="1">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb x:Name="Thumb" Style="{StaticResource sThumb_Small}" Width="12" Height="20"/>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="TrackBackground" Value="#FF1D1D1D"/>
+                                <Setter Property="BorderBrush" TargetName="TrackBackground" Value="#FF272727"/>
+                            </Trigger>
+                            <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="Foreground" TargetName="Thumb" Value="#FFC2C2C2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        </Style>
+        <!--끝: sSlider_Speed-->
+        <Style x:Key="sSlider_IconSize" TargetType="{x:Type Slider}">
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FFC4C4C4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Slider}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Grid VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TickBar x:Name="TopTick" Height="4" Placement="Top" Grid.Row="0" Visibility="Collapsed" Fill="#FFFFAF00"/>
+                                <TickBar x:Name="BottomTick" Height="6" Placement="Bottom" Grid.Row="2" Visibility="Visible" Fill="#FF6A6A6A"/>
+                                <Border x:Name="TrackBackground" BorderBrush="White" BorderThickness="1" CornerRadius="2" Height="6" Margin="0" Grid.Row="1" VerticalAlignment="center">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFADADAD" Offset="0.2"/>
+                                            <GradientStop Color="#FFC8C8C8" Offset="1"/>
+                                            <GradientStop Color="#FF545454"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Canvas Margin="-6,-1">
+                                        <Rectangle x:Name="PART_SelectionRange" Fill="#FFCCCCCC" Height="4.0" Stroke="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" StrokeThickness="1.0" Visibility="Hidden"/>
+                                    </Canvas>
+                                </Border>
+                                <Track x:Name="PART_Track" Grid.Row="1">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb x:Name="Thumb" Style="{StaticResource sThumb_Small}" Width="12" Height="20"/>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="TrackBackground" Value="#FF1D1D1D"/>
+                                <Setter Property="BorderBrush" TargetName="TrackBackground" Value="#FF272727"/>
+                            </Trigger>
+                            <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="Foreground" TargetName="Thumb" Value="#FFC2C2C2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="26"/>
+    		<RowDefinition Height="auto"/>
+    	</Grid.RowDefinitions>
+    	<Border BorderThickness="0" CornerRadius="0,0,6,6" Grid.Row="1" Background="#CC000000" Grid.RowSpan="3"/>
+    	<Grid Margin="0">
+    		<Border BorderBrush="Black" BorderThickness="0,0,0,1" CornerRadius="6,6,0,0">
+    			<Border.Background>
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<GradientStop Color="#FF343434" Offset="1"/>
+    					<GradientStop Color="#FF747474"/>
+    				</LinearGradientBrush>
+    			</Border.Background>
+    		</Border>
+    		<TextBlock x:Name="xTitleTextBlock_Shadow" HorizontalAlignment="Left" Margin="15,0,0,2" Foreground="#FF191919" Text="{x:Static Language:Resource_ArcGISControl_Properties.Title_Place}" FontWeight="Bold" Style="{DynamicResource sTextBlock_Basic}" VerticalAlignment="Center"/>
+    		<TextBlock x:Name="xTitleTextBlock" HorizontalAlignment="Left" Margin="15,0,0,0" Foreground="White" Text="{x:Static Language:Resource_ArcGISControl_Properties.Title_Place}" FontWeight="Bold" Style="{DynamicResource sTextBlock_Basic}" VerticalAlignment="Center"/>
+    	</Grid>
+    	<StackPanel Margin="0,20,20,20" Grid.Row="1">
+    		<StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+    			<TextBlock TextWrapping="Wrap" Text="{x:Static Language:Resource_ArcGISControl_Properties.Label_PlaceName}" Style="{DynamicResource sTextBlock_Basic}" Foreground="White" FontWeight="Bold" Width="70" d:LayoutOverrides="HorizontalMargin" TextAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding DataInfo.Name, UpdateSourceTrigger=PropertyChanged}" Width="179" MaxLength="30" Height="27" Style="{DynamicResource sTextBox}" Margin="5,0,0,0" TabIndex="10" IsEnabled="{Binding IsSingleSetting, UpdateSourceTrigger=PropertyChanged}"/>
+    		</StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0">
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Language:Resource_ArcGISControl_Properties.Label_PlaceIconSize}" Style="{DynamicResource sTextBlock_Basic}" Foreground="White" FontWeight="Bold" Width="70" d:LayoutOverrides="HorizontalMargin" TextAlignment="Right" VerticalAlignment="Center"/>
+                <Slider Height="27" Width="179" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{DynamicResource sSlider_IconSize}" VerticalAlignment="Top"
+                        Minimum="0.4"
+                        Maximum="1"
+                        TickFrequency="0.1"
+                        IsSnapToTickEnabled="True"
+                        Value="{Binding DataInfo.IconSize}" IsMoveToPointEnabled="True" TabIndex="20"
+                        />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="69,2,0,14" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Language:Resource_ArcGISControl_Properties.Label_CameraIconSize_Min}" Style="{DynamicResource sTextBlock_Basic}" Foreground="{DynamicResource bBackground_#FFFFCC00_Point}" FontSize="10" FontWeight="Bold" d:LayoutOverrides="Width"/>
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Language:Resource_ArcGISControl_Properties.Label_CameraIconSize_Normal}" Style="{DynamicResource sTextBlock_Basic}" Foreground="{DynamicResource bBackground_#FFFFCC00_Point}" FontSize="10" FontWeight="Bold" Margin="58,0,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="{x:Static Language:Resource_ArcGISControl_Properties.Label_CameraIconSize_Max}" Style="{DynamicResource sTextBlock_Basic}" Foreground="{DynamicResource bBackground_#FFFFCC00_Point}" FontSize="10" FontWeight="Bold" d:LayoutOverrides="Width" HorizontalAlignment="Left" Margin="54,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                <TextBlock TextWrapping="Wrap" Text="{Binding DescriptionLabel, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource sTextBlock_Basic}" Foreground="White" FontWeight="Bold" Width="70" TextAlignment="Right" VerticalAlignment="Top" Margin="0,5,0,0"/>
+				<TextBox TextWrapping="Wrap" Text="{Binding DataInfo.Address, UpdateSourceTrigger=PropertyChanged}" Width="179" Height="80" Margin="5,0,0,0" Style="{DynamicResource sTextBox}" HorizontalScrollBarVisibility="Visible" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TabIndex="20"/>
+                <!--
+				<RichTextBox Width="179" Height="80" Margin="5,0,0,0" Style="{DynamicResource sRichTextBox_Common}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="{Binding DataInf1234o.Address, UpdateSourceTrigger=PropertyChanged}" />
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+				-->
+            </StackPanel>
+    	</StackPanel>
+            
+    </Grid>
+</UserControl>

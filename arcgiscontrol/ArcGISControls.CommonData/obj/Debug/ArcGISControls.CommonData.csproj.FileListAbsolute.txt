@@ -1,0 +1,12 @@
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\ArcGISControls.CommonData.dll.config
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\ArcGISControls.CommonData.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\ArcGISControls.CommonData.pdb
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\DataChangedNotify.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\InnowatchConverter.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\InnowatchDebug.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\bin\Debug\ServiceContract.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\obj\Debug\ArcGISControls.CommonData.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\obj\Debug\ArcGISControls.CommonData.Properties.Resources.resources
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\obj\Debug\ArcGISControls.CommonData.csproj.GenerateResource.Cache
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\obj\Debug\ArcGISControls.CommonData.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.CommonData\obj\Debug\ArcGISControls.CommonData.pdb

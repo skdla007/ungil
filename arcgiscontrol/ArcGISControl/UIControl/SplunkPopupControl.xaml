@@ -1,0 +1,71 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:graphicObjectControl="clr-namespace:ArcGISControl.UIControl.GraphicObjectControl"
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+             x:Class="ArcGISControl.UIControl.SplunkPopupControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="sButton_SplunkClose" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="#00000000" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Path Fill="{x:Null}" Stretch="Fill" Stroke="White" StrokeEndLineCap="Square" StrokeStartLineCap="Square" StrokeThickness="1.5" Data="M0.75,0.75 L7.25,7.25 M7.25,0.75 L0.75,7.25" x:Name="path_shadow" Margin="0,2,0,0" Width="10" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SnapsToDevicePixels="True" />
+                            <Path Fill="{x:Null}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square" StrokeThickness="1.5" Data="M0.75,0.75 L7.25,7.25 M7.25,0.75 L0.75,7.25" x:Name="path" Width="10" Height="10" VerticalAlignment="Stretch" SnapsToDevicePixels="True" >
+                                <Path.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF3C3C3C" Offset="0"/>
+                                        <GradientStop Color="#FF787878" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Path.Stroke>
+                            </Path>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="path" Value="#FFA5A5A5"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Stroke" TargetName="path">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFFF9C44" Offset="1"/>
+                                            <GradientStop Color="#FFFF7800" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+        <ControlTemplate x:Key="ResizeDecoratorTemplate" TargetType="Control">
+            <Grid>
+                <Thumb Height="5" Cursor="SizeNS" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Width="5" Cursor="SizeWE" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Width="5" Cursor="SizeWE" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Height="5" Cursor="SizeNS" Margin="0,0,0,0" VerticalAlignment="Bottom"  HorizontalAlignment="Stretch" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Width="7" Height="7" Cursor="SizeNWSE" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Width="7" Height="7" Cursor="SizeNESW" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Width="7" Height="7" Cursor="SizeNESW" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+                <Thumb Width="7" Height="7" Cursor="SizeNWSE" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Transparent" Opacity="0" DragDelta="ThumbDragDelta"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
+    <Grid x:Name="xMainGrid" DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+
+        <graphicObjectControl:SplunkChartTableWrapperControl x:Name="xSplunkChartTableControl" Background="{x:Null}"/>
+        
+        <Button x:Name="xButtonClose" HorizontalAlignment="Right" Margin="0,5,7,0" Width="20" Height="20" VerticalAlignment="Top" TabIndex="20" IsTabStop="False" Content="X" 
+                    Style="{DynamicResource sButton_SplunkClose}"/>
+        
+        <Control x:Name="xResizeControl" Template="{StaticResource ResizeDecoratorTemplate}"/>
+
+    </Grid>
+</UserControl>

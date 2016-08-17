@@ -1,0 +1,449 @@
+﻿<UserControl x:Class="ArcGISControl.UIControl.GraphicObjectControl.PanomorphOverlayUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Language="clr-namespace:ArcGISControl.Language"
+             mc:Ignorable="d" 
+             d:DesignHeight="280" d:DesignWidth="300" Height="Auto" Width="Auto" MinHeight="270">
+    <UserControl.Resources>
+        <Style x:Key="sRadioButton_Panomorph_Ptz" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                    <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="1" Margin="0"/>
+                                    <Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="1" Width="26" Height="26" Stroke="#FFCCCCCC" StrokeThickness="2"/>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Opacity" TargetName="rectangle" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="sRadioButton_Panomorph_Peri" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                    <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="1" Margin="0"/>
+                                    <Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="1" Width="26" Height="26" Stroke="#FFCCCCCC" StrokeThickness="2"/>
+                                    <Rectangle x:Name="rectangle1" Fill="#FFCCCCCC" Margin="12,0" Stroke="{x:Null}" StrokeThickness="0" Height="2" VerticalAlignment="Center" Width="22"/>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Opacity" TargetName="rectangle" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Opacity" TargetName="rectangle1" Value="0.2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="sRadioButton_Panomorph_Quad" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                    <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="1" Margin="0"/>
+                                    <Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="1" Width="26" Height="26" Stroke="#FFCCCCCC" StrokeThickness="2"/>
+                                    <Rectangle x:Name="rectangle2" Fill="#FFCCCCCC" Margin="0" Stroke="{x:Null}" StrokeThickness="0" Height="2" VerticalAlignment="Center" Width="22"/>
+                                    <Rectangle x:Name="rectangle1" Fill="#FFCCCCCC" Margin="12,0" Stroke="{x:Null}" StrokeThickness="0" Height="22" VerticalAlignment="Center" Width="2"/>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="White"/>
+                                <Setter Property="Fill" TargetName="rectangle2" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="Fill" TargetName="rectangle2" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Opacity" TargetName="rectangle" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Opacity" TargetName="rectangle1" Value="0.2"/>
+                                <Setter Property="Opacity" TargetName="rectangle2" Value="0.2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="sRadioButton_Panomorph_Ptz_S" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="40" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                    <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="1" Margin="0"/>
+                                    <Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="1" Width="16" Height="16" Stroke="#FFCCCCCC" StrokeThickness="2"/>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Opacity" TargetName="rectangle" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="sRadioButton_Panomorph_Peri_S" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="40" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                    <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="1" Margin="0"/>
+                                    <Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="1" Width="16" Height="16" Stroke="#FFCCCCCC" StrokeThickness="2"/>
+                                    <Rectangle x:Name="rectangle1" Fill="#FFCCCCCC" Margin="12,0" Stroke="{x:Null}" StrokeThickness="0" Height="2" VerticalAlignment="Center" Width="12"/>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Opacity" TargetName="rectangle" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Opacity" TargetName="rectangle1" Value="0.2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="sRadioButton_Panomorph_Quad_S" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="40" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True">
+                                    <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="1" Margin="0"/>
+                                    <Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="1" Width="16" Height="16" Stroke="#FFCCCCCC" StrokeThickness="2"/>
+                                    <Rectangle x:Name="rectangle2" Fill="#FFCCCCCC" Margin="0" Stroke="{x:Null}" StrokeThickness="0" Height="2" VerticalAlignment="Center" Width="12"/>
+                                    <Rectangle x:Name="rectangle1" Fill="#FFCCCCCC" Margin="12,0" Stroke="{x:Null}" StrokeThickness="0" Height="12" VerticalAlignment="Center" Width="2"/>
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="White"/>
+                                <Setter Property="Fill" TargetName="rectangle2" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Stroke" TargetName="rectangle" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="Fill" TargetName="rectangle2" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Fill" TargetName="rectangle1" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="Opacity" TargetName="rectangle" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Opacity" TargetName="rectangle1" Value="0.2"/>
+                                <Setter Property="Opacity" TargetName="rectangle2" Value="0.2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="ButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle SnapsToDevicePixels="true" Margin="3" Stroke="White" StrokeDashArray="1 2" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#F3F3F3" Offset="0"/>
+            <GradientStop Color="#EBEBEB" Offset="0.5"/>
+            <GradientStop Color="#DDDDDD" Offset="0.5"/>
+            <GradientStop Color="#CDCDCD" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+        <Style x:Key="sToggleButton_Selection_S" TargetType="{x:Type ToggleButton}">
+                <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>  
+                <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                           	<Grid x:Name="grid" SnapsToDevicePixels="True">
+							<Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF444444" Grid.RowSpan="2"/>
+							<Path x:Name="path" Data="M13,20 L16,20 16,21.999999 13,21.999999 z M7,20 L10,20 10,22 7,22 z M0,19 L2,19 2,19.999999 3,19.999999 3,22 0,22 z M20.351744,18.237093 C20.411607,18.236422 20.471889,18.241056 20.531889,18.251173 L28.890787,19.704148 C29.31876,19.779159 29.649749,20.121194 29.710783,20.551179 29.77078,20.981163 29.546783,21.401139 29.155798,21.590161 L27.076785,22.596124 29.535736,25.055062 C29.926784,25.446046 29.926784,26.078053 29.535736,26.469038 L27.80877,28.195995 C27.418821,28.586002 26.785773,28.586002 26.394787,28.195995 L23.909835,25.711056 22.702881,28.05403 C22.529849,28.390022 22.183845,28.596012 21.813855,28.596012 21.764844,28.596012 21.713881,28.591984 21.662856,28.583989 21.237874,28.520025 20.90188,28.19099 20.828882,27.767048 L19.375899,19.408195 C19.319931,19.087155 19.423872,18.760196 19.65391,18.53022 19.840767,18.342521 20.092333,18.24 20.351744,18.237093 z M0,13 L2,13 2,16 0,16 z M20,12 L22,12 22,15 20,15 z M0,6.999999 L2,6.999999 2,9.999999 0,9.999999 z M20,5.999999 L22,5.999999 22,8.999999 20,8.999999 z M19,0 L22,0 22,2.999999 20,2.999999 20,2 19,2 z M12,0 L15,0 15,2 12,2 z M6,0 L9,0 9,2 6,2 z M0,0 L3,0 3,2 2,2 2,2.999999 0,2.999999 z" Fill="#FFCCCCCC" Height="18" Stretch="Fill" Width="18" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                	<Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                	<Setter Property="Fill" TargetName="path" Value="White"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FFFFAF00"/>
+                                    <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                    <Setter Property="Fill" TargetName="path" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                    <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                    <Setter Property="Opacity" TargetName="path" Value="0.2"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        <Style x:Key="sToggleButton_Panomoph" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="Silver" BorderThickness="1" CornerRadius="3" Background="#A5000000" Margin="0" SnapsToDevicePixels="True"/>
+                            <StackPanel x:Name="stackPanel" Margin="0" Orientation="Vertical" d:LayoutOverrides="Height" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Path x:Name="icon_lock" Data="F1M924.6406,529.1973C924.8036,528.7183,926.0066,526.2203,928.8086,526.1023C928.9916,526.1073,929.1776,526.1083,929.3566,526.1023C932.3116,526.2213,933.7686,528.8903,933.7676,529.1533C932.4956,529.9463,930.9026,530.4243,929.1676,530.4243C927.4676,530.4243,925.9026,529.9633,924.6406,529.1973 M934.0416,519.8723C934.0806,520.3433,932.2146,522.9823,929.3556,523.1003C929.1766,523.0953,928.9896,523.0943,928.8086,523.1003C926.0066,522.9823,924.4126,520.4223,924.3536,519.8293C925.6566,518.9533,927.3346,518.4243,929.1676,518.4243C931.0276,518.4243,932.7306,518.9713,934.0416,519.8723 M929.1676,516.4243C923.6536,516.4243,919.1676,520.0123,919.1676,524.4243C919.1676,528.8353,923.6536,532.4243,929.1676,532.4243C934.6826,532.4243,939.1676,528.8353,939.1676,524.4243C939.1676,520.0123,934.6826,516.4243,929.1676,516.4243" Fill="Silver" Height="20" Stretch="Fill" Width="24" HorizontalAlignment="Stretch" Margin="0" Stroke="{x:Null}" Visibility="Visible" d:LayoutOverrides="Height"/>
+                                <TextBlock x:Name="v" Margin="0" TextWrapping="Wrap" Text="{TemplateBinding Content}" Foreground="#FFCCCCCC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10.667" RenderTransformOrigin="0.5,0.5"/>
+                            </StackPanel>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Background" TargetName="border" Value="Black"/>
+                                <Setter Property="Fill" TargetName="icon_lock" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Foreground" TargetName="v" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Foreground" TargetName="v" Value="Black"/>
+                                <Setter Property="Fill" TargetName="icon_lock" Value="Black"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Opacity" TargetName="stackPanel" Value="0.2"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="sButton_DefaultView_L" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="grid">
+                            <Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#FF333333" BorderBrush="#FF3D3D3D" SnapsToDevicePixels="True"/>
+                            <Path x:Name="path" Data="F1M933.3477,520.6553C933.1937,520.5563,932.9957,520.5503,932.8347,520.6413L931.6227,521.3233C929.7797,518.9293,926.4047,518.1803,923.6987,519.7053C922.2577,520.5153,921.2197,521.8373,920.7747,523.4283C920.3277,525.0193,920.5297,526.6893,921.3397,528.1293C922.1497,529.5693,923.4717,530.6073,925.0637,531.0523C925.6177,531.2083,926.1797,531.2843,926.7407,531.2843C927.7877,531.2843,928.8257,531.0143,929.7637,530.4863C930.3287,530.1683,930.8347,529.7693,931.2677,529.3013C931.6427,528.8953,931.6177,528.2633,931.2117,527.8883C930.8057,527.5133,930.1737,527.5383,929.7987,527.9443C929.5077,528.2593,929.1657,528.5283,928.7837,528.7443C927.8087,529.2923,926.6797,529.4283,925.6027,529.1273C924.5257,528.8253,923.6307,528.1233,923.0817,527.1483C922.5347,526.1743,922.3987,525.0443,922.7007,523.9683C923.0017,522.8913,923.7037,521.9963,924.6787,521.4483C925.6547,520.9003,926.7827,520.7633,927.8597,521.0653C928.6437,521.2853,929.3267,521.7223,929.8557,522.3183L928.6047,523.0213C928.4447,523.1123,928.3457,523.2823,928.3497,523.4673C928.3537,523.6513,928.4577,523.8183,928.6217,523.9023L932.5317,525.9003C932.6027,525.9363,932.6807,525.9543,932.7587,525.9543C932.8437,525.9543,932.9277,525.9333,933.0037,525.8903C933.1507,525.8083,933.2447,525.6583,933.2577,525.4913L933.5787,521.1133C933.5917,520.9303,933.5037,520.7543,933.3477,520.6553" Fill="#FFCCCCCC" Height="14" Stretch="Fill" Width="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Opacity" TargetName="path" Value="0.2"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                                <Setter Property="Fill" TargetName="path" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+                                <Setter Property="Background" TargetName="border" Value="#FF222222"/>
+                                <Setter Property="Fill" TargetName="path" Value="#FF666666"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="70" Panel.ZIndex="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="215"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="xControlPanelGrid" Grid.Row="0">
+                <Border Background="#A5000000" CornerRadius="3" BorderBrush="Silver" BorderThickness="1" Margin="0"/>
+                <Grid Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{x:Static Language:Resource_ArcGISControl_UIControl.Label_Panomorph_Display}" Foreground="White" FontSize="11" Margin="0" d:LayoutOverrides="Height" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <StackPanel Grid.Row="1">
+                            <RadioButton x:Name="xPtzViewRadioButton" Content="PTZ" Foreground="White" Width="40" Height="24" Background="Transparent" Margin="0" IsChecked="True" Style="{DynamicResource sRadioButton_Panomorph_Ptz_S}" TabIndex="10"/>
+                            <RadioButton x:Name="xPeriViewRadioButton" Content="PERI" Foreground="White" Width="40" Height="24" Background="Transparent" Margin="0,5,0,0" Style="{DynamicResource sRadioButton_Panomorph_Peri_S}" TabIndex="20"/>
+                            <RadioButton x:Name="xQuadViewRadioButton" Content="QUAD" Foreground="White" Width="40" Height="24" Background="Transparent" Margin="0,5,0,0" Style="{DynamicResource sRadioButton_Panomorph_Quad_S}" TabIndex="30"/>
+                            <Grid Height="2" Margin="5,5,5,0">
+                                <Rectangle Fill="#7F000000" Height="1" SnapsToDevicePixels="True" VerticalAlignment="Top"/>
+                                <Rectangle Fill="#33FFFFFF" Height="1" SnapsToDevicePixels="True" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Margin="0" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{x:Static Language:Resource_ArcGISControl_UIControl.Label_Panomorph_Selection}" Foreground="White" FontSize="11" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <StackPanel VerticalAlignment="Bottom" Grid.Row="1">
+                            <ToggleButton x:Name="xSelectionToggleButton" Content="Selection" Foreground="White" Width="40" Height="24" Background="Transparent" Margin="0" Style="{DynamicResource sToggleButton_Selection_S}" TabIndex="40"/>
+                            <Grid Height="2" Margin="5,5,5,0">
+                                <Rectangle Fill="#7F000000" Height="1" SnapsToDevicePixels="True" VerticalAlignment="Top"/>
+                                <Rectangle Fill="#33FFFFFF" Height="1" SnapsToDevicePixels="True" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Margin="0" Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="xDefaultViewButton" Content="" Foreground="White" Width="40" Height="24" Background="Transparent" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Center" Grid.Row="1" Style="{DynamicResource sButton_DefaultView_L}" TabIndex="50"/>
+                        <TextBlock Text="{x:Static Language:Resource_ArcGISControl_UIControl.Label_Panomorph_Default}" Foreground="White" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <ToggleButton x:Name="xControlVisibleToggleButton" Content="{x:Static Language:Resource_ArcGISControl_UIControl.Button_Panomorph}" Foreground="White" Background="Transparent" Style="{DynamicResource sToggleButton_Panomoph}" Height="50" Width="70" TabIndex="60"/>
+            </Grid>
+        </Grid>
+        <Rectangle x:Name="xPanomorphSelectionRectangle" Stroke="Red" Fill="{x:Null}" StrokeThickness="1" StrokeDashArray="3" Visibility="Collapsed" Panel.ZIndex="0"
+                   VerticalAlignment="Top" HorizontalAlignment="Left" ClipToBounds="True" IsHitTestVisible="False"/>
+        <Grid x:Name="xControlGrid" Background="Transparent" Panel.ZIndex="1"/>
+    </Grid>
+</UserControl>
+

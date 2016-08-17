@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ArcGISControl.UIControl.ErrorMessageUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid Margin="0,2,5,0" Width="14" Height="28">
+            <Path Data="F1M291.7881,423.3551C290.6771,423.3551,289.6401,423.0461,288.7471,422.5181L296.9521,414.3131C297.4801,415.2071,297.7891,416.2451,297.7891,417.3551C297.7891,420.6641,295.0971,423.3551,291.7881,423.3551 M291.7881,411.3551C292.8991,411.3551,293.9371,411.6641,294.8301,412.1921L286.6261,420.3971C286.0971,419.5041,285.7881,418.4661,285.7881,417.3551C285.7881,414.0471,288.4801,411.3551,291.7881,411.3551 M291.7881,408.3551C286.8261,408.3551,282.7881,412.3931,282.7881,417.3551C282.7881,422.3181,286.8261,426.3551,291.7881,426.3551C296.7511,426.3551,300.7891,422.3181,300.7891,417.3551C300.7891,412.3931,296.7511,408.3551,291.7881,408.3551" Stretch="Fill" Width="14" HorizontalAlignment="Center" Margin="0" Height="14" VerticalAlignment="Top">
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Red" Offset="1"/>
+                        <GradientStop Color="#FFFF4545"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+            <Path Data="F1M291.7881,423.3551C290.6771,423.3551,289.6401,423.0461,288.7471,422.5181L296.9521,414.3131C297.4801,415.2071,297.7891,416.2451,297.7891,417.3551C297.7891,420.6641,295.0971,423.3551,291.7881,423.3551 M291.7881,411.3551C292.8991,411.3551,293.9371,411.6641,294.8301,412.1921L286.6261,420.3971C286.0971,419.5041,285.7881,418.4661,285.7881,417.3551C285.7881,414.0471,288.4801,411.3551,291.7881,411.3551 M291.7881,408.3551C286.8261,408.3551,282.7881,412.3931,282.7881,417.3551C282.7881,422.3181,286.8261,426.3551,291.7881,426.3551C296.7511,426.3551,300.7891,422.3181,300.7891,417.3551C300.7891,412.3931,296.7511,408.3551,291.7881,408.3551" Stretch="Fill" Width="14" HorizontalAlignment="Center" Height="14" VerticalAlignment="Bottom" Margin="0">
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#00FF0000" Offset="0.6"/>
+                        <GradientStop Color="#4CFF4545"/>
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+        </Grid>
+        <Label x:Name="xLabelErrorMessage" Content="TestMessage입니다." Padding="0"/>
+    </StackPanel>
+</UserControl>

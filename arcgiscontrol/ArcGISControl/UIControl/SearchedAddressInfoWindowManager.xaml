@@ -1,0 +1,23 @@
+﻿<Base:InfoWindowManager x:Class="ArcGISControl.UIControl.SearchedAddressInfoWindowManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Base="clr-namespace:ArcGISControl.UIControl" mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="InfoWindowTemplate">
+            <Grid Margin="0,0,0,28"  Height="120" Width="240" Background="{x:Null}">
+                <Path IsHitTestVisible="False" x:Name="xPanel" Data="M3.0107541,1.3642421E-12 L276.98926,1.3642421E-12 C278.65207,-1.5497194E-06 280,1.3537201 280,3.0236214 L280,124.97638 C280,126.64628 278.65207,128 276.98926,128 L145.59473,128 140.69832,134.76932 136.27001,128 3.0107541,128 C1.3479599,128 0,126.64628 0,124.97638 L0,3.0236214 C0,1.3537201 1.3479599,-1.5497194E-06 3.0107541,1.3642421E-12 z" Margin="0" Grid.RowSpan="4" Stretch="Fill" Stroke="Black" Fill="#CC000000" SnapsToDevicePixels="True"/>
+                <StackPanel Margin="10,0" Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock x:Name="xTextName" Text="{Binding [Name]}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" ToolTip="{Binding Text, ElementName=xTextName}" Foreground="white" HorizontalAlignment="Center" Margin="0,5" Width="220" TextAlignment="Center" FontWeight="Bold" FontSize="16"/>
+                    <TextBlock x:Name="xTextAddress" Text="{Binding [Address]}" Margin="0" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" ToolTip="{Binding Text, ElementName=xTextAddress}" Foreground="#FFFFAF00" HorizontalAlignment="Center" Width="220" TextAlignment="Center"/>
+                    <Button Content="MY ADDRESS" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Style="{DynamicResource sButton_MyAddress}" Click="SaveButton_OnClick" IsEnabled="{Binding [IsNotSaved]}"/>
+                </StackPanel>
+                <Button IsHitTestVisible="True" Content="x" Height="20" HorizontalAlignment="Right" x:Name="xButtonClose" Panel.ZIndex="1" VerticalAlignment="Top" VerticalContentAlignment="Top" Width="26" Style="{DynamicResource sButtonClose_tootip}" Margin="0,5,5,0"
+                       Click="CloseButton_OnClick"></Button>
+
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+</Base:InfoWindowManager>

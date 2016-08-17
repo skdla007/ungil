@@ -1,0 +1,645 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="ArcGISControls.Tools.PostItControl.PostItPopupControl" 
+             mc:Ignorable="d" Width="240" Height="200" MaxHeight="200" MinHeight="180" MinWidth="150"
+			 >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            	<ResourceDictionary Source="../StyleResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        	<Style x:Key="sButton_PostItClose" BasedOn="{x:Null}" TargetType="{x:Type Button}">
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Background="#02000000" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        						<Path Fill="{x:Null}" Stretch="Fill" Stroke="White" StrokeEndLineCap="Square" StrokeStartLineCap="Square" StrokeThickness="1.5" Data="M0.75,0.75 L7.25,7.25 M7.25,0.75 L0.75,7.25" x:Name="path_shadow" Margin="0,2,0,0" Width="10" Height="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SnapsToDevicePixels="True" />
+        						<Path Fill="{x:Null}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square" StrokeThickness="1.5" Data="M0.75,0.75 L7.25,7.25 M7.25,0.75 L0.75,7.25" x:Name="path" Width="10" Height="10" VerticalAlignment="Stretch" SnapsToDevicePixels="True" Stroke="#FF7E7C65" />
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Stroke" TargetName="path" Value="#FFA7A488"/>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Stroke" TargetName="path" Value="#FF5A594A"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+			 	<Style x:Key="sButton_hide" BasedOn="{x:Null}" TargetType="{x:Type Button}">
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Background="#02000000" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        						<Rectangle Fill="White" Height="2" Margin="0,0,0,7" Stroke="{x:Null}" VerticalAlignment="Bottom" Width="12" HorizontalAlignment="Center"/>
+        						<Rectangle x:Name="path" Fill="#FF7E7C65" Height="2" Margin="0,0,0,8" Stroke="{x:Null}" VerticalAlignment="Bottom" Width="12" HorizontalAlignment="Center"/>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="path" Value="#FFA7A488"/>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="path" Value="#FF5A594A"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+			
+			<Style x:Key="sFocusVisual_Button">
+	                <Setter Property="Control.Template">
+	                    <Setter.Value>
+	                        <ControlTemplate>
+	                            <Rectangle Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="2" SnapsToDevicePixels="true"/>
+	                        </ControlTemplate>
+	                    </Setter.Value>
+	                </Setter>
+	        </Style>
+			<SolidColorBrush x:Key="bBorder_#FF707070_Button" Color="#FF707070"/>
+        	<Style x:Key="sButton_Go" TargetType="{x:Type Button}">
+        		<Setter Property="FocusVisualStyle" Value="{StaticResource sFocusVisual_Button}"/>
+        		<Setter Property="BorderBrush" Value="{StaticResource bBorder_#FF707070_Button}"/>
+        		<Setter Property="BorderThickness" Value="1"/>
+        		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        		<Setter Property="VerticalContentAlignment" Value="Center"/>
+        		<Setter Property="Padding" Value="1"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Width="Auto" Height="Auto">
+        						<Rectangle RadiusX="4" RadiusY="4" x:Name="rectangle_out" Fill="#FFC4C4C4" Stroke="#FFC8B36B" Visibility="Visible" />
+        						<Rectangle RadiusX="3" RadiusY="3" x:Name="rectangle_in" Stroke="White" Visibility="Visible" Margin="1" >
+        							<Rectangle.Fill>
+        								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        									<GradientStop Color="#FFE8E8E8" Offset="0"/>
+        									<GradientStop Color="#FFD0D0D0" Offset="1"/>
+        								</LinearGradientBrush>
+        							</Rectangle.Fill>
+        						</Rectangle>
+        						<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" HorizontalAlignment="Center" VerticalAlignment="Center">
+        							<Grid Height="Auto" Width="Auto">
+        								<Path x:Name="path1" Data="M2.3501733,5.9120191 L4.1511515,5.9120191 C4.7031386,5.9120191 5.1511248,6.3600175 5.1511248,6.9120201 5.1511248,7.4640224 4.7031386,7.9120207 4.1511515,7.9120207 L3.0181854,7.9120207 2.4961961,9.1700175 11.90995,9.1700175 11.214961,7.9120207 10.003994,7.9120207 C9.451,7.9120207 9.0040205,7.4640224 9.0040205,6.9120201 9.0040205,6.3600175 9.451,5.9120191 10.003994,5.9120191 L11.804942,5.9120191 C12.168916,5.9120191 12.503929,6.1100173 12.679919,6.4280106 L14.480866,9.6860092 C14.652859,9.996007 14.646878,10.373022 14.466859,10.678014 14.286871,10.983007 13.958876,11.170019 13.605889,11.170019 L0.99922601,11.170019 C0.66521994,11.170019 0.35324697,11.003027 0.16724722,10.725011 -0.016738433,10.448003 -0.051741176,10.095006 0.076246123,9.7870224 L1.4262166,6.5290239 C1.5812115,6.1560074 1.9461922,5.9120191 2.3501733,5.9120191 z M10.371136,0.00012683868 C12.057577,-0.013957977 14.055095,1.1476326 14.543533,1.6342068 L15.158533,1.0361924 C15.260532,0.93719006 15.404532,0.90218925 15.549533,0.94719028 15.687532,0.99419117 15.788532,1.1121941 15.809532,1.2571979 L16.313532,4.5732778 C16.332533,4.6972809 16.289532,4.8212839 16.200533,4.9102862 16.112531,4.9962881 15.986532,5.0342891 15.862532,5.0122884 L12.560534,4.413274 C12.547534,4.412274 12.534534,4.4082739 12.522534,4.4052739 12.397534,4.3682729 12.297534,4.2722706 12.258534,4.1482676 12.217534,4.0082642 12.256534,3.8592606 12.360534,3.756258 L13.087534,3.0482409 C13.079533,3.0432408 13.067533,3.0412409 13.061534,3.0332406 12.658534,2.4322262 11.000535,1.7922106 9.9095352,1.9052134 8.2475365,2.0792177 7.7495363,4.4282744 7.7215364,5.6253033 7.7135365,5.9263106 7.7565368,6.1943171 7.6235364,6.31032 7.4285367,6.4763239 7.1845367,6.0823144 7.0865367,5.6203033 6.4875372,2.8102353 7.7455366,0.26917362 10.038535,0.0191679 10.14766,0.0072302818 10.258707,0.001065731 10.371136,0.00012683868 z" Fill="White" Height="14" Stretch="Fill" Width="18" HorizontalAlignment="Stretch" Margin="0,2,0,0"/>
+        								<Path x:Name="path" Data="M2.3501733,5.9120191 L4.1511515,5.9120191 C4.7031386,5.9120191 5.1511248,6.3600175 5.1511248,6.9120201 5.1511248,7.4640224 4.7031386,7.9120207 4.1511515,7.9120207 L3.0181854,7.9120207 2.4961961,9.1700175 11.90995,9.1700175 11.214961,7.9120207 10.003994,7.9120207 C9.451,7.9120207 9.0040205,7.4640224 9.0040205,6.9120201 9.0040205,6.3600175 9.451,5.9120191 10.003994,5.9120191 L11.804942,5.9120191 C12.168916,5.9120191 12.503929,6.1100173 12.679919,6.4280106 L14.480866,9.6860092 C14.652859,9.996007 14.646878,10.373022 14.466859,10.678014 14.286871,10.983007 13.958876,11.170019 13.605889,11.170019 L0.99922601,11.170019 C0.66521994,11.170019 0.35324697,11.003027 0.16724722,10.725011 -0.016738433,10.448003 -0.051741176,10.095006 0.076246123,9.7870224 L1.4262166,6.5290239 C1.5812115,6.1560074 1.9461922,5.9120191 2.3501733,5.9120191 z M10.371136,0.00012683868 C12.057577,-0.013957977 14.055095,1.1476326 14.543533,1.6342068 L15.158533,1.0361924 C15.260532,0.93719006 15.404532,0.90218925 15.549533,0.94719028 15.687532,0.99419117 15.788532,1.1121941 15.809532,1.2571979 L16.313532,4.5732778 C16.332533,4.6972809 16.289532,4.8212839 16.200533,4.9102862 16.112531,4.9962881 15.986532,5.0342891 15.862532,5.0122884 L12.560534,4.413274 C12.547534,4.412274 12.534534,4.4082739 12.522534,4.4052739 12.397534,4.3682729 12.297534,4.2722706 12.258534,4.1482676 12.217534,4.0082642 12.256534,3.8592606 12.360534,3.756258 L13.087534,3.0482409 C13.079533,3.0432408 13.067533,3.0412409 13.061534,3.0332406 12.658534,2.4322262 11.000535,1.7922106 9.9095352,1.9052134 8.2475365,2.0792177 7.7495363,4.4282744 7.7215364,5.6253033 7.7135365,5.9263106 7.7565368,6.1943171 7.6235364,6.31032 7.4285367,6.4763239 7.1845367,6.0823144 7.0865367,5.6203033 6.4875372,2.8102353 7.7455366,0.26917362 10.038535,0.0191679 10.14766,0.0072302818 10.258707,0.001065731 10.371136,0.00012683868 z" Fill="#FF3A3A3A" Height="14" Stretch="Fill" Width="18" HorizontalAlignment="Stretch" Margin="0"/>
+        							</Grid>
+        							<Grid Margin="5,0,0,0">
+        								<ContentControl x:Name="contentControl1" Margin="0" VerticalAlignment="Stretch" Foreground="White" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0"/>
+        								</ContentControl>
+        								<ContentControl x:Name="contentControl" Margin="0" VerticalAlignment="Stretch" Foreground="#FF3A3A3A" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        								</ContentControl>
+        							</Grid>
+        						</StackPanel>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsEnabled" Value="False">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFDDDDDD" Offset="0"/>
+        										<GradientStop Color="LightGray" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="#FFB8B8B8"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFEFEFEF"/>
+        							<Setter Property="Fill" TargetName="path" Value="#FFB8B8B8"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFEFEFEF"/>
+        						</Trigger>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFF2F2F2" Offset="0"/>
+        										<GradientStop Color="#FFDADADA" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFFFCB00" Offset="0"/>
+        										<GradientStop Color="#FFFFA200" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFD88A00"/>
+        							<Setter Property="Margin" TargetName="contentPresenter1" Value="0,-2,0,0"/>
+        							<Setter Property="Stroke" TargetName="rectangle_in" Value="#FFDC8D00"/>
+        							<Setter Property="Fill" TargetName="path" Value="White"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFD88A00"/>
+									<Setter Property="Margin" TargetName="path1" Value="0,-2,0,0"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="IsEnabled" Value="True"/>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+        	<Style x:Key="sButton_EditEvent" TargetType="{x:Type Button}">
+        	    <Setter Property="FocusVisualStyle" Value="{StaticResource sFocusVisual_Button}"/>
+        		<Setter Property="BorderBrush" Value="{StaticResource bBorder_#FF707070_Button}"/>
+        		<Setter Property="BorderThickness" Value="1"/>
+        		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        		<Setter Property="VerticalContentAlignment" Value="Center"/>
+        		<Setter Property="Padding" Value="1"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Button}">
+        					<Grid Width="Auto" Height="Auto">
+        						<Rectangle RadiusX="4" RadiusY="4" x:Name="rectangle_out" Fill="#FFC4C4C4" Stroke="#FFC8B36B" Visibility="Visible" />
+        						<Rectangle RadiusX="3" RadiusY="3" x:Name="rectangle_in" Stroke="White" Visibility="Visible" Margin="1" >
+        							<Rectangle.Fill>
+        								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        									<GradientStop Color="#FFE8E8E8" Offset="0"/>
+        									<GradientStop Color="#FFD0D0D0" Offset="1"/>
+        								</LinearGradientBrush>
+        							</Rectangle.Fill>
+        						</Rectangle>
+        						<StackPanel Orientation="Horizontal" d:LayoutOverrides="Width" HorizontalAlignment="Center" VerticalAlignment="Center">
+        							<Grid Height="Auto" Width="Auto">
+        								<Path x:Name="path1" Data="M8.0849858,10.099013 L10.272001,12.28501 7.4299813,12.94001 z M13.216981,4.966019 L15.499983,7.248021 10.938978,11.810025 8.6559763,9.5290231 z M0,0 L10.945001,0 10.945001,4.3259925 8.9449959,4.3259925 8.9449959,2.0000019 2.0000043,2.0000019 2.0000043,9.7569979 6.0799995,9.7569979 6.0799995,11.757 0,11.757 z" Fill="White" Height="12" Stretch="Fill" Width="16" HorizontalAlignment="Stretch" Margin="0,2,0,0"/>
+        								<Path x:Name="path" Data="M8.0849858,10.099013 L10.272001,12.28501 7.4299813,12.94001 z M13.216981,4.966019 L15.499983,7.248021 10.938978,11.810025 8.6559763,9.5290231 z M0,0 L10.945001,0 10.945001,4.3259925 8.9449959,4.3259925 8.9449959,2.0000019 2.0000043,2.0000019 2.0000043,9.7569979 6.0799995,9.7569979 6.0799995,11.757 0,11.757 z" Fill="#FF3A3A3A" Height="14" Stretch="Fill" Width="16" HorizontalAlignment="Stretch" Margin="0"/>
+        							</Grid>
+        							<Grid Margin="5,0,0,0">
+        								<ContentControl x:Name="contentControl1" Margin="0" VerticalAlignment="Stretch" Foreground="White" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0" Content="EDIT"/>
+        								</ContentControl>
+        								<ContentControl x:Name="contentControl" Margin="0" VerticalAlignment="Stretch" Foreground="#FF3A3A3A" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display" FontFamily="Malgun Gothic" FontSize="11" IsTabStop="False" FontWeight="Bold">
+        									<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center" Content="EDIT"/>
+        								</ContentControl>
+        							</Grid>
+        						</StackPanel>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsEnabled" Value="False">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFDDDDDD" Offset="0"/>
+        										<GradientStop Color="LightGray" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="#FFB8B8B8"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFEFEFEF"/>
+        							<Setter Property="Fill" TargetName="path" Value="#FFB8B8B8"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFEFEFEF"/>
+        						</Trigger>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFF2F2F2" Offset="0"/>
+        										<GradientStop Color="#FFDADADA" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle_in">
+        								<Setter.Value>
+        									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        										<GradientStop Color="#FFFFCB00" Offset="0"/>
+        										<GradientStop Color="#FFFFA200" Offset="1"/>
+        									</LinearGradientBrush>
+        								</Setter.Value>
+        							</Setter>
+        							<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+        							<Setter Property="Foreground" TargetName="contentControl1" Value="#FFD88A00"/>
+        							<Setter Property="Margin" TargetName="contentPresenter1" Value="0,-2,0,0"/>
+        							<Setter Property="Stroke" TargetName="rectangle_in" Value="#FFDC8D00"/>
+        							<Setter Property="Fill" TargetName="path" Value="White"/>
+        							<Setter Property="Fill" TargetName="path1" Value="#FFD88A00"/>
+									<Setter Property="Margin" TargetName="path1" Value="0,-2,0,0"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="IsEnabled" Value="True"/>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+			
+			<!-- ScrollViewer -->
+			<Style x:Key="VerticalScrollBarPageButton" TargetType="{x:Type RepeatButton}">
+				<Setter Property="OverridesDefaultStyle" Value="true"/>
+				<Setter Property="Background" Value="Transparent"/>
+				<Setter Property="Focusable" Value="false"/>
+				<Setter Property="IsTabStop" Value="false"/>
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="{x:Type RepeatButton}">
+							<Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter Property="SnapsToDevicePixels" Value="True"/>
+			</Style>
+        	<Style x:Key="sScrollViewer_Postit" TargetType="{x:Type ScrollViewer}">
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type ScrollViewer}">
+        					<Grid x:Name="Grid" Uid="Grid">
+        						<Grid.ColumnDefinitions>
+        							<ColumnDefinition Width="*"/>
+        							<ColumnDefinition Width="Auto"/>
+        						</Grid.ColumnDefinitions>
+        						<Grid.RowDefinitions>
+        							<RowDefinition Height="*"/>
+        							<RowDefinition Height="Auto"/>
+        						</Grid.RowDefinitions>
+        						<Border x:Name="ScrollViewerCorner" BorderThickness="1,1,0,0" Grid.Column="1" Grid.Row="1" Uid="Border_7"/>
+        						<Border Background="{TemplateBinding Background}" Uid="Border_80">
+        							<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0" Uid="PART_ScrollContentPresenter"/>
+        						</Border>
+        						<ScrollBar x:Name="PART_VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Uid="PART_VerticalScrollBar" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" Style="{DynamicResource sScrollBar_VerticalPostit}"/>
+        						<ScrollBar x:Name="PART_HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Uid="PART_HorizontalScrollBar" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" Style="{DynamicResource sScrollBar_HorizontalPostit}" TabIndex="20"/>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="Visibility" SourceName="PART_VerticalScrollBar" Value="Collapsed">
+        							<Setter Property="Visibility" TargetName="ScrollViewerCorner" Value="Collapsed"/>
+        						</Trigger>
+        						<Trigger Property="Visibility" SourceName="PART_HorizontalScrollBar" Value="Collapsed">
+        							<Setter Property="Visibility" TargetName="ScrollViewerCorner" Value="Collapsed"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        		<Style.Triggers>
+        			<Trigger Property="IsEnabled" Value="False">
+        				<Setter Property="Foreground" Value="#FFB8B8B8"/>
+        			</Trigger>
+        		</Style.Triggers>
+        	</Style>
+        	<Style x:Key="sScrollBar_HorizontalPostit" TargetType="{x:Type ScrollBar}">
+        		<Setter Property="Background" Value="{StaticResource VerticalScrollBarBackground}"/>
+        		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        		<Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+        		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        		<Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        		<Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type ScrollBar}">
+        					<Grid x:Name="Bg" SnapsToDevicePixels="true">
+        						<Grid.RowDefinitions>
+        							<RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+        							<RowDefinition Height="0.00001*"/>
+        							<RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+        						</Grid.RowDefinitions>
+        						<RepeatButton Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{DynamicResource sScrollArrowUp_Basic}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="UpArrow" TabIndex="10"/>
+        						<Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1" Orientation="Vertical">
+        							<Track.DecreaseRepeatButton>
+        								<RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource VerticalScrollBarPageButton}"/>
+        							</Track.DecreaseRepeatButton>
+        							<Track.IncreaseRepeatButton>
+        								<RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource VerticalScrollBarPageButton}"/>
+        							</Track.IncreaseRepeatButton>
+        							<Track.Thumb>
+        								<Thumb Style="{DynamicResource sScrollThumbHorizontal}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="VerticalGripper" TabIndex="20"/>
+        							</Track.Thumb>
+        						</Track>
+        						<RepeatButton Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{DynamicResource sScrollArrowDown_Basic}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="DownArrow" TabIndex="30"/>
+        					</Grid>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="Orientation" Value="Vertical"/>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        		<Style.Triggers>
+        			<Trigger Property="Orientation" Value="Horizontal">
+        				<Setter Property="Width" Value="Auto"/>
+        				<Setter Property="MinWidth" Value="0"/>
+        				<Setter Property="Height" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+        				<Setter Property="MinHeight" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+        				<Setter Property="Background" Value="{StaticResource HorizontalScrollBarBackground}"/>
+        				<Setter Property="Template">
+        					<Setter.Value>
+        						<ControlTemplate TargetType="{x:Type ScrollBar}">
+        							<Grid x:Name="Bg" SnapsToDevicePixels="true">
+        								<Grid.ColumnDefinitions>
+        									<ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+        									<ColumnDefinition Width="0.00001*"/>
+        									<ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+        								</Grid.ColumnDefinitions>
+        								<Border BorderBrush="White" BorderThickness="1" Height="8" Margin="0" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" CornerRadius="4" Grid.Column="1">
+        									<Border.Background>
+        										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        											<LinearGradientBrush.RelativeTransform>
+        												<TransformGroup>
+        													<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+        													<SkewTransform CenterY="0.5" CenterX="0.5"/>
+        													<RotateTransform Angle="0" CenterY="0.5" CenterX="0.5"/>
+        													<TranslateTransform/>
+        												</TransformGroup>
+        											</LinearGradientBrush.RelativeTransform>
+        											<GradientStop Color="#FFF0F0F0" Offset="0.2"/>
+        											<GradientStop Color="#FFF0F0F0" Offset="1"/>
+        											<GradientStop Color="#FFA0A0A0"/>
+        										</LinearGradientBrush>
+        									</Border.Background>
+        								</Border>
+        								<RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{DynamicResource sScrollArrowLeft_Basic}" />
+        								<Track x:Name="PART_Track" Grid.Column="1" IsEnabled="{TemplateBinding IsMouseOver}" Orientation="Horizontal">
+        									<Track.DecreaseRepeatButton>
+        										<RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource HorizontalScrollBarPageButton}"/>
+        									</Track.DecreaseRepeatButton>
+        									<Track.IncreaseRepeatButton>
+        										<RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource HorizontalScrollBarPageButton}"/>
+        									</Track.IncreaseRepeatButton>
+        									<Track.Thumb>
+        										<Thumb Style="{DynamicResource sScrollThumbHorizontal}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="HorizontalGripper"/>
+        									</Track.Thumb>
+        								</Track>
+        								<RepeatButton Grid.Column="2" Command="{x:Static ScrollBar.LineRightCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{DynamicResource sScrollArrowRight_Basic}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="RightArrow"/>
+        							</Grid>
+        							<ControlTemplate.Triggers>
+        								<Trigger Property="IsEnabled" Value="false">
+        									<Setter Property="Background" TargetName="Bg" Value="{StaticResource ScrollBarDisabledBackground}"/>
+        								</Trigger>
+        							</ControlTemplate.Triggers>
+        						</ControlTemplate>
+        					</Setter.Value>
+        				</Setter>
+        			</Trigger>
+        		</Style.Triggers>
+        	</Style>
+        	<Style x:Key="sScrollBar_VerticalPostit" TargetType="{x:Type ScrollBar}">
+        		<Setter Property="Background" Value="{StaticResource VerticalScrollBarBackground}"/>
+        		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        		<Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+        		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        		<Setter Property="Width" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        		<Setter Property="MinWidth" Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type ScrollBar}">
+        					<Grid x:Name="Bg" SnapsToDevicePixels="true">
+        						<Grid.RowDefinitions>
+        							<RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+        							<RowDefinition Height="0.00001*"/>
+        							<RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+        						</Grid.RowDefinitions>
+        						<Border BorderBrush="{x:Null}" BorderThickness="0" Height="Auto" Margin="0" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="8" CornerRadius="4">
+        							<Border.Background>
+        								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        									<LinearGradientBrush.RelativeTransform>
+        										<TransformGroup>
+        											<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+        											<SkewTransform CenterY="0.5" CenterX="0.5"/>
+        											<RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+        											<TranslateTransform/>
+        										</TransformGroup>
+        									</LinearGradientBrush.RelativeTransform>
+        									<GradientStop Color="#FFCFBF8B" Offset="0.2"/>
+        									<GradientStop Color="#FFCFBF8B" Offset="1"/>
+        									<GradientStop Color="#FFAA9CA0"/>
+        								</LinearGradientBrush>
+        							</Border.Background>
+        						</Border>
+        						<RepeatButton Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="UpArrow" TabIndex="10" Template="{DynamicResource sScrollArrowUp_Postit}"/>
+        						<Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+        							<Track.DecreaseRepeatButton>
+        								<RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource VerticalScrollBarPageButton}"/>
+        							</Track.DecreaseRepeatButton>
+        							<Track.IncreaseRepeatButton>
+        								<RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource VerticalScrollBarPageButton}"/>
+        							</Track.IncreaseRepeatButton>
+        							<Track.Thumb>
+        								<Thumb Style="{DynamicResource sScrollThumbVertical_Postit}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="VerticalGripper" TabIndex="20"/>
+        							</Track.Thumb>
+        						</Track>
+        						<RepeatButton Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="DownArrow" TabIndex="30" Template="{DynamicResource sScrollArrowDown_Postit}"/>
+        					</Grid>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        		<Style.Triggers>
+        			<Trigger Property="Orientation" Value="Horizontal">
+        				<Setter Property="Width" Value="Auto"/>
+        				<Setter Property="MinWidth" Value="0"/>
+        				<Setter Property="Height" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+        				<Setter Property="MinHeight" Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+        				<Setter Property="Background" Value="{StaticResource HorizontalScrollBarBackground}"/>
+        				<Setter Property="Template">
+        					<Setter.Value>
+        						<ControlTemplate TargetType="{x:Type ScrollBar}">
+        							<Grid x:Name="Bg" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+        								<Grid.ColumnDefinitions>
+        									<ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+        									<ColumnDefinition Width="0.00001*"/>
+        									<ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+        								</Grid.ColumnDefinitions>
+        								<RepeatButton Command="{x:Static ScrollBar.LineLeftCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="LeftArrow"/>
+        								<Track x:Name="PART_Track" Grid.Column="1" IsEnabled="{TemplateBinding IsMouseOver}">
+        									<Track.DecreaseRepeatButton>
+        										<RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource HorizontalScrollBarPageButton}"/>
+        									</Track.DecreaseRepeatButton>
+        									<Track.IncreaseRepeatButton>
+        										<RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource HorizontalScrollBarPageButton}"/>
+        									</Track.IncreaseRepeatButton>
+        									<Track.Thumb>
+        										<Thumb Style="{StaticResource sScrollThumbVertical}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="HorizontalGripper"/>
+        									</Track.Thumb>
+        								</Track>
+        								<RepeatButton Grid.Column="2" Command="{x:Static ScrollBar.LineRightCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Microsoft_Windows_Themes:ScrollChrome.ScrollGlyph="RightArrow"/>
+        							</Grid>
+        							<ControlTemplate.Triggers>
+        								<Trigger Property="IsEnabled" Value="false">
+        									<Setter Property="Background" TargetName="Bg" Value="{StaticResource ScrollBarDisabledBackground}"/>
+        								</Trigger>
+        							</ControlTemplate.Triggers>
+        						</ControlTemplate>
+        					</Setter.Value>
+        				</Setter>
+        			</Trigger>
+        		</Style.Triggers>
+        	</Style>
+        	<ControlTemplate x:Key="sScrollArrowDown_Postit" TargetType="{x:Type RepeatButton}">
+        		<Grid Background="#02000000">
+        			<Path x:Name="path" Fill="#FF7E7C65" Stretch="Fill" Stroke="{x:Null}" Margin="0" Width="7" Height="7" RenderTransformOrigin="0.5,0.5" Data="M0.5,0.5 L5.5263113,-0.52631126 4.5,4.5 z" HorizontalAlignment="Center" VerticalAlignment="Center">
+        				<Path.RenderTransform>
+        					<TransformGroup>
+        						<ScaleTransform ScaleX="1" ScaleY="1"/>
+        						<SkewTransform AngleX="0" AngleY="0"/>
+        						<RotateTransform Angle="135"/>
+        						<TranslateTransform X="0.21249155749739757" Y="-0.5129999999999999"/>
+        					</TransformGroup>
+        				</Path.RenderTransform>
+        			</Path>
+        		</Grid>
+        		<ControlTemplate.Triggers>
+        			<Trigger Property="IsMouseOver" Value="True">
+        				<Setter Property="Fill" TargetName="path" Value="#FF979579"/>
+        			</Trigger>
+        			<Trigger Property="IsPressed" Value="True">
+        				<Setter Property="Fill" TargetName="path" Value="#FF7E7C65"/>
+        			</Trigger>
+        		</ControlTemplate.Triggers>
+        	</ControlTemplate>
+        	<ControlTemplate x:Key="sScrollArrowUp_Postit" TargetType="{x:Type RepeatButton}">
+        		<Grid Width="Auto" Height="Auto" Background="#02000000">
+        			<Path x:Name="path" Fill="#FF7E7C65" Stretch="Fill" Stroke="{x:Null}" Margin="0" Width="7" Height="7" RenderTransformOrigin="0.5,0.5" Data="M0.5,0.5 L5.5263113,-0.52631126 4.5,4.5 z" HorizontalAlignment="Center" VerticalAlignment="Center">
+        				<Path.RenderTransform>
+        					<TransformGroup>
+        						<ScaleTransform ScaleX="-1"/>
+        						<SkewTransform/>
+        						<RotateTransform Angle="45.000000000000007"/>
+        						<TranslateTransform X="0.21249155749739757" Y="-0.5129999999999999"/>
+        					</TransformGroup>
+        				</Path.RenderTransform>
+        			</Path>
+        		</Grid>
+        		<ControlTemplate.Triggers>
+        			<Trigger Property="IsMouseOver" Value="True">
+        				<Setter Property="Fill" TargetName="path" Value="#FF979579"/>
+        			</Trigger>
+        			<Trigger Property="IsPressed" Value="True">
+        				<Setter Property="Fill" TargetName="path" Value="#FF7E7C65"/>
+        			</Trigger>
+        		</ControlTemplate.Triggers>
+        	</ControlTemplate>
+        	<Style x:Key="sScrollThumbVertical_Postit" TargetType="{x:Type Thumb}">
+        		<Setter Property="OverridesDefaultStyle" Value="true"/>
+        		<Setter Property="IsTabStop" Value="false"/>
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type Thumb}">
+        					<Grid Height="Auto" Background="#00000000">
+        						<Rectangle x:Name="rectangle" Fill="#FF7E7C65" Stroke="{x:Null}" Width="6" Height="Auto" RadiusX="3" RadiusY="3"/>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<MultiTrigger>
+        							<MultiTrigger.Conditions>
+        								<Condition Property="IsMouseCaptured" Value="True"/>
+        								<Condition Property="IsDragging" Value="False"/>
+        							</MultiTrigger.Conditions>
+        							<Setter Property="Fill" TargetName="rectangle" Value="#FF7E7C65"/>
+        						</MultiTrigger>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="rectangle" Value="#FF979579"/>
+        						</Trigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        	</Style>
+        	<Style x:Key="sToggleButton_Hide" BasedOn="{x:Null}" TargetType="{x:Type ToggleButton}">
+        		<Setter Property="Template">
+        			<Setter.Value>
+        				<ControlTemplate TargetType="{x:Type ToggleButton}">
+        					<Grid Background="#02000000" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        						<Grid x:Name="grid" Height="Auto" Margin="0,0,0,7" VerticalAlignment="Bottom" Visibility="Visible">
+        							<Rectangle Fill="White" Height="2" Margin="0,1,0,0" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="12" HorizontalAlignment="Center"/>
+        							<Rectangle x:Name="path" Fill="#FF7E7C65" Height="2" Margin="0,0,0,1" Stroke="{x:Null}" VerticalAlignment="Stretch" Width="12" HorizontalAlignment="Center" StrokeThickness="0"/>
+        						</Grid>
+        						<Grid x:Name="grid1" Visibility="Collapsed">
+        							<Rectangle Fill="{x:Null}" Margin="0,2,0,0" Stroke="White" StrokeThickness="2" Width="12" Height="11"/>
+        							<Rectangle x:Name="rectangle" Fill="{x:Null}" Margin="0" Stroke="#FF7E7C65" StrokeThickness="2" Width="12" Height="11"/>
+        						</Grid>
+        					</Grid>
+        					<ControlTemplate.Triggers>
+        						<Trigger Property="IsMouseOver" Value="True">
+        							<Setter Property="Fill" TargetName="path" Value="#FFA7A488"/>
+        						</Trigger>
+        						<Trigger Property="IsPressed" Value="True">
+        							<Setter Property="Fill" TargetName="path" Value="#FF5A594A"/>
+        						</Trigger>
+        						<Trigger Property="IsChecked" Value="True">
+        							<Setter Property="Visibility" TargetName="grid1" Value="Visible"/>
+        							<Setter Property="Visibility" TargetName="grid" Value="Collapsed"/>
+        						</Trigger>
+        						<MultiTrigger>
+        							<MultiTrigger.Conditions>
+        								<Condition Property="IsChecked" Value="True"/>
+        								<Condition Property="IsMouseOver" Value="True"/>
+        							</MultiTrigger.Conditions>
+        							<Setter Property="Stroke" TargetName="rectangle" Value="#FFA7A488"/>
+        							<Setter Property="Visibility" TargetName="grid" Value="Collapsed"/>
+        							<Setter Property="Visibility" TargetName="grid1" Value="Visible"/>
+        						</MultiTrigger>
+        						<MultiTrigger>
+        							<MultiTrigger.Conditions>
+        								<Condition Property="IsChecked" Value="True"/>
+        								<Condition Property="IsPressed" Value="True"/>
+        							</MultiTrigger.Conditions>
+        							<Setter Property="Stroke" TargetName="rectangle" Value="#FF5A594A"/>
+        							<Setter Property="Visibility" TargetName="grid1" Value="Visible"/>
+        							<Setter Property="Visibility" TargetName="grid" Value="Collapsed"/>
+        						</MultiTrigger>
+        					</ControlTemplate.Triggers>
+        				</ControlTemplate>
+        			</Setter.Value>
+        		</Setter>
+        		<Setter Property="SnapsToDevicePixels" Value="True"/>
+        	</Style>
+       
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Visibility>
+        <Binding Path="IsPostItPopupVisible" Converter="{StaticResource BooleanToVisibilityConverter}" />
+    </UserControl.Visibility>
+    <Grid x:Name="xRootGrid" >
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Border BorderThickness="0" Margin="2,2,0,0" Grid.RowSpan="4" Grid.ColumnSpan="2" Background="#997A6E43"/>
+            <Border BorderBrush="White" BorderThickness="1" Margin="0,0,2,2" Grid.RowSpan="4" Grid.ColumnSpan="2">
+            	<Border.Background>
+            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            			<GradientStop Color="#FFF6DEA6" Offset="1"/>
+            			<GradientStop Color="#FFE8E096"/>
+            		</LinearGradientBrush>
+            	</Border.Background>
+            </Border>
+            <StackPanel x:Name="xTaskBarPanel" Background="Transparent" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" FlowDirection="RightToLeft" >
+                <Button x:Name="xCloseButton" HorizontalAlignment="Right" Command="{Binding CloseCommand}" Content="X" FontSize="7" Width="24" Height="24" Style="{DynamicResource sButton_PostItClose}" />
+                <ToggleButton x:Name="xHideButton" HorizontalAlignment="Right" Content="X" Margin="0,0,2,0" FontSize="7" Width="24" Height="24" Style="{DynamicResource sToggleButton_Hide}" d:LayoutOverrides="Height" Click="XHideButton_OnClick" />
+            </StackPanel>
+            <Grid x:Name="xTitlePanel" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            	<TextBlock Text="{Binding Title}" Margin="10,0" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="12" TextOptions.TextFormattingMode="Display" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding Title}" />
+            </Grid>
+            <Grid x:Name="xBodyPanel" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,3">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" Margin="10,0" Style="{DynamicResource sScrollViewer_Postit}" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="80">
+                    <TextBlock Text="{Binding Body}" TextWrapping="Wrap" Margin="0" FontFamily="Malgun Gothic" FontSize="11" TextOptions.TextFormattingMode="Display" FontWeight="Bold" Foreground="#FF82784F" />
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Name="xFooterPanel" Height="45" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,2,2">
+            	<StackPanel Grid.ColumnSpan="2" Margin="0" Orientation="Horizontal" d:LayoutOverrides="Width" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            		<Button x:Name="xMoveMapButton" Margin="0" Content="GO" Command="{Binding GoCommand}" Width="70" Height="30" Style="{DynamicResource sButton_Go}" d:LayoutOverrides="Margin" />
+            		<Button x:Name="xEditEventButton" Margin="3,0,0,0" Content="EDIT EVENT" Command="{Binding EditEventCommand}" Width="70" Height="30" Style="{DynamicResource sButton_EditEvent}"/>
+            	</StackPanel>
+            	<StackPanel Grid.ColumnSpan="2" Margin="0,0,2,0" Orientation="Vertical" VerticalAlignment="Top">
+            		<Path Data="M0,2 L10.9375,1" Height="1" Margin="0" Stretch="Fill" Stroke="#FFBFB882" StrokeDashArray="5 3"/>
+            		<Path Data="M0,191 L239.5,191" Height="1" Margin="0" Stretch="Fill" StrokeDashArray="5 3" Stroke="White"/>
+
+            	</StackPanel>
+                <Grid x:Name="xResizer" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="7" Height="7" Margin="0,0,1,1">
+                	<Path Data="M228,238.04167 L238,238.04167 238,227.20801 z" Fill="#FF7F7B5A" Height="7" Margin="0" Stretch="Fill" Width="7"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

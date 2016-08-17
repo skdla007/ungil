@@ -1,0 +1,410 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="clr-namespace:ArcGISControl.UIControl"
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" 
+            x:Class="ArcGISControl.UIControl.GraphicObjectControl.IndependentPlaybackOverlayControl"
+             mc:Ignorable="d" 
+             MinWidth="360" MinHeight="113" >
+    
+    <UserControl.Resources>
+        <Storyboard x:Key="sbSpeedSlider">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RangeBase.Value)" Storyboard.TargetName="xSpeedSlider">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <!--<EasingDoubleKeyFrame.EasingFunction>
+                        <BounceEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>-->
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+	
+	<!-- Style -->	
+	<!-- Button -->
+   	<Style x:Key="sButton_Synchronized" TargetType="{x:Type Button}">
+        	<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        	<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+        	<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+        	<Setter Property="BorderThickness" Value="1"/>
+        	<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        	<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        	<Setter Property="VerticalContentAlignment" Value="Center"/>
+        	<Setter Property="Padding" Value="1"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type Button}">
+        				<Grid x:Name="grid">
+        					<Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#A5000000" BorderBrush="Silver" SnapsToDevicePixels="True"/>
+        					<StackPanel Margin="0,2,0,0" Orientation="Vertical" d:LayoutOverrides="Height" HorizontalAlignment="Center" VerticalAlignment="Center">
+        						<Path x:Name="path" Data="M10,15 L10,18 14,18 14,15 z M3,15 L3,18 7,18 7,15 z M27.791014,13.749994 C28.047022,13.749994 28.303028,13.847742 28.498535,14.043237 L31.134613,16.680166 33.77169,14.043237 C34.162701,13.652246 34.79472,13.652246 35.18573,14.043237 35.576744,14.434226 35.576744,15.066209 35.18573,15.457198 L32.548653,18.094127 35.18573,20.730057 C35.576744,21.121046 35.576744,21.75403 35.18573,22.145019 34.990726,22.340013 34.734718,22.438011 34.47871,22.438011 34.222702,22.438011 33.966694,22.340013 33.77169,22.145019 L31.134613,19.508091 28.498535,22.145019 C28.302528,22.340013 28.046522,22.438011 27.790514,22.438011 27.535507,22.438011 27.279499,22.340013 27.083492,22.145019 26.693481,21.75403 26.693481,21.121046 27.083492,20.730057 L29.720572,18.094127 27.083492,15.457198 C26.693481,15.066209 26.693481,14.434226 27.083492,14.043237 27.278999,13.847742 27.535006,13.749994 27.791014,13.749994 z M31.208984,12.20901 C27.808979,12.20901 25.042974,14.975006 25.042974,18.374 25.042974,21.773994 27.808979,24.540989 31.208984,24.540989 34.60899,24.540989 37.374996,21.773994 37.374996,18.374 37.374996,14.975006 34.60899,12.20901 31.208984,12.20901 z M31.208984,9.2090156 C36.262993,9.2090156 40.375,13.320008 40.375,18.374 40.375,23.428991 36.262993,27.540985 31.208984,27.540985 26.154978,27.540985 22.042971,23.428991 22.042971,18.374 22.042971,13.320008 26.154978,9.2090156 31.208984,9.2090156 z M24,2 L24,4.9999998 28,4.9999998 28,2 z M17,2 L17,4.9999998 21,4.9999998 21,2 z M10,2 L10,4.9999998 14,4.9999998 14,2 z M3,2 L3,4.9999998 7,4.9999998 7,2 z M0,0 L31,0 31,6.7529905 C30.971985,6.7529905 30.945007,6.7490232 30.916992,6.7490232 25.776978,6.7490232 21.466003,10.254028 20.211975,15 L17,15 17,18 19.84198,18 C19.85199,18.684021 19.919983,19.353027 20.047974,20 L0,20 z" Fill="Silver" Height="26" Stretch="Fill" Width="39" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+        						<TextBlock x:Name="v" Margin="0" TextWrapping="Wrap" Text="CLOSE" Foreground="#FFCCCCCC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10.667" RenderTransformOrigin="0.5,0.5" Visibility="Visible"/>
+        					</StackPanel>
+        				</Grid>
+        				<ControlTemplate.Triggers>
+        					<Trigger Property="IsEnabled" Value="False">
+        						<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+        						<Setter Property="Opacity" TargetName="path" Value="0.2"/>
+        						<Setter Property="Opacity" TargetName="v" Value="0.2"/>
+        					</Trigger>
+        					<Trigger Property="IsMouseOver" Value="True">
+        						<Setter Property="Background" TargetName="border" Value="Black"/>
+        						<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        						<Setter Property="Fill" TargetName="path" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        						<Setter Property="Foreground" TargetName="v" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        					</Trigger>
+        					<Trigger Property="IsPressed" Value="True">
+        						<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+        						<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+        						<Setter Property="Fill" TargetName="path" Value="#FF666666"/>
+        						<Setter Property="Foreground" TargetName="v" Value="#FF666666"/>
+        					</Trigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+		<Style x:Key="sButton_Independent" TargetType="{x:Type Button}">
+        	<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        	<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+        	<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+        	<Setter Property="BorderThickness" Value="1"/>
+        	<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        	<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        	<Setter Property="VerticalContentAlignment" Value="Center"/>
+        	<Setter Property="Padding" Value="1"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type Button}">
+        				<Grid x:Name="grid">
+        					<Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#A5000000" BorderBrush="Silver" SnapsToDevicePixels="True"/>
+        					<StackPanel Margin="0,2,0,0" Orientation="Vertical" d:LayoutOverrides="Height" HorizontalAlignment="Center" VerticalAlignment="Center">
+        						<Path x:Name="path" Data="M10,15 L10,18 14,18 14,15 z M3,15 L3,18 7,18 7,15 z M31,14 C31.552999,14 32,14.446999 32,15 L32,18 35,18 C35.553001,18 36,18.447 36,19 36,19.552999 35.553001,20 35,20 L31,20 C30.447001,20 30,19.552999 30,19 L30,15 C30,14.446999 30.447001,14 31,14 z M31.208984,12.20901 C27.808979,12.20901 25.042974,14.975006 25.042974,18.374 25.042974,21.773994 27.808979,24.540989 31.208984,24.540989 34.60899,24.540989 37.374996,21.773994 37.374996,18.374 37.374996,14.975006 34.60899,12.20901 31.208984,12.20901 z M31.208984,9.2090155 C36.262993,9.2090155 40.375,13.320008 40.375,18.374 40.375,23.428991 36.262993,27.540985 31.208984,27.540985 26.154978,27.540985 22.042971,23.428991 22.042971,18.374 22.042971,13.320008 26.154978,9.2090155 31.208984,9.2090155 z M24,1.9999999 L24,4.9999997 28,4.9999997 28,1.9999999 z M17,1.9999999 L17,4.9999997 21,4.9999997 21,1.9999999 z M10,1.9999999 L10,4.9999997 14,4.9999997 14,1.9999999 z M3,1.9999999 L3,4.9999997 7,4.9999997 7,1.9999999 z M0,0 L31,0 31,6.7529904 C30.971985,6.7529904 30.945007,6.7490231 30.916992,6.7490231 25.776978,6.7490231 21.466003,10.254028 20.211975,15 L17,15 17,18 19.84198,18 C19.85199,18.684021 19.919983,19.353027 20.047974,20 L0,20 z" Fill="Silver" Height="26" Stretch="Fill" Width="39" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True"/>
+        						<TextBlock x:Name="v" Margin="0" TextWrapping="Wrap" Text="START" Foreground="#FFCCCCCC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10.667" RenderTransformOrigin="0.5,0.5" Visibility="Visible"/>
+        					</StackPanel>
+        				</Grid>
+        				<ControlTemplate.Triggers>
+        					<Trigger Property="IsEnabled" Value="false">
+        						<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+        						<Setter Property="Opacity" TargetName="path" Value="0.2"/>
+        						<Setter Property="Opacity" TargetName="v" Value="0.2"/>
+        					</Trigger>
+        					<Trigger Property="IsMouseOver" Value="True">
+        						<Setter Property="Background" TargetName="border" Value="Black"/>
+        						<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        						<Setter Property="Fill" TargetName="path" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        						<Setter Property="Foreground" TargetName="v" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        					</Trigger>
+        					<Trigger Property="IsPressed" Value="True">
+        						<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+        						<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+        						<Setter Property="Fill" TargetName="path" Value="#FF666666"/>
+        						<Setter Property="Foreground" TargetName="v" Value="#FF666666"/>
+        					</Trigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>		
+		<Style x:Key="sButton_AlertBroadcastPopup" TargetType="{x:Type Button}">
+        	<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+        	<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+        	<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+        	<Setter Property="BorderThickness" Value="1"/>
+        	<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        	<Setter Property="HorizontalContentAlignment" Value="Center"/>
+        	<Setter Property="VerticalContentAlignment" Value="Center"/>
+        	<Setter Property="Padding" Value="1"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type Button}">
+        				<Grid x:Name="grid">
+        					<Border x:Name="border" BorderThickness="1" CornerRadius="3" Background="#A5000000" BorderBrush="Silver" SnapsToDevicePixels="True"/>
+        					<StackPanel Margin="0,2,0,0" d:LayoutOverrides="Height" HorizontalAlignment="Center" VerticalAlignment="Center">
+        						<Path x:Name="path" Data="M13.667007,26.675933 L13.667007,27.675933 21.194282,27.675933 21.194282,26.675933 z M13.667007,24.675933 L13.667007,25.675933 26.667007,25.675933 26.667007,24.675933 z M3.6670074,19.115997 L11.667007,19.115997 11.667007,22.115997 3.6670074,22.115997 C3.1150074,22.115997 2.6670074,21.668997 2.6670074,21.115997 L2.6670074,20.115997 C2.6670074,19.562997 3.1150074,19.115997 3.6670074,19.115997 z M18.105011,15.607005 C18.943012,15.607005 20.369015,17.929013 21.124016,19.286017 21.663016,18.642015 22.283017,18.101013 22.855019,18.101013 24.28402,18.101013 25.838022,21.462025 25.838022,21.462025 L20.804015,21.462025 18.689012,21.462025 14.655006,21.462025 C14.655006,21.462025 16.676009,15.607005 18.105011,15.607005 z M13.667007,14.11601 L13.667007,23.11601 26.667007,23.11601 26.667007,14.11601 z M12.667007,13.11601 L27.667007,13.11601 27.667007,29.11601 12.667007,29.11601 z M1,10.115997 L2,10.115997 C2.552,10.115997 3,10.562997 3,11.115997 3,11.668997 2.552,12.115997 2,12.115997 L1,12.115997 C0.44799995,12.115997 0,11.668997 0,11.115997 0,10.562997 0.44799995,10.115997 1,10.115997 z M20.19859,5.4592266 C20.872276,5.4525232 21.53313,5.5938978 22.046887,5.9040222 22.309891,6.0630217 22.584895,6.2930212 22.844899,6.5680203 23.271906,7.0190191 23.749912,7.7160168 23.929915,8.3990145 L24.725927,8.2030153 C24.860929,8.1700153 24.996931,8.2100153 25.094933,8.319015 25.185934,8.4250145 25.210935,8.5710139 25.159934,8.7000136 L23.969916,11.689005 C23.925915,11.801004 23.830914,11.884004 23.713912,11.913004 23.59791,11.940004 23.474909,11.912004 23.383907,11.833004 L20.941871,9.7380106 C20.93187,9.7300105 20.92187,9.7220106 20.913871,9.7130105 20.828869,9.6220109 20.793869,9.4940114 20.821869,9.3720117 20.853869,9.2360122 20.959871,9.1310124 21.093873,9.0980124 L22.040887,8.8640132 C22.035887,8.8550134 22.029887,8.8480134 22.024887,8.8390131 21.836884,8.4480147 21.607881,8.1080155 21.341877,7.8260164 19.845855,6.2410212 17.56882,6.915019 17.54482,6.922019 17.477819,6.9430189 17.403818,6.9230194 17.355817,6.8720193 17.349817,6.8650193 17.343817,6.8580194 17.337817,6.8500195 17.293817,6.7840195 17.294816,6.6950197 17.344817,6.6310201 17.917326,5.8928971 19.07578,5.4703984 20.19859,5.4592266 z M10.979007,5.074008 C15.672008,5.074008 17.667007,9.0400105 17.667007,11.720012 L17.667007,12.116013 11.667008,12.116013 11.667008,17.116016 5.2650075,17.116016 C4.7120075,17.116016 4.6670074,16.494015 4.6670074,15.942015 L4.6670074,11.720012 C4.6670074,9.638011 6.1140075,5.074008 10.979007,5.074008 z M3.1720734,2.8810205 C3.4277782,2.8810205 3.6834841,2.9787626 3.8789501,3.1742449 L4.7068062,4.0021725 C5.0977387,4.3931389 5.0977387,5.0250835 4.7068062,5.4160495 4.5118399,5.611032 4.2558851,5.7090235 3.9999294,5.7090235 3.7439737,5.7090235 3.488018,5.611032 3.2930517,5.4160495 L2.4651957,4.5881214 C2.0742636,4.197156 2.0742636,3.5642109 2.4651957,3.1742449 2.6606617,2.9787626 2.9163675,2.8810205 3.1720734,2.8810205 z M11.667007,0 C12.219007,0 12.667007,0.44699955 12.667008,1 L12.667008,2 C12.667007,2.5529995 12.219007,3 11.667007,3 11.115007,3 10.667007,2.5529995 10.667007,2 L10.667007,1 C10.667007,0.44699955 11.115007,0 11.667007,0 z" Fill="Silver" Height="26" Stretch="Fill" Width="26" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+        						<TextBlock x:Name="v" Margin="0" TextWrapping="Wrap" Text="ALERT BROADCAST" Foreground="#FFCCCCCC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="10" RenderTransformOrigin="0.5,0.5" Visibility="Visible" TextAlignment="Center" Width="Auto"/>
+        					</StackPanel>
+        				</Grid>
+        				<ControlTemplate.Triggers>
+        					<Trigger Property="IsEnabled" Value="False">
+        						<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+        						<Setter Property="Opacity" TargetName="path" Value="0.2"/>
+        						<Setter Property="Opacity" TargetName="v" Value="0.2"/>
+        					</Trigger>
+        					<Trigger Property="IsMouseOver" Value="True">
+        						<Setter Property="Background" TargetName="border" Value="Black"/>
+        						<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        						<Setter Property="Fill" TargetName="path" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        						<Setter Property="Foreground" TargetName="v" Value="{DynamicResource bBackground_#FFFFCC00_Point}"/>
+        					</Trigger>
+        					<Trigger Property="IsPressed" Value="True">
+        						<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+        						<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+        						<Setter Property="Fill" TargetName="path" Value="#FF666666"/>
+        						<Setter Property="Foreground" TargetName="v" Value="#FF666666"/>
+        					</Trigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+		<Style x:Key="sToggleButton_Play" TargetType="{x:Type ToggleButton}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ToggleButton}">
+						<Grid>
+							<Border x:Name="border" BorderBrush="Silver" BorderThickness="1" CornerRadius="3" Background="#FF333333" Margin="0" SnapsToDevicePixels="True"/>
+							<Path x:Name="path1" Data="M0.97208725,0 L4,0 4,9.9999999 0.97208725,9.9999999 z M6.9720311,3.1292457E-06 L9.9999736,3.1292457E-06 9.9999736,10.000003 6.9720311,10.000003 z" Fill="#FFFFAF00" Height="7" Stretch="Fill" Width="6" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" SnapsToDevicePixels="True">
+								<Path.Effect>
+									<DropShadowEffect ShadowDepth="0"/>
+								</Path.Effect>
+							</Path>
+							<Path x:Name="path" Data="F1M325.9819,227.7275L334.1219,222.7275L325.9819,217.7275z" Fill="Silver" Height="8" Stretch="Fill" Width="6" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,0" SnapsToDevicePixels="True">
+								<Path.Effect>
+									<DropShadowEffect ShadowDepth="0"/>
+								</Path.Effect>
+							</Path>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="BorderBrush" TargetName="border" Value="White"/>
+								<Setter Property="Fill" TargetName="path" Value="#FFFFAF00"/>
+							</Trigger>
+							<Trigger Property="IsChecked" Value="true">
+								<Setter Property="Visibility" TargetName="path1" Value="Visible"/>
+								<Setter Property="Fill" TargetName="path1" Value="#FFFFAF00"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFAF00"/>
+								<Setter Property="Visibility" TargetName="path" Value="Collapsed"/>
+								<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="#ADADAD"/>
+								<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+								<Setter Property="Opacity" TargetName="path" Value="0.1"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="sToggleButton_PlayBack" TargetType="{x:Type ToggleButton}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ToggleButton}">
+						<Grid>
+							<Border x:Name="border" BorderBrush="Silver" BorderThickness="1" CornerRadius="3" Background="#FF333333" Margin="0" SnapsToDevicePixels="True"/>
+							<Path x:Name="path" Data="F1M287.9819,217.7275L279.8419,222.7275L287.9819,227.7275z" Fill="Silver" Height="8" Stretch="Fill" Width="6" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="{x:Null}" StrokeThickness="2" Margin="0,0,2,0" SnapsToDevicePixels="True">
+								<Path.Effect>
+									<DropShadowEffect ShadowDepth="0"/>
+								</Path.Effect>
+							</Path>
+							<Path x:Name="path1" Data="M0.75758812,0 L4,0 4,9.9999999 0.75758812,9.9999999 z M6.555229,3.1292457E-06 L9.7976665,3.1292457E-06 9.7976665,10.000003 6.555229,10.000003 z" Fill="#FFFFAF00" Height="7" Stretch="Fill" Width="6" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" SnapsToDevicePixels="True">
+								<Path.Effect>
+									<DropShadowEffect ShadowDepth="0"/>
+								</Path.Effect>
+							</Path>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="BorderBrush" TargetName="border" Value="White"/>
+								<Setter Property="Fill" TargetName="path" Value="#FFFFAF00"/>
+							</Trigger>
+							<Trigger Property="IsChecked" Value="true">
+								<Setter Property="Visibility" TargetName="path1" Value="Visible"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFAF00"/>
+								<Setter Property="Visibility" TargetName="path" Value="Collapsed"/>
+								<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="#ADADAD"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FF333333"/>
+								<Setter Property="Background" TargetName="border" Value="#FF222222"/>
+								<Setter Property="Opacity" TargetName="path" Value="0.1"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		
+		<!-- Slider -->
+		<Style TargetType="{x:Type Thumb}" x:Key="sThumb_Small">
+                <Setter Property="Focusable" Value="false"/>
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Setter Property="Height" Value="11"/>
+                <Setter Property="Width" Value="11"/>
+                <Setter Property="Foreground" Value="Gray"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Grid Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="0">
+                                <Rectangle Fill="#FF333333" RadiusY="1" RadiusX="1" Stroke="{x:Null}" Opacity="0"/>
+                                <Rectangle x:Name="rectangle" Fill="#FF333333" Stroke="White" RadiusX="1" RadiusY="1" Width="12" Height="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Stroke" TargetName="rectangle" Value="White"/>
+                                    <Setter Property="Fill" TargetName="rectangle">
+                                        <Setter.Value>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF333333" Offset="1"/>
+                                                <GradientStop Color="#FF666666" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsDragging" Value="true">
+                                    <Setter Property="Stroke" TargetName="rectangle" Value="#FFFFAF00"/>
+                                    <Setter Property="Fill" TargetName="rectangle">
+                                        <Setter.Value>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF666666" Offset="0"/>
+                                                <GradientStop Color="#FF333333" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Stroke" TargetName="rectangle" Value="#FF4D4D4D"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+		<Style x:Key="sSliderStyle_small" TargetType="{x:Type Slider}">
+                <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="#FFC4C4C4"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Slider}">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <Grid VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TickBar x:Name="TopTick" Height="4" Placement="Top" Grid.Row="0" Visibility="Collapsed" Fill="#FFFFAF00"/>
+                                    <TickBar x:Name="BottomTick" Height="4" Placement="Bottom" Grid.Row="2" Visibility="Collapsed" Fill="#FFFFAF00"/>
+                                    <Border x:Name="TrackBackground" BorderBrush="Silver" BorderThickness="1" Background="Black" CornerRadius="1" Height="4.0" Margin="0" Grid.Row="1" VerticalAlignment="center">
+                                        <Canvas Margin="-6,-1">
+                                            <Rectangle x:Name="PART_SelectionRange" Fill="#FFCCCCCC" Height="4.0" Stroke="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" StrokeThickness="1.0" Visibility="Hidden"/>
+                                        </Canvas>
+                                    </Border>
+                                    <Track x:Name="PART_Track" Grid.Row="1">
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                        </Track.DecreaseRepeatButton>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.Thumb>
+                                            <Thumb x:Name="Thumb" Style="{StaticResource sThumb_Small}" Width="18" Height="20"/>
+                                        </Track.Thumb>
+                                    </Track>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="TrackBackground" Value="#FF1D1D1D"/>
+                                    <Setter Property="BorderBrush" TargetName="TrackBackground" Value="#FF272727"/>
+                                </Trigger>
+                                <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                                    <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="true">
+                                    <Setter Property="Foreground" TargetName="Thumb" Value="#FFC2C2C2"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+		
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="UIElement.PreviewMouseLeftButtonUp" SourceName="xSpeedSlider">
+            <BeginStoryboard Storyboard="{StaticResource sbSpeedSlider}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="xSpeedSlider">
+            <BeginStoryboard Storyboard="{StaticResource sbSpeedSlider}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="*"/>
+			<RowDefinition Height="3"/>
+    		<RowDefinition Height="50"/>
+    	</Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*" MaxWidth="70"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.7*" MaxWidth="70"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="2" Margin="0" VerticalAlignment="Bottom" Width="70" HorizontalAlignment="Right" Height="60" >
+            <!-- AlertBroadcast Popup button -->
+            <Button x:Name="xAlertBroadcastPopupButton" Cursor="Hand" SnapsToDevicePixels="True" Style="{DynamicResource sButton_AlertBroadcastPopup}"/>
+        </Grid>
+        
+        <!-- 영상 컨트롤러 -->
+        <Grid x:Name="xVideoControlGrid" Height="Auto" Width="180" VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Column="1" Margin="0" Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="#A5000000" CornerRadius="3" BorderBrush="Silver" BorderThickness="1" Grid.ColumnSpan="3"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="22"/>
+                </Grid.RowDefinitions>
+                <Slider x:Name="xSpeedSlider" d:LayoutOverrides="Height" Style="{DynamicResource sSliderStyle_small}" Margin="0" Grid.Row="1" Grid.RowSpan="2" TabIndex="20"/>
+                <Grid x:Name="xDateGrid" Grid.Row="0" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.6*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="xDateTextBlock" Margin="0,3,0,0" TextWrapping="Wrap" Foreground="#FFE4E4E4" HorizontalAlignment="Center" Text="2011년 11월 17일 목요일" FontSize="9.333" VerticalAlignment="Bottom"/>
+                    <TextBlock x:Name="xTimeTextBlock" TextWrapping="Wrap" Text="13:24:24.143" Margin="0,0,0,-3" Grid.Row="1" Foreground="#FFE4E4E4" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    <Popup x:Name="xTimePickerControlPopup" AllowsTransparency="False" Grid.Row="0" Grid.Column="0" Visibility="Visible" StaysOpen="False" Placement="Top"
+                           x:FieldModifier="public">
+                        <ui:TimePickerControl x:Name="xTimePickerControl"/>
+                    </Popup>
+                </Grid>
+            </Grid>
+            <ToggleButton Grid.Column="0" x:Name="xRewindToggleButton" Content="Button" VerticalAlignment="Center" Margin="0" Height="20" Style="{DynamicResource sToggleButton_PlayBack}" Width="20" TabIndex="10"/>
+            <ToggleButton x:Name="xPlayToggleButton" Content="Button" VerticalAlignment="Center" Margin="0" Height="20" Style="{DynamicResource sToggleButton_Play}" Grid.Column="2" Width="20" TabIndex="30"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Right" Width="70" Grid.Column="2" Margin="0" Grid.Row="2">
+            <!-- Instant Playback 시키는 버튼 -->
+            <Button x:Name="xStartIndependentModeButton" Visibility="Collapsed" Content="Independent Playback" Style="{DynamicResource sButton_Independent}" ToolTip="Start Instant Playback" Cursor="Hand" SnapsToDevicePixels="True"/>
+
+            <!-- Live 모드로 전환 시키는 버튼 -->
+            <Button x:Name="xEndIndependentModeButton" Visibility="Visible" Style="{DynamicResource sButton_Synchronized}" ToolTip="Close" Cursor="Hand" SnapsToDevicePixels="True" TabIndex="40"/>
+        </Grid>
+    </Grid>
+</UserControl>

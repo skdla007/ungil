@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="SplunkIconGraphicSymbol">
+            <Canvas Visibility="{Binding Attributes[IconVisibility]}">
+            <Canvas.Resources>
+                <Storyboard x:Key="Storyboard" RepeatBehavior="Forever">
+                    <DoubleAnimation BeginTime="0"
+																 Storyboard.TargetName="xEllipseEvented" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+																 From="1" To="10" Duration="00:00:01" />
+
+                    <DoubleAnimation BeginTime="0"
+																 Storyboard.TargetName="xEllipseEvented" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+																 From="1" To="10" Duration="00:00:01" />
+
+                    <DoubleAnimation BeginTime="0"
+																 Storyboard.TargetName="xEllipseEvented" Storyboard.TargetProperty="(UIElement.Opacity)"
+																 From="1" To="0" Duration="00:00:01" />
+                </Storyboard>
+            </Canvas.Resources>
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard}"/>
+                </EventTrigger>
+            </Canvas.Triggers>
+            <!--Strobe ellipse-->
+                <!--Note that IsHitTestVisible="False" on the strobe symbol,
+							so only the static ellipse will trigger mouse over/mouse out-->
+               <Ellipse Height="20" Width="20" Canvas.Left="0" Canvas.Top="0" 
+										 RenderTransformOrigin="0.5,0.5" x:Name="xEllipseEvented"
+										 IsHitTestVisible="False" Visibility="{Binding  Attributes[EventIconVisible]}">
+                    <Ellipse.RenderTransform>
+                        <ScaleTransform />
+                    </Ellipse.RenderTransform>
+                    <Ellipse.Fill>
+                        <RadialGradientBrush>
+                        <GradientStop Color="{Binding Attributes[TransparentColor1]}" />
+                        <GradientStop Color="{Binding Attributes[Color1]}" Offset="0.25"/>
+                        <GradientStop Color="{Binding Attributes[TransparentColor1]}" Offset="0.5"/>
+                        <GradientStop Color="{Binding Attributes[Color1]}" Offset="0.75"/>
+                        <GradientStop Color="{Binding Attributes[TransparentColor1]}" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="20" Height="20" Fill="White" Opacity="0.01"/>
+	           	<Ellipse x:Name="xEllipseNormal" Width="6" Height="6" Canvas.Left="7" Canvas.Top="7" Fill="{Binding Attributes[Color]}" Opacity="0.8"/>
+			 	<Ellipse x:Name="ellipse2" Width="3" Height="3" Canvas.Left="8.5" Canvas.Top="8.5" Margin="0" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5">
+			 		<Ellipse.Effect>
+			 			<BlurEffect Radius="5"/>
+			 		</Ellipse.Effect>
+			 	</Ellipse>
+			 	<Ellipse x:Name="ellipse3" Width="1.8" Height="1.8" Canvas.Left="9.1" Canvas.Top="9.1" Margin="0" Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</Canvas>
+    </ControlTemplate>
+</ResourceDictionary>

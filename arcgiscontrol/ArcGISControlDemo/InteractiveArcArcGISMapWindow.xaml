@@ -1,0 +1,72 @@
+﻿<Window x:Class="ArcGISControlDemo.InteractiveArcArcGISMapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InteractiveArcArcGISMapWindow" Height="300" Width="300"
+        WindowState="Maximized">
+    <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Button x:Name="xbutton" Content="Remove Map In UI" Margin="0,0,10,0" Visibility="Collapsed"></Button>
+                <Label x:Name="xLabelType"  Margin="0,0,10,0"></Label>
+            </Grid>
+            <Grid x:Name="xGridMapList" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="7.*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Map List" Grid.Row="0"></Label>
+                <ListBox  x:Name="xListBoxMap" Grid.Row="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding MapType}" Background="Aquamarine" Width="100"></Label>
+                                <Label Content="{Binding Name}"  Background="Pink"  Width="200"></Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox >
+            </Grid>
+            <Grid x:Name="xGridMapTypeList" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="7.*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Map Types" Grid.Row="0"></Label>
+                <!--ListBox x:Name="xListBoxMapType" Grid.Row="1">
+                   
+                </ListBox -->
+                <Grid x:Name="xGridSearchedList" VerticalAlignment="Stretch" Grid.Row="1"></Grid>
+            </Grid>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Button x:Name="xButtonMakeText" Content="Text" Click="xNameMakeText_Click_1"></Button>
+                <Button x:Name="xButtonMakeLinkZone" Content="LinkZone" Click="xButtonMakeLinkZone_Click_1"></Button>
+                <Button x:Name="xButtonMakeImageLinkZone" Content="ImageLinkZone" Click="xButtonMakeImageLinkZone_Click_1"></Button>
+                <Button x:Name="xButtonMakeLine" Content="Line" Click="xButtonMakeLine_Click_1"></Button>
+                <Button x:Name="xButtonMakeImage" Content="Image" Click="xButtonMakeImage_Click_1"></Button>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <Button x:Name="xButtonLocation" Content="Location" Click="XButtonLocation_OnClick"></Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid x:Name="xMapControl"></Grid>
+            <StackPanel Width="200" Height="30"  HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal">
+                <Label x:Name="xLabelCurrentMaptype" Background="AliceBlue" ></Label>
+                <Label x:Name="xLabelLevel" Background="Pink"></Label>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</Window>

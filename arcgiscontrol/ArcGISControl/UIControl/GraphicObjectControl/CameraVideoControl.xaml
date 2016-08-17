@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ArcGISControl.UIControl.GraphicObjectControl.CameraVideoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:ArcGISControls.CommonData.Models;assembly=ArcGISControls.CommonData"
+             xmlns:converters="clr-namespace:ArcGISControl.UIControl.Converters"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             x:Name="xRoot">
+    <UserControl.Resources>
+        <converters:VisibilityInverter x:Key="VisibilityInverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Canvas
+            x:Name="xCanvas"
+            Background="Black"
+            Visibility="{Binding HideImageVisibility, ElementName=xRoot, Converter={StaticResource VisibilityInverter}}"
+            />
+        <Image
+            Source="../../Resources/Images/HideMap.png"
+            Stretch="Fill"
+            Visibility="{Binding HideImageVisibility, ElementName=xRoot}"
+            />
+        <Border
+            BorderThickness="2"
+            BorderBrush="Red"
+            Visibility="{Binding SelectionBorderVisibility, ElementName=xRoot}"
+            />
+    </Grid>
+</UserControl>

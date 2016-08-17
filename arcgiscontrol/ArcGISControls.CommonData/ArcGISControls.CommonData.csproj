@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BEE9110D-3BF9-47B5-AB11-ED427E63EA8B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArcGISControls.CommonData</RootNamespace>
+    <AssemblyName>ArcGISControls.CommonData</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataChangedNotify, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\DataChangedNotify.dll</HintPath>
+    </Reference>
+    <Reference Include="InnowatchConverter, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\InnowatchConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="InnowatchDebug, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\InnowatchDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="ServiceContract, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\ServiceContract.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\IArcGISControlAPI.cs" />
+    <Compile Include="Interface\IArcGISControlViewerAPI.cs" />
+    <Compile Include="Models\ArcGISMapDelegates.cs" />
+    <Compile Include="Models\BaseMapTextObjectInfo.cs" />
+    <Compile Include="Models\HistoryInfo.cs" />
+    <Compile Include="Models\MapCameraSettingDataInfo.cs" />
+    <Compile Include="Models\MapAddressObjectDataInfo.cs" />
+    <Compile Include="Models\MapCertificationDataInfo.cs" />
+    <Compile Include="Models\CommonImageObjectDataInfo.cs" />
+    <Compile Include="Models\MapImageObjectDataInfo.cs" />
+    <Compile Include="Models\MapLineObjectDataInfo.cs" />
+    <Compile Include="Models\MapLinkZoneObjectDataInfo.cs" />
+    <Compile Include="Models\MapMemoObjectDataInfo.cs" />
+    <Compile Include="Models\MapServicesDatas\BingAuthentication.cs" />
+    <Compile Include="Models\MapServicesDatas\Xml\Daum\ApiError.cs" />
+    <Compile Include="Models\MapServicesDatas\Xml\Daum\Channel.cs" />
+    <Compile Include="Models\MapServicesDatas\Xml\Naver\Error.cs" />
+    <Compile Include="Models\MapServicesDatas\Xml\Naver\GeoCode.cs" />
+    <Compile Include="Models\MapSplunkObjectDataInfo.cs" />
+    <Compile Include="Models\MapTextObjectDataInfo.cs" />
+    <Compile Include="Models\MapUniversalObjectDataInfo.cs" />
+    <Compile Include="Models\MapWorkStationObjectDataInfo.cs" />
+    <Compile Include="Models\OperationPlaybackArgs.cs" />
+    <Compile Include="Models\SessionInfo.cs" />
+    <Compile Include="Models\ShowSplunkPostItEventArgs.cs" />
+    <Compile Include="Models\SplunkBasicInformationData.cs" />
+    <Compile Include="Models\WorkStationReturnedSplunkData.cs" />
+    <Compile Include="Parsers\UrlParseTool.cs" />
+    <Compile Include="ServiceHandlers\MapServiceChecker.cs" />
+    <Compile Include="Styles\LineStrokeStyle.cs" />
+    <Compile Include="Types\LineStrokeType.cs" />
+    <Compile Include="Types\MapControlType.cs" />
+    <Compile Include="Parsers\SplunkLineToParser.cs" />
+    <Compile Include="Parsers\SplunkMapListParser.cs" />
+    <Compile Include="Models\SplunkPostItData.cs" />
+    <Compile Include="ServiceHandlers\MapDataServiceHandler.cs" />
+    <Compile Include="Models\ArcGISConstSet.cs" />
+    <Compile Include="Models\BaseMapPolygonObjectInfoData.cs" />
+    <Compile Include="Models\BaseMapIconObjectInfoData.cs" />
+    <Compile Include="Models\LatLng.cs" />
+    <Compile Include="Models\MapCameraIconObjectDataInfo.cs" />
+    <Compile Include="Models\MapCameraObjectComponentDataInfo.cs" />
+    <Compile Include="Models\MapCameraVideoObjectDataInfo.cs" />
+    <Compile Include="Models\MapCameraPresetObjectDataInfo.cs" />
+    <Compile Include="Models\BaseMapObjectInfoData.cs" />
+    <Compile Include="Models\MapLocationObjectDataInfo.cs" />
+    <Compile Include="Models\MapBookMarkDataInfo.cs" />
+    <Compile Include="Models\MapSettingDataInfo.cs" />
+    <Compile Include="ServiceHandlers\MapSearchGeocoding.cs" />
+    <Compile Include="Types\MapObjectType.cs" />
+    <Compile Include="Types\CameraObjectSelectionType.cs" />
+    <Compile Include="Types\MapObjectTypeInfoAttribute.cs" />
+    <Compile Include="Types\MapProviderType.cs" />
+    <Compile Include="Types\ObjectCenterPositionType.cs" />
+    <Compile Include="Parsers\SplunkPostItParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Utils\JsonUtil.cs" />
+    <Compile Include="Utils\XmlUtil.cs" />
+    <Compile Include="Windows\ChromeRemover.cs" />
+    <Compile Include="Windows\NativeMethods.cs" />
+    <Compile Include="Windows\WindowUtils.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

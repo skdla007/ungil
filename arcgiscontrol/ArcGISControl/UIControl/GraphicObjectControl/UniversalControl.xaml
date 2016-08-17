@@ -1,0 +1,60 @@
+﻿<Viewbox
+    x:Class="ArcGISControl.UIControl.GraphicObjectControl.UniversalControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    x:Name="xRoot"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="300">
+    <Grid
+        Width="{Binding ControlSize.Width, ElementName=xRoot}"
+        Height="{Binding ControlSize.Height, ElementName=xRoot}"
+        >
+        
+        <Rectangle
+            x:Name="xRectangle"
+            StrokeThickness="{Binding StrokeThickness, ElementName=xRoot}"
+            Stroke="{Binding StrokeColor, ElementName=xRoot}"
+            RenderOptions.BitmapScalingMode="HighQuality"
+            />
+        
+        <Path x:Name="xHorizontalPipe"
+              StrokeThickness="{Binding StrokeThickness, ElementName=xRoot}"
+              Stroke="{Binding StrokeColor, ElementName=xRoot}"
+              StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stretch="Fill"  StrokeMiterLimit="10"
+              Data="M465.3809,478.7959L667.2209,478.7959C675.6509,478.7959,682.4839,454.8519,682.4839,425.3139C682.4839,395.7749,675.6509,371.8309,
+              667.2209,371.8309L465.3809,371.8309C456.9509,371.8309,450.4839,395.7749,450.4839,425.3139C450.4839,454.8529,456.9509,478.7959,465.3809,
+              478.7959C465.3809,478.7959,480.3749,478.7959,480.3749,425.3139C480.3749,371.8309,465.3809,371.8309,465.3809,371.8309C465.3809,371.8309,
+              480.3749,371.8659,480.3749,425.3139C480.3749,478.7959,465.3809,478.7959,465.3809,478.7959z" />
+
+        <Path x:Name="xVerticalPipe" 
+              StrokeThickness="{Binding StrokeThickness, ElementName=xRoot}"
+              Stroke="{Binding StrokeColor, ElementName=xRoot}"
+              StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Stretch="Fill"  StrokeMiterLimit="10"
+              Data="M504.6221,379.2842L504.6221,471.0322C504.6221,479.4622,532.1561,486.2952,566.1221,486.2952C600.0881,486.2952,627.6221,479.4622,627.6221,
+              471.0322L627.6221,379.2842C627.6221,370.8542,600.0881,364.3872,566.1221,364.3872C532.1541,364.3872,504.6221,370.8542,504.6221,379.2842C504.6221,
+              379.2842,504.6221,394.2782,566.1221,394.2782C627.6221,394.2782,627.6221,379.2842,627.6221,379.2842C627.6221,379.2842,627.5821,394.2782,566.1221,
+              394.2782C504.6221,394.2782,504.6221,379.2842,504.6221,379.2842z" />
+        
+        <Image
+            x:Name="xIcon"
+            Stretch="Fill"
+            RenderOptions.BitmapScalingMode="HighQuality"
+            />
+        
+        <Grid
+            x:Name="xTitleArea"
+            >
+            <TextBlock
+                x:Name="xTitle"
+                Text="{Binding Title, ElementName=xRoot}"
+                Foreground="{Binding TitleColor, ElementName=xRoot}"
+                TextWrapping="WrapWithOverflow"
+                TextAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
+        </Grid>
+    </Grid>
+</Viewbox>

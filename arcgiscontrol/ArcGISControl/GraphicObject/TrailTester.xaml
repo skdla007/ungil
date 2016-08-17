@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ArcGISControl.GraphicObject.TrailTester"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:GraphicObjects="clr-namespace:ArcGISControl.GraphicObject"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <!-- Trail이 작동하는 모습을 보기 위해서는 이것을 보면 됩니다
+        . 여기는 디자인 해도 실제로 제품에 적용이 안됩니다.
+        제품에 적용하려면 Trail.xaml의 UserControl.Resources에 작업합니다.
+        -->
+        <GraphicObjects:Trail></GraphicObjects:Trail>
+    </Grid>
+</UserControl>

@@ -1,0 +1,530 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="ArcGISControl.UIControl.WorkStationContextControl" 
+             mc:Ignorable="d" 
+             d:DesignHeight="420" d:DesignWidth="228">
+	<UserControl.Resources>
+		<Style x:Key="sButton_NetworkView" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="50"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid Grid.Column="1">
+								<Border x:Name="border" BorderBrush="White" BorderThickness="1" Margin="0" Grid.Column="0">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFE0E0E0" Offset="0"/>
+											<GradientStop Color="DarkGray" Offset="1"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Grid x:Name="grid" Grid.Column="0" HorizontalAlignment="Left" Margin="16,0,0,3" Width="Auto" VerticalAlignment="Center">
+									<ContentControl x:Name="contentControl1" Margin="0,2,0,0" Foreground="White">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+									<ContentControl x:Name="contentControl" Margin="0">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+								</Grid>
+							</Grid>
+							<Grid x:Name="xIconColor" Margin="0">
+								<Border x:Name="xEventColor" BorderBrush="Black" BorderThickness="1">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="{Binding DataInfo.WorkStationReturnedData.NetworkColor, UpdateSourceTrigger=PropertyChanged}" Offset="1"/>
+                                            <GradientStop Color="{Binding DataInfo.WorkStationReturnedData.BrightnessNetWorkColor, UpdateSourceTrigger=PropertyChanged}"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Path x:Name="path" Data="F1M291.696,413.9L279.919,413.9L279.919,405.567L291.696,405.567z M266.141,407.11L266.141,404.938C266.204,404.891,266.274,404.857,266.326,404.794L272.348,397.465L277.971,404.31C277.948,404.394,277.919,404.476,277.919,404.567L277.919,407.11z M264.141,413.9L252.364,413.9L252.364,405.567L264.141,405.567z M266.141,383.861L277.919,383.861L277.919,392.194L266.141,392.194z M292.696,403.567L279.937,403.567C279.927,403.554,279.925,403.538,279.914,403.524L274.515,396.953C275.018,396.847,275.331,396.704,275.331,396.543C275.331,395.567,274.81,394.707,274.017,394.194L278.919,394.194C279.471,394.194,279.919,393.747,279.919,393.194L279.919,382.861C279.919,382.309,279.471,381.861,278.919,381.861L265.141,381.861C264.588,381.861,264.141,382.309,264.141,382.861L264.141,393.194C264.141,393.747,264.588,394.194,265.141,394.194L270.618,394.194C269.825,394.707,269.304,395.567,269.304,396.543C269.304,396.737,269.63,396.884,270.154,396.984L264.781,403.524C264.771,403.538,264.769,403.554,264.758,403.567L251.363,403.567C250.811,403.567,250.363,404.015,250.363,404.567L250.363,414.9C250.363,415.453,250.811,415.9,251.363,415.9L256.841,415.9C256.047,416.413,255.525,417.273,255.525,418.249C255.525,418.646,256.875,418.848,258.54,418.848C260.205,418.848,261.554,418.587,261.554,418.249C261.554,417.273,261.032,416.413,260.239,415.9L265.141,415.9C265.693,415.9,266.141,415.453,266.141,414.9L266.141,409.11L277.919,409.11L277.919,414.9C277.919,415.453,278.367,415.9,278.919,415.9L284.396,415.9C283.603,416.413,283.081,417.273,283.081,418.249C283.081,418.646,284.43,418.848,286.095,418.848C287.76,418.848,289.109,418.587,289.109,418.249C289.109,417.273,288.588,416.413,287.794,415.9L292.696,415.9C293.249,415.9,293.696,415.453,293.696,414.9L293.696,404.567C293.696,404.015,293.249,403.567,292.696,403.567" Fill="White" Height="23" Stretch="Fill" Width="28" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFFFBC5A" Offset="0"/>
+											<GradientStop Color="#FFFF9800" Offset="1"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFF69200" Offset="1"/>
+											<GradientStop Color="#FFFF6C00" Offset="0"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Opacity" TargetName="grid" Value="0.2"/>
+								<Setter Property="Opacity" TargetName="path" Value="0.3"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="sButton_SoftwareView" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="50"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid Grid.Column="1">
+								<Border x:Name="border" BorderBrush="White" BorderThickness="1" Margin="0" Grid.Column="0">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFE0E0E0" Offset="0"/>
+											<GradientStop Color="DarkGray" Offset="1"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Grid x:Name="grid" Grid.Column="0" HorizontalAlignment="Left" Margin="16,0,0,3" Width="Auto" VerticalAlignment="Center">
+									<ContentControl x:Name="contentControl1" Margin="0,2,0,0" Foreground="White">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+									<ContentControl x:Name="contentControl" Margin="0">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+								</Grid>
+							</Grid>
+							<Grid x:Name="xIconColor" Margin="0">
+								<Border x:Name="xEventColor" BorderBrush="Black" BorderThickness="1">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="{Binding DataInfo.WorkStationReturnedData.SoftwareColor, UpdateSourceTrigger=PropertyChanged}" Offset="1"/>
+                                            <GradientStop Color="{Binding DataInfo.WorkStationReturnedData.BrightnessSoftWareColor, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Path x:Name="path" Data="M34.24998,17.699345 C32.334972,17.699345 30.781993,19.252307 30.781993,21.168264 30.781993,23.085197 32.334972,24.636145 34.24998,24.636145 36.164989,24.636145 37.718974,23.085197 37.718974,21.168264 37.718974,19.252307 36.164989,17.699345 34.24998,17.699345 z M33.164482,13.759101 C33.22948,13.760974 33.309978,13.782473 33.395977,13.782473 L35.488994,13.782473 C35.657969,13.782473 35.810985,13.696477 35.858989,13.853485 L36.501994,15.762424 C36.895976,15.884399 37.27299,16.005397 37.635966,16.205403 L39.411967,15.246417 C39.561992,15.165426 39.747966,15.189443 39.870982,15.302416 L40.901988,16.262408 C41.025981,16.378402 41.053966,16.562387 40.967967,16.706395 L39.894969,18.52534 C39.931987,18.586342 39.967967,18.648322 40.005992,18.710331 40.187968,19.009303 40.389995,19.3423 40.505992,19.703282 L42.634989,20.252276 C42.803965,20.295274 42.921976,20.441266 42.921976,20.608253 L42.921976,22.370223 C42.921976,22.536202 42.803965,22.682195 42.634989,22.726199 L40.505992,23.276171 C40.389995,23.635168 40.187968,23.970149 40.005992,24.268145 39.967967,24.332169 39.931987,24.393141 39.894969,24.450146 L40.967967,26.273088 C41.053966,26.41908 41.025981,26.605079 40.901988,26.720065 L39.870982,27.687046 C39.747966,27.802032 39.561992,27.835052 39.411967,27.755037 L37.635966,26.820068 C37.27299,27.021081 36.895976,27.191059 36.501994,27.31105 L35.858989,29.508981 C35.810985,29.666996 35.657969,29.966975 35.488994,29.966975 L33.395977,29.966975 C33.223979,29.966975 33.073986,29.666996 33.025981,29.508981 L32.382976,27.214068 C31.987987,27.094077 31.610973,26.971065 31.248973,26.772065 L29.474987,27.732059 C29.321971,27.812042 29.135967,27.789033 29.013988,27.675053 L27.982982,26.715091 C27.858989,26.599097 27.831981,26.416089 27.916973,26.271104 L28.989971,24.450146 C28.954967,24.393141 28.915966,24.330154 28.879986,24.268145 28.696972,23.968165 28.492992,23.634161 28.380992,23.275194 L26.249981,22.726199 C26.081981,22.682195 25.964977,22.536202 25.964977,22.370223 L25.964977,20.608253 C25.964977,20.441266 26.081981,20.295274 26.249981,20.252276 L28.380992,19.703282 C28.492992,19.343307 28.696972,19.01031 28.879986,18.710331 28.915966,18.648322 28.954967,18.587319 28.989971,18.52833 L27.916973,16.708378 C27.831981,16.566385 27.858989,16.387404 27.982982,16.270404 L29.013988,15.316423 C29.135967,15.201436 29.321971,15.19042 29.474987,15.271441 L31.248973,16.253406 C31.610973,16.0534 31.987987,15.981411 32.382976,15.859406 L33.025981,13.853485 C33.049984,13.774981 33.099483,13.757228 33.164482,13.759101 z M29.763999,3.1079998 C28.55,3.1079998 27.566,4.092 27.566,5.3059998 27.566,6.52 28.55,7.5039997 29.763999,7.5039997 30.979,7.5039997 31.963,6.52 31.963,5.3059998 31.963,4.092 30.979,3.1079998 29.763999,3.1079998 z M24.268,3.1079998 C23.054,3.1079998 22.07,4.092 22.07,5.3059998 22.07,6.52 23.054,7.5039997 24.268,7.5039997 25.483,7.5039997 26.467,6.52 26.466999,5.3059998 26.467,4.092 25.483,3.1079998 24.268,3.1079998 z M18.772,3.1079998 C17.558,3.1079998 16.573999,4.092 16.573999,5.3059998 16.573999,6.52 17.558,7.5039997 18.772,7.5039997 19.986,7.5039997 20.97,6.52 20.97,5.3059998 20.97,4.092 19.986,3.1079998 18.772,3.1079998 z M1,0 L34,0 C34.552999,0 35,0.44799995 35,1 L35,11 C35,11.552 34.552999,12 34,12 33.447999,12 33,11.552 33,11 L33,10 2,10 2,23 23,23 C23.552999,23 24,23.447 24,24 24,24.552999 23.552999,25 23,25 L1,25 C0.44799995,25 0,24.552999 0,24 L0,1 C0,0.44799995 0.44799995,0 1,0 z" Fill="White" Height="18" Stretch="Fill" Width="27" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFFFBC5A" Offset="0"/>
+											<GradientStop Color="#FFFF9800" Offset="1"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFF69200" Offset="1"/>
+											<GradientStop Color="#FFFF6C00" Offset="0"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Opacity" TargetName="grid" Value="0.2"/>
+								<Setter Property="Opacity" TargetName="path" Value="0.3"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="sButton_HardwareView" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="50"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid Grid.Column="1">
+								<Border x:Name="border" BorderBrush="White" BorderThickness="1" Margin="0" Grid.Column="0">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFE0E0E0" Offset="0"/>
+											<GradientStop Color="DarkGray" Offset="1"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Grid x:Name="grid" Grid.Column="0" HorizontalAlignment="Left" Margin="16,0,0,3" Width="Auto" VerticalAlignment="Center">
+									<ContentControl x:Name="contentControl1" Margin="0,2,0,0" Foreground="White">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+									<ContentControl x:Name="contentControl" Margin="0">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+								</Grid>
+							</Grid>
+							<Grid x:Name="xIconColor" Margin="0">
+								<Border x:Name="xEventColor" BorderBrush="Black" BorderThickness="1">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="{Binding DataInfo.WorkStationReturnedData.HardwareColor, UpdateSourceTrigger=PropertyChanged}" Offset="1"/>
+                                            <GradientStop Color="{Binding DataInfo.WorkStationReturnedData.BrightnessHardwareColor, UpdateSourceTrigger=PropertyChanged}"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Path x:Name="path" Data="M31.037995,17.815029 C32.05699,17.815029 32.877985,18.638027 32.877985,19.654024 32.877985,20.671022 32.05699,21.493019 31.037995,21.493019 30.023999,21.493019 29.199002,20.671022 29.199002,19.654024 29.199002,18.638027 30.023999,17.815029 31.037995,17.815029 z M2.0000012,14.612003 L2.0000012,25.222998 35.732012,25.222998 35.732012,14.612003 z M9.407017,0 L28.325026,0 C28.65901,1.0804433E-07 28.971022,0.16699234 29.157027,0.44598407 L37.469012,12.914981 C37.64403,13.095005 37.752001,13.341007 37.752001,13.612003 37.752001,13.646 37.735003,13.674991 37.732012,13.708012 L37.732012,26.222998 C37.732012,26.776007 37.285021,27.222999 36.732012,27.222999 L1.0000005,27.222999 C0.44699119,27.222999 0,26.776007 0,26.222998 L0,13.612003 C0,13.604984 0.0029907242,13.60001 0.0039980331,13.592991 0.0060119656,13.476993 0.029998794,13.363987 0.071991041,13.254002 0.083007849,13.225986 0.096984907,13.200992 0.11099254,13.174991 0.13000494,13.13599 0.14300545,13.093998 0.16799954,13.057011 L8.5750163,0.44598407 C8.7600138,0.16699234 9.071995,1.0804433E-07 9.407017,0 z" Fill="White" Height="18" Stretch="Fill" Width="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFFFBC5A" Offset="0"/>
+											<GradientStop Color="#FFFF9800" Offset="1"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFF69200" Offset="1"/>
+											<GradientStop Color="#FFFF6C00" Offset="0"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Opacity" TargetName="grid" Value="0.2"/>
+								<Setter Property="Opacity" TargetName="path" Value="0.3"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="sButton_SearchView" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="50"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Grid Grid.Column="1">
+								<Border x:Name="border" BorderBrush="White" BorderThickness="1" Margin="0" Grid.Column="0">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFE0E0E0" Offset="0"/>
+											<GradientStop Color="DarkGray" Offset="1"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Grid x:Name="grid" Grid.Column="0" HorizontalAlignment="Left" Margin="16,0,0,3" Width="Auto" VerticalAlignment="Center">
+									<ContentControl x:Name="contentControl1" Margin="0,2,0,0" Foreground="White">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+									<ContentControl x:Name="contentControl" Margin="0">
+										<ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Margin="0,2,0,0"/>	
+									</ContentControl>
+								</Grid>
+							</Grid>
+							<Grid x:Name="xIconColor" Margin="0">
+								<Border x:Name="xEventColor" BorderBrush="Black" BorderThickness="1">
+									<Border.Background>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FF0A0A0A" Offset="1"/>
+											<GradientStop Color="#FF292929"/>
+										</LinearGradientBrush>
+									</Border.Background>
+								</Border>
+								<Path x:Name="path" Data="F1M285.1133,421.6885C280.3953,421.6885,276.5563,417.8515,276.5563,413.1345C276.5563,408.4165,280.3953,404.5785,285.1133,404.5785C289.8313,404.5785,293.6693,408.4165,293.6693,413.1345C293.6693,417.8515,289.8313,421.6885,285.1133,421.6885 M299.5743,426.1225L295.0613,421.6115C294.9323,421.4825,294.7863,421.3815,294.6343,421.2955C296.5213,419.0985,297.6693,416.2505,297.6693,413.1345C297.6693,406.2105,292.0363,400.5785,285.1133,400.5785C278.1893,400.5785,272.5563,406.2105,272.5563,413.1345C272.5563,420.0575,278.1893,425.6885,285.1133,425.6885C287.5663,425.6885,289.8493,424.9705,291.7853,423.7505C291.8833,424.0015,292.0303,424.2375,292.2333,424.4395L296.7463,428.9505C297.1363,429.3405,297.6483,429.5365,298.1603,429.5365C298.6723,429.5365,299.1843,429.3405,299.5743,428.9505C300.3553,428.1685,300.3553,426.9025,299.5743,426.1225" Fill="White" Height="18" Stretch="Fill" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFFFBC5A" Offset="0"/>
+											<GradientStop Color="#FFFF9800" Offset="1"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="True">
+								<Setter Property="Background" TargetName="border">
+									<Setter.Value>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FFF69200" Offset="1"/>
+											<GradientStop Color="#FFFF6C00" Offset="0"/>
+										</LinearGradientBrush>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Foreground" TargetName="contentControl" Value="White"/>
+								<Setter Property="Foreground" TargetName="contentControl1" Value="#FFBA7611"/>
+								<Setter Property="Margin" TargetName="contentControl1" Value="0,-2,0,0"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="#FFFFDB8D"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Opacity" TargetName="grid" Value="0.2"/>
+								<Setter Property="Opacity" TargetName="path" Value="0.3"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+    <StackPanel Orientation="Vertical" Width="228" Height="420">
+        <Button Content="Network View" Command="{Binding ClickNetWorkViewCommand}"
+                Width="228" Height="40" Margin="0,0,0,2" Style="{DynamicResource sButton_NetworkView}" FontSize="16" FontWeight="Bold" FontFamily="Malgun Gothic" TextOptions.TextFormattingMode="Display"/>
+        <Button Content="Software View" Command="{Binding ClickSoftWareViewCommand}"
+                Width="228" Height="40" Margin="0,0,0,2" Style="{DynamicResource sButton_SoftwareView}" FontSize="16" FontWeight="Bold" FontFamily="Malgun Gothic" TextOptions.TextFormattingMode="Display"/>
+        <Button Content="Hardware View" Command="{Binding ClickHardWareViewCommand}"
+                Height="40" Width="228" Margin="0,0,0,2" Style="{DynamicResource sButton_HardwareView}" FontSize="16" FontWeight="Bold" FontFamily="Malgun Gothic" TextOptions.TextFormattingMode="Display"/>
+        <Button Content="Search View" Command="{Binding ClickSearchViewCommand}"
+                Width="228" Height="40" Margin="0,0,0,2" Style="{DynamicResource sButton_SearchView}" FontSize="16" FontWeight="Bold" FontFamily="Malgun Gothic" TextOptions.TextFormattingMode="Display"/>
+        
+        <StackPanel x:Name="xStackPanelInfo" Margin="0,0,0,4">
+            <Grid Height="26" Margin="0,0,0,4">
+            	<Grid.Background>
+            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            			<LinearGradientBrush.RelativeTransform>
+            				<TransformGroup>
+            					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+            					<SkewTransform CenterY="0.5" CenterX="0.5"/>
+            					<RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+            					<TranslateTransform/>
+            				</TransformGroup>
+            			</LinearGradientBrush.RelativeTransform>
+            			<GradientStop Color="#19000000"/>
+            			<GradientStop Color="#CC000000" Offset="1"/>
+            		</LinearGradientBrush>
+            	</Grid.Background>
+            	<StackPanel HorizontalAlignment="Left" Margin="12,0,0,0" Orientation="Horizontal" d:LayoutOverrides="Height">
+            		<TextBlock Text="Host name :" VerticalAlignment="Center" Foreground="White" FontSize="14" FontFamily="Malgun Gothic" Margin="0,0,-0.001,0" FontWeight="Bold" d:LayoutOverrides="Width" TextOptions.TextFormattingMode="Display"/>
+                    <TextBlock Text="{Binding DataInfo.WorkStationReturnedData.HostName, UpdateSourceTrigger=PropertyChanged}" 
+                        VerticalAlignment="Center" Foreground="White" FontSize="14" FontFamily="Malgun Gothic" Margin="5,0,0,0" FontWeight="Bold" HorizontalAlignment="Left" TextOptions.TextFormattingMode="Display"/>
+            	</StackPanel>
+            </Grid>
+            <Grid Height="50">
+            	<Grid.ColumnDefinitions>
+            		<ColumnDefinition Width="*"/>
+            		<ColumnDefinition Width="4"/>
+            		<ColumnDefinition Width="*"/>
+            	</Grid.ColumnDefinitions>
+            	<Grid>
+            		<Border BorderBrush="White" BorderThickness="2" Margin="0" CornerRadius="5" Background="#66FFFFFF">
+            			<Border Background="#FF121212" Height="21" Margin="0" VerticalAlignment="Bottom" CornerRadius="0,0,4,4"/>
+            		</Border>
+            		<Grid Margin="0">
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="*"/>
+            				<RowDefinition Height="23"/>
+            			</Grid.RowDefinitions>
+            			<TextBlock Text="{Binding DataInfo.WorkStationReturnedData.IP, UpdateSourceTrigger=PropertyChanged}"  
+                                   Margin="3,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding DataInfo.WorkStationReturnedData.IP, UpdateSourceTrigger=PropertyChanged}"/>
+            			<TextBlock Text="IP" Margin="0,0,0,2" FontSize="12" Foreground="White" FontFamily="Malgun Gothic" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" TextOptions.TextFormattingMode="Display"/>
+            		</Grid>
+            	</Grid>
+            	<Grid Margin="0" Grid.Column="2">
+            		<Border BorderBrush="White" BorderThickness="2" Margin="0" CornerRadius="5" Background="#66FFFFFF">
+            			<Border Background="#FF121212" Height="21" Margin="0" VerticalAlignment="Bottom" CornerRadius="0,0,4,4"/>
+            		</Border>
+            		<Grid Margin="0">
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="*"/>
+            				<RowDefinition Height="23"/>
+            			</Grid.RowDefinitions>
+                        <TextBlock Text="{Binding DataInfo.WorkStationReturnedData.OS, UpdateSourceTrigger=PropertyChanged}"  
+                            Margin="3,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding DataInfo.WorkStationReturnedData.OS, UpdateSourceTrigger=PropertyChanged}"/>
+            			<TextBlock Text="OS" Margin="0,0,0,2" FontSize="12" Foreground="White" FontFamily="Malgun Gothic" FontWeight="Bold" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextOptions.TextFormattingMode="Display"/>
+            		</Grid>
+            	</Grid>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel x:Name="xStackPanelWindowsEvents" Margin="0,0,0,4">
+            <Grid Height="26" Margin="0,0,0,4">
+            	<Grid.Background>
+            		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            			<LinearGradientBrush.RelativeTransform>
+            				<TransformGroup>
+            					<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+            					<SkewTransform CenterY="0.5" CenterX="0.5"/>
+            					<RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+            					<TranslateTransform/>
+            				</TransformGroup>
+            			</LinearGradientBrush.RelativeTransform>
+            			<GradientStop Color="#19000000"/>
+            			<GradientStop Color="#CC000000" Offset="1"/>
+            		</LinearGradientBrush>
+            	</Grid.Background>
+        		<TextBlock Text="Windows events" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontSize="14" FontFamily="Malgun Gothic" Margin="12,0,0,0" FontWeight="Bold" TextOptions.TextFormattingMode="Display"/>
+        	</Grid>
+            <Grid Height="50">
+            	<Grid.ColumnDefinitions>
+            		<ColumnDefinition Width="*"/>
+            		<ColumnDefinition Width="4"/>
+            		<ColumnDefinition Width="*"/>
+            	</Grid.ColumnDefinitions>
+            	<Grid>
+            		<Border BorderBrush="White" BorderThickness="2" Margin="0" CornerRadius="5" Background="#66FFFFFF">
+            			<Border Background="#FF121212" Height="21" Margin="0" VerticalAlignment="Bottom" CornerRadius="0,0,4,4"/>
+            		</Border>
+            		<Grid Margin="0">
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="*"/>
+            				<RowDefinition Height="23"/>
+            			</Grid.RowDefinitions>
+                        <TextBlock Text="{Binding DataInfo.WorkStationReturnedData.WindowEventLogName, UpdateSourceTrigger=PropertyChanged}"  
+                            Margin="3,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding DataInfo.WorkStationReturnedData.WindowEventLogName, UpdateSourceTrigger=PropertyChanged}"/>
+            			<TextBlock Text="Log Names" Margin="0,0,0,2" FontSize="12" Foreground="White" FontFamily="Malgun Gothic" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" TextOptions.TextFormattingMode="Display"/>
+            		</Grid>
+            	</Grid>
+            	<Grid Margin="0" Grid.Column="2">
+            		<Border BorderBrush="White" BorderThickness="2" Margin="0" CornerRadius="5" Background="#66FFFFFF">
+            			<Border Background="#FF121212" Height="21" Margin="0" VerticalAlignment="Bottom" CornerRadius="0,0,4,4"/>
+            		</Border>
+            		<Grid Margin="0">
+            			<Grid.RowDefinitions>
+            				<RowDefinition Height="*"/>
+            				<RowDefinition Height="23"/>
+            			</Grid.RowDefinitions>
+                        <TextBlock Text="{Binding DataInfo.WorkStationReturnedData.EventCount, UpdateSourceTrigger=PropertyChanged}"  
+                            Margin="3,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding DataInfo.WorkStationReturnedData.EventCount, UpdateSourceTrigger=PropertyChanged}"/>
+            			<TextBlock Text="Event IDs" Margin="0,0,0,2" FontSize="12" Foreground="White" FontFamily="Malgun Gothic" FontWeight="Bold" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextOptions.TextFormattingMode="Display"/>
+            		</Grid>
+            	</Grid>
+            </Grid>
+        </StackPanel>
+		
+        <StackPanel x:Name="xStackPanelWindowsPerformance" Margin="0,0,0,4">
+        	<Grid Height="26" Margin="0,0,0,4">
+        		<Grid.Background>
+        			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        				<LinearGradientBrush.RelativeTransform>
+        					<TransformGroup>
+        						<ScaleTransform CenterY="0.5" CenterX="0.5"/>
+        						<SkewTransform CenterY="0.5" CenterX="0.5"/>
+        						<RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+        						<TranslateTransform/>
+        					</TransformGroup>
+        				</LinearGradientBrush.RelativeTransform>
+        				<GradientStop Color="#19000000"/>
+        				<GradientStop Color="#CC000000" Offset="1"/>
+        			</LinearGradientBrush>
+        		</Grid.Background>
+        		<TextBlock Text="Windows performance" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontSize="14" FontFamily="Malgun Gothic" Margin="12,0,0,0" FontWeight="Bold" TextOptions.TextFormattingMode="Display"/>
+        	</Grid>
+        	<Grid Height="50">
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="*"/>
+        			<ColumnDefinition Width="4"/>
+        			<ColumnDefinition Width="*"/>
+        		</Grid.ColumnDefinitions>
+        		<Grid>
+        			<Border BorderBrush="White" BorderThickness="2" Margin="0" CornerRadius="5" Background="#66FFFFFF">
+        				<Border Background="#FF121212" Height="21" Margin="0" VerticalAlignment="Bottom" CornerRadius="0,0,4,4"/>
+        			</Border>
+        			<Grid Margin="0">
+        				<Grid.RowDefinitions>
+        					<RowDefinition Height="*"/>
+        					<RowDefinition Height="23"/>
+        				</Grid.RowDefinitions>
+                        <TextBlock Text="{Binding DataInfo.WorkStationReturnedData.PerfObject, UpdateSourceTrigger=PropertyChanged}"   
+                            Margin="3,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding DataInfo.WorkStationReturnedData.PerfObject, UpdateSourceTrigger=PropertyChanged}"/>
+        				<TextBlock Text="Objects" Margin="0,0,0,2" FontSize="12" Foreground="White" FontFamily="Malgun Gothic" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" TextOptions.TextFormattingMode="Display"/>
+        			</Grid>
+        		</Grid>
+        		<Grid Margin="0" Grid.Column="2">
+        			<Border BorderBrush="White" BorderThickness="2" Margin="0" CornerRadius="5" Background="#66FFFFFF">
+        				<Border Background="#FF121212" Height="21" Margin="0" VerticalAlignment="Bottom" CornerRadius="0,0,4,4"/>
+        			</Border>
+        			<Grid Margin="0">
+        				<Grid.RowDefinitions>
+        					<RowDefinition Height="*"/>
+        					<RowDefinition Height="23"/>
+        				</Grid.RowDefinitions>
+                        <TextBlock Text="{Binding DataInfo.WorkStationReturnedData.PerfCounter, UpdateSourceTrigger=PropertyChanged}"   
+                            Margin="3,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" Foreground="Black" TextTrimming="CharacterEllipsis" ToolTip="{Binding DataInfo.WorkStationReturnedData.PerfCounter, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="Counters" Margin="0,0,0,2" FontSize="12" Foreground="White" FontFamily="Malgun Gothic" FontWeight="Bold" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextOptions.TextFormattingMode="Display"/>
+        			</Grid>
+        		</Grid>
+        	</Grid>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

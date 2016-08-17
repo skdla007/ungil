@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate x:Key="SelectedAddressSymbol">
+        
+        <Grid x:Name="select" Width="24" Height="38" >
+            <Path Data="F1M386,350.3311C380.141,350.3311,373.805,354.9931,373.805,363.2771C373.805,370.3241,380.739,376.5711,383.212,381.7501C384.875,385.2301,385.719,389.1841,386,389.1841C386.281,389.1841,386.955,385.2301,388.617,381.7501C391.09,376.5711,398.048,370.3241,398.048,363.2771C398.048,354.9931,391.859,350.3311,386,350.3311" Fill="#FFFFA800" Stretch="Fill" Margin="0" Height="38" Width="24" Stroke="#FFCC8600"/>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0">
+                <TextBlock 
+						Text="{Binding Attributes[Label]}" 
+						FontSize="15" Margin="0,-5,0,0"
+						Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" TextOptions.TextFormattingMode="Display" FontWeight="Bold" FontFamily="Malgun Gothic"  />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="NormalAddressSymbol">
+        <Grid x:Name="normal" Width="24" Height="38">
+            <Path Data="F1M386,350.3311C380.141,350.3311,373.805,354.9931,373.805,363.2771C373.805,370.3241,380.739,376.5711,383.212,381.7501C384.875,385.2301,385.719,389.1841,386,389.1841C386.281,389.1841,386.955,385.2301,388.617,381.7501C391.09,376.5711,398.048,370.3241,398.048,363.2771C398.048,354.9931,391.859,350.3311,386,350.3311" Fill="#FF5C7CCB" Stretch="Fill" Margin="0" Height="38" Width="24" Stroke="#FF1F5498"/>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0">
+                <TextBlock 
+						Text="{Binding Attributes[Label]}" 
+						FontSize="15" Margin="0,-5,0,0"
+						Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" TextOptions.TextFormattingMode="Display" FontWeight="Bold" FontFamily="Malgun Gothic"  />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CameraNameTextSymbol">
+        <ControlTemplate.Resources>
+            <Style x:Key="sTextBlock_Basic" TargetType="{x:Type TextBlock}">
+                <Setter Property="TextWrapping" Value="NoWrap"/>
+                <Setter Property="TextTrimming" Value="None"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="FontFamily" Value="Malgun Gothic"/>
+                <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Foreground" Value="{DynamicResource TextDisable}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ControlTemplate.Resources>
+        <StackPanel>
+            <Grid Margin="0,0,0,0">
+                <Border x:Name="xBorder" BorderBrush="Black" BorderThickness="1" CornerRadius="0,3,3,3" Background="#B2000000" Grid.Row="1" Height="{Binding Attributes[BorderHegiht]}"/>
+                <TextBlock x:Name="xTextBlockFront" Style="{DynamicResource sTextBlock_Basic}" Foreground="White" Margin="8,0,8,1" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="1" MaxWidth="200" TextTrimming="CharacterEllipsis"
+                           FontSize="{Binding Attributes[FontSize]}"
+                           Text="{Binding Attributes[Name]}"/>
+            </Grid>
+        </StackPanel>
+    </ControlTemplate>
+</ResourceDictionary>

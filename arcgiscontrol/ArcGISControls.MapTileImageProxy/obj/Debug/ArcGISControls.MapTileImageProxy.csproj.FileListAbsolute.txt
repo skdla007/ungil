@@ -1,0 +1,5 @@
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.MapTileImageProxy\bin\Debug\ArcGISControls.MapTileImageProxy.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.MapTileImageProxy\bin\Debug\ArcGISControls.MapTileImageProxy.pdb
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.MapTileImageProxy\obj\Debug\ArcGISControls.MapTileImageProxy.csprojResolveAssemblyReference.cache
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.MapTileImageProxy\obj\Debug\ArcGISControls.MapTileImageProxy.dll
+D:\Projects\AI Sources\arcgiscontrol\ArcGISControls.MapTileImageProxy\obj\Debug\ArcGISControls.MapTileImageProxy.pdb

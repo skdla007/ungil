@@ -1,0 +1,62 @@
+﻿<Window x:Class="ArcGISControl.PropertyControl.CommonPropertyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ArcGISControl.PropertyControl"
+        SizeToContent="WidthAndHeight"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <local:VisiblePropertiesConverter x:Key="VisibleProperties"/>
+        
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=CameraIcon}">
+                <local:CameraIconPropertyControl
+                    DataContext="{Binding CameraIconPropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=CameraVideo}">
+                <local:CameraVideoPropertyControl
+                    DataContext="{Binding CameraVideoPropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=CameraViewZone}">
+                <local:CameraPresetPropertyControl
+                    DataContext="{Binding CameraPresetPropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=LinkZone}">
+                <local:LinkZonePropertyControl x:Name="xLinkZonePropertyControl" DataContext="{Binding LinkZonePropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=Place}">
+                <local:PlacePropertyControl
+                    DataContext="{Binding PlacePropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=Splunk}">
+                <local:SplunkPropertyControl x:Name="xSplunkPropertyControl"
+                    DataContext="{Binding SplunkPropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=WorkStation}">
+                <local:WorkStationPropertyControl x:Name="xWorkStationPropertyControl" 
+                    DataContext="{Binding WorkStationPropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=Text}">
+                <local:TextPropertyControl x:Name="xTextPropertyControl" 
+                    DataContext="{Binding TextPropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=Line}">
+                <local:LinePropertyControl x:Name="xLinePropertyControl" 
+                    DataContext="{Binding LinePropertyControlViewModel}" />
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=Image}">
+                <local:ImagePropertyControl x:Name="xImagePropertyControl"
+                                            DataContext="{Binding ImagePropertyControlViewModel}"/>
+                
+            </Grid>
+            <Grid Visibility="{Binding MapObjectPropertiedVisible, Converter={StaticResource VisibleProperties}, ConverterParameter=UniversalObject}">
+                <local:UniversalObjectPropertyControl x:Name="xUniversalObjectPropertyControl" DataContext="{Binding UniversalObjectPropertyControlViewModel}" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

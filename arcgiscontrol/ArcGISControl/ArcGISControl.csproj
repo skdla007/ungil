@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93D43C4E-CAF3-400E-AB33-1E624E5692AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArcGISControl</RootNamespace>
+    <AssemblyName>ArcGISControl</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChartControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Splunk\ChartControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DataChangedNotify, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\DataChangedNotify.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client, Version=2.4.0.851, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\ESRI.ArcGIS\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Bing, Version=2.4.0.851, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\ESRI.ArcGIS\ESRI.ArcGIS.Client.Bing.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Toolkit, Version=2.4.0.851, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\ESRI.ArcGIS\ESRI.ArcGIS.Client.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="InnowatchConverter, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\InnowatchConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="InnowatchDebug, Version=1.0.0.31, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Innowatch.Commons\InnowatchDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="SplunkManager">
+      <HintPath>..\References\Splunk\SplunkManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TableControl">
+      <HintPath>..\References\Splunk\TableControl.dll</HintPath>
+    </Reference>
+    <Reference Include="TimePickerControls">
+      <HintPath>..\References\Innowatch.Commons\TimePickerControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=1.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\ExtendedWPFToolkit\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArcGISClientViewer.DataPlayBack.cs" />
+    <Compile Include="ArcGISClientViewer.External.cs" />
+    <Compile Include="ArcGISClientViewer.Property.cs" />
+    <Compile Include="ArcGISClientViewer.Splunk.cs" />
+    <Compile Include="ArcGISClientViewer.Universal.cs" />
+    <Compile Include="ArcGISInternalHack\GraphicsLayerTool.cs" />
+    <Compile Include="Bases\BaseArcGISMap.Universal.cs" />
+    <Compile Include="Collections\ExtendedObservableCollection.cs" />
+    <Compile Include="Command\ClipBoardManager.cs" />
+    <Compile Include="Command\CommandAdd.cs" />
+    <Compile Include="Command\CommandBase.cs" />
+    <Compile Include="Command\CommandRemove.cs" />
+    <Compile Include="Command\CommandRemoveOfMany.cs" />
+    <Compile Include="Command\CommandTransform.cs" />
+    <Compile Include="Command\UndoManager.cs" />
+    <Compile Include="DataManager\BookMarkDataManager.cs" />
+    <Compile Include="DataManager\CollectionChangeEventArgs.cs" />
+    <Compile Include="DataManager\HistoryManager.cs" />
+    <Compile Include="DataManager\MapTileDataManager.cs" />
+    <Compile Include="DataManager\MemoObjectDataManager.cs" />
+    <Compile Include="DataManager\SplunkObjectDataManager.cs" />
+    <Compile Include="DataManager\UniversalObjectDataManager.cs" />
+    <Compile Include="GraphicContextMenu.xaml.cs">
+      <DependentUpon>GraphicContextMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicContextMenuViewModel.cs" />
+    <Compile Include="GraphicObject\ControlGraphic.cs" />
+    <Compile Include="GraphicObject\ControlHost.xaml.cs">
+      <DependentUpon>ControlHost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicObject\CustomLineSymbol.cs" />
+    <Compile Include="GraphicObject\GraphicEditingMarkerGraphic.cs" />
+    <Compile Include="GraphicObject\ImagePolygonGraphic.cs" />
+    <Compile Include="GraphicObject\IPointCollectionOwner.cs" />
+    <Compile Include="GraphicObject\IPositionOwner.cs" />
+    <Compile Include="GraphicObject\LineGraphic.cs" />
+    <Compile Include="GraphicObject\LinkZoneGraphic.cs" />
+    <Compile Include="GraphicObject\TextBoxControlGraphic.cs" />
+    <Compile Include="GraphicObject\MemoTipGraphic.cs" />
+    <Compile Include="GraphicObject\UniversalControlGraphic.cs" />
+    <Compile Include="GraphicObject\UniversalIconGraphic.cs" />
+    <Compile Include="Helper\BoolToFontBoldConverter.cs" />
+    <Compile Include="Helper\ColorToBrushConverter.cs" />
+    <Compile Include="Helper\GraphicGeometryEditor.cs" />
+    <Compile Include="Helper\IsEmptyToVisibilityConverter.cs" />
+    <Compile Include="Helper\SplunkServiceHelper.cs" />
+    <Compile Include="Helper\ExtentMaintainer.cs" />
+    <Compile Include="Helper\StopwatchLogger.cs" />
+    <Compile Include="Helper\StringToBrushConverter.cs" />
+    <Compile Include="Helper\StringToColorConverter.cs" />
+    <Compile Include="Helper\PropertyDataHelper.cs" />
+    <Compile Include="Helper\DoubleToStringConverterWithNaNNull.cs" />
+    <Compile Include="Helper\UIElementScreenExtension.cs" />
+    <Compile Include="PropertyControl\EnumToBooleanConverter.cs" />
+    <Compile Include="PropertyControl\ImagePropertyControl.xaml.cs">
+      <DependentUpon>ImagePropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\ImagePropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\LinePropertyControl.xaml.cs">
+      <DependentUpon>LinePropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\LinePropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\MapControlPropertiedMappingAttribute.cs" />
+    <Compile Include="PropertyControl\MapObjectPropertied.cs" />
+    <Compile Include="PropertyControl\TextPropertyControl.xaml.cs">
+      <DependentUpon>TextPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\TextPropertyControlViewModel.cs" />
+    <Compile Include="Helper\GraphicEditor.cs" />
+    <Compile Include="Helper\GraphicEditorManager.cs" />
+    <Compile Include="PropertyControl\UniversalObjectPropertyControl.xaml.cs">
+      <DependentUpon>UniversalObjectPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\UniversalObjectPropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\VisiblePropertiesConverter.cs" />
+    <Compile Include="TiledMapLayer\GoogleMapTiledService.cs" />
+    <Compile Include="UIControl\Converters\VisibilityInverter.cs" />
+    <Compile Include="UIControl\ErrorMessageUserControl.xaml.cs">
+      <DependentUpon>ErrorMessageUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\GraphicObjectControl\CameraVideoControl.xaml.cs">
+      <DependentUpon>CameraVideoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\GraphicObjectControl\LineCanvasControl.xaml.cs">
+      <DependentUpon>LineCanvasControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\GraphicObjectControl\TextBoxControl.xaml.cs">
+      <DependentUpon>TextBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicObject\PolygonControlGraphic.cs" />
+    <Compile Include="GraphicObject\SearchedAddressIconGraphic.cs" />
+    <Compile Include="GraphicObject\BaseGraphic.cs" />
+    <Compile Include="GraphicObject\CameraIconGraphic.cs" />
+    <Compile Include="GraphicObject\CameraNameTextBoxGraphic.cs" />
+    <Compile Include="GraphicObject\CameraPresetGraphic.cs" />
+    <Compile Include="GraphicObject\CameraVideoGraphic.cs" />
+    <Compile Include="GraphicObject\IconGraphic.cs" />
+    <Compile Include="GraphicObject\PolygonGraphic.cs" />
+    <Compile Include="GraphicObject\SplunkIconGraphic.cs" />
+    <Compile Include="GraphicObject\Trail.xaml.cs">
+      <DependentUpon>Trail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicObject\TrailSymbol.cs" />
+    <Compile Include="GraphicObject\TrailTester.xaml.cs">
+      <DependentUpon>TrailTester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicObject\VertexIconGraphic.cs" />
+    <Compile Include="DataManager\CameraGraphicsDataManager.cs" />
+    <Compile Include="DataManager\LocationGraphicDataManager.cs" />
+    <Compile Include="DataManager\SearchAddressGraphicManager.cs" />
+    <Compile Include="Helper\ArcGISDataConvertHelper.cs" />
+    <Compile Include="Helper\BrushUtil.cs" />
+    <Compile Include="Helper\CameraImageBrushManager.cs" />
+    <Compile Include="Helper\CameraPopupControlManager.cs" />
+    <Compile Include="Helper\ColorUtil.cs" />
+    <Compile Include="Helper\DynamicSplunkControlManager.cs" />
+    <Compile Include="Helper\GeometryHelper.cs" />
+    <Compile Include="Helper\HSBColor.cs" />
+    <Compile Include="Helper\NumberUtil.cs" />
+    <Compile Include="Helper\RectComparer.cs" />
+    <Compile Include="Helper\SplunkPopupControlManager.cs" />
+    <Compile Include="Helper\VisualElementHelper.cs" />
+    <Compile Include="Helper\MapHistory.cs" />
+    <Compile Include="Helper\WorkStationControlManager.cs" />
+    <Compile Include="PropertyControl\MilliToCentConverter.cs" />
+    <Compile Include="PropertyControl\NullableBoolConverter.cs" />
+    <Compile Include="PropertyControl\SplunkArgumentItem.cs" />
+    <Compile Include="PropertyControl\SplunkPropertyControllViewModel.cs" />
+    <Compile Include="PropertyControl\SplunkPropertyControl.xaml.cs">
+      <DependentUpon>SplunkPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\WorkStationPropertyControl.xaml.cs">
+      <DependentUpon>WorkStationPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\WorkStationPropertyControlViewModel.cs" />
+    <Compile Include="UIControl\GraphicObjectControl\CameraOverlayControl.xaml.cs">
+      <DependentUpon>CameraOverlayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\CameraPopupControl.xaml.cs">
+      <DependentUpon>CameraPopupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\CameraPopupControlViewModel.cs" />
+    <Compile Include="UIControl\GraphicObjectControl\IndependentPlaybackOverlayControl.xaml.cs">
+      <DependentUpon>IndependentPlaybackOverlayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\GraphicObjectControl\UniversalControl.xaml.cs">
+      <DependentUpon>UniversalControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\InfoWindowManager.xaml.cs" />
+    <Compile Include="UIControl\LocationInfoWindowManager.xaml.cs">
+      <DependentUpon>LocationInfoWindowManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\NumericTextBoxControl.cs" />
+    <Compile Include="UIControl\NumericUpDownControl.xaml.cs">
+      <DependentUpon>NumericUpDownControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\OverviewMapControl.xaml.cs">
+      <DependentUpon>OverviewMapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\BaseArcGISMap.cs" />
+    <Compile Include="Helper\CursorManager.cs" />
+    <Compile Include="Bases\BaseArcGISMap.Object.cs" />
+    <Compile Include="Helper\RelayCommand.cs" />
+    <Compile Include="PropertyControl\CameraIconPropertyControl.xaml.cs">
+      <DependentUpon>CameraIconPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\CameraIconPropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\LinkZonePropertyControl.xaml.cs">
+      <DependentUpon>LinkZonePropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\LinkZonePropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\CameraVideoPropertyControl.xaml.cs">
+      <DependentUpon>CameraVideoPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\CameraVideoPropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\CameraPresetPropertyControl.xaml.cs">
+      <DependentUpon>CameraPresetPropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\CameraPropertyControlBaseViewModel.cs" />
+    <Compile Include="PropertyControl\CameraPresetPropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\CommonPropertyWindow.xaml.cs">
+      <DependentUpon>CommonPropertyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\CommonPropertyWindowViewModel.cs" />
+    <Compile Include="PropertyControl\PlacePropertyControl.xaml.cs">
+      <DependentUpon>PlacePropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl\PlacePropertyControlViewModel.cs" />
+    <Compile Include="PropertyControl\PropertyManager.cs" />
+    <Compile Include="PropertyControl\VisibilityComboBox.xaml.cs">
+      <DependentUpon>VisibilityComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\GraphicObjectControl\PanomorphOverlayUserControl.xaml.cs">
+      <DependentUpon>PanomorphOverlayUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\ProcessingUserControl.xaml.cs">
+      <DependentUpon>ProcessingUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ScreenUtil.cs" />
+    <Compile Include="Helper\ImageStreamControl.cs" />
+    <Compile Include="UIControl\GraphicObjectControl\RdsOverlayControl.xaml.cs">
+      <DependentUpon>RdsOverlayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\SearchedAddressInfoWindowManager.xaml.cs">
+      <DependentUpon>SearchedAddressInfoWindowManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\GraphicObjectControl\SplunkChartTableWrapperControl.xaml.cs">
+      <DependentUpon>SplunkChartTableWrapperControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\SplunkPopupControl.xaml.cs">
+      <DependentUpon>SplunkPopupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\TimePickerControl.xaml.cs">
+      <DependentUpon>TimePickerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UpDownButton.cs" />
+    <Compile Include="UIControl\WorkStationContextControl.xaml.cs">
+      <DependentUpon>WorkStationContextControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\WorkStationContextControlViewModel.cs" />
+    <Compile Include="ArcGISInternalHack\GraphicTool.cs" />
+    <Compile Include="ArcGISInternalHack\MapTool.cs" />
+    <Compile Include="Language\Resource.ArcGISControl.ArcGISClientViewer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ArcGISControl.ArcGISClientViewer.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Language\Resource.ArcGISControl.Properties.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ArcGISControl.Properties.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Language\Resource.ArcGISControl.UIControl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ArcGISControl.UIControl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TiledMapLayer\CoordinateConverter.cs" />
+    <Compile Include="TiledMapLayer\CoordPoint.cs" />
+    <Compile Include="TiledMapLayer\CustomMapTiledService.cs" />
+    <Compile Include="TiledMapLayer\DaumMapTiledService.cs" />
+    <Compile Include="TiledMapLayer\NaverMapTiledService.cs" />
+    <Compile Include="ArcGISClientViewer.Objects.cs" />
+    <Compile Include="ArcGISClientViewer.Camera.cs" />
+    <Page Include="ArcGISClientViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="ArcGISClientViewer.xaml.cs">
+      <DependentUpon>ArcGISClientViewer.xaml</DependentUpon>
+    </Compile>
+    <Page Include="GraphicContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GraphicObject\ControlHost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Helper\SymbolsDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="PropertyControl\ImagePropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\LinePropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\TextPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\UniversalObjectPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ResourceDictionaries\UniversalIconGraphicSymbol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\ErrorMessageUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\CameraVideoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\LineCanvasControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\TextBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GraphicObject\Trail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GraphicObject\TrailTester.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\SplunkPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\WorkStationPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ResourceDictionaries\InteractiveArcGISMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\CameraOverlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\CameraPopupControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\IndependentPlaybackOverlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\UniversalControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\LocationInfoWindowManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\NumericUpDownControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\OverviewMapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\CameraIconPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\LinkZonePropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\CameraVideoPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\CameraPresetPropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\CommonPropertyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\PlacePropertyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PropertyControl\VisibilityComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\PanomorphOverlayUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\ProcessingUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\RdsOverlayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\SearchedAddressInfoWindowManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\GraphicObjectControl\SplunkChartTableWrapperControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\SplunkPopupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\TimePickerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\WorkStationContextControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ResourceDictionaries\SplunkIconGraphicSymbol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Resources\ResourceDictionaries\BookMarkRegistration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Page Include="Resources\ResourceDictionaries\GeometryEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ResourceDictionaries\MapGraphicSymbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Language\Resource.ArcGISControl.ArcGISClientViewer.ko-KR.resx" />
+    <EmbeddedResource Include="Language\Resource.ArcGISControl.ArcGISClientViewer.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ArcGISControl.ArcGISClientViewer.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Language\Resource.ArcGISControl.Properties.ko-KR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Language\Resource.ArcGISControl.Properties.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ArcGISControl.Properties.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Language\Resource.ArcGISControl.UIControl.ko-KR.resx" />
+    <EmbeddedResource Include="Language\Resource.ArcGISControl.UIControl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ArcGISControl.UIControl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <Compile Include="Bases\BaseArcGISMap.Camera.cs" />
+    <Compile Include="Bases\BaseArcGISMap.Splunk.cs" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArcGISControls.CommonData\ArcGISControls.CommonData.csproj">
+      <Project>{BEE9110D-3BF9-47B5-AB11-ED427E63EA8B}</Project>
+      <Name>ArcGISControls.CommonData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArcGISControls.MapTileImageProxy\ArcGISControls.MapTileImageProxy.csproj">
+      <Project>{5cb6d176-58f0-459f-8d3c-50e4c09e747d}</Project>
+      <Name>ArcGISControls.MapTileImageProxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\bookmark_a_location_n.png" />
+    <Resource Include="Resources\Images\BookMark_A_location_o.png" />
+    <Resource Include="Resources\Images\BookMark_A_savedlocation_n.png" />
+    <Resource Include="Resources\Images\BookMark_A_savedlocation_o.png" />
+    <Resource Include="Resources\Images\camera_a_cam_n.png" />
+    <Resource Include="Resources\Images\CAMERA_A_cam_o.png" />
+    <Resource Include="Resources\Images\CAMERA_A_ptz_n.png" />
+    <Resource Include="Resources\Images\CAMERA_A_ptz_o.png" />
+    <Resource Include="Resources\Images\plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EditMarker_ViewZone_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EditMarker_ViewZone_s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ViewZone_A_plus_n.png" />
+    <Resource Include="Resources\Images\ViewZone_A_plus_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\HideMap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\cursor_00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CursorBookMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorLeftDownRightUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorLeftRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorLeftUpRightDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CursorLinkZone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorMove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorPTZDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorPTZEnable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorUpDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CusorHandHold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CusorHandOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LinkZone_Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CursorLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorImageLinkZone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorWorkstation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Image_Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CAMERA_A_cam_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cursors\CursorUniversal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CursorHealth.png" />
+    <Resource Include="Resources\Cursors\CursorMapLink.png" />
+    <Resource Include="Resources\Cursors\CursorUrlLink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cursors\CursorUrlMapLink.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
